@@ -42,6 +42,7 @@
             this.Name = "frmPrincipal";
             this.Text = "Distribuidora RF";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.ResumeLayout(false);
 
         }
