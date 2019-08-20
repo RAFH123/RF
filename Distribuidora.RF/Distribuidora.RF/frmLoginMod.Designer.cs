@@ -40,7 +40,7 @@
             // btnIngresar
             // 
             this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresar.Location = new System.Drawing.Point(111, 150);
+            this.btnIngresar.Location = new System.Drawing.Point(173, 133);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(82, 32);
             this.btnIngresar.TabIndex = 0;
@@ -51,7 +51,7 @@
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(246, 149);
+            this.btnSalir.Location = new System.Drawing.Point(279, 133);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(88, 33);
             this.btnSalir.TabIndex = 1;
@@ -83,14 +83,14 @@
             // 
             this.txtUsuario.Location = new System.Drawing.Point(173, 47);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(161, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(194, 20);
             this.txtUsuario.TabIndex = 4;
             // 
             // txtClave
             // 
             this.txtClave.Location = new System.Drawing.Point(173, 82);
             this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(161, 20);
+            this.txtClave.Size = new System.Drawing.Size(194, 20);
             this.txtClave.TabIndex = 5;
             this.txtClave.UseSystemPasswordChar = true;
             // 
@@ -107,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 212);
+            this.ClientSize = new System.Drawing.Size(398, 218);
             this.Controls.Add(this.lblBienvenido);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.txtUsuario);
