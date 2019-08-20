@@ -100,9 +100,9 @@
             this.lblBienvenido.AutoSize = true;
             this.lblBienvenido.Location = new System.Drawing.Point(13, 13);
             this.lblBienvenido.Name = "lblBienvenido";
-            this.lblBienvenido.Size = new System.Drawing.Size(111, 13);
+            this.lblBienvenido.Size = new System.Drawing.Size(63, 13);
             this.lblBienvenido.TabIndex = 6;
-            this.lblBienvenido.Text = "Buscando Error con #";
+            this.lblBienvenido.Text = "Bienvenido!";
             // 
             // btnRegistrarse
             // 
