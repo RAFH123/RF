@@ -61,7 +61,7 @@ namespace Distribuidora.RF
 
             if (!string.IsNullOrEmpty(cboBarrio.Text))
             {
-                var idBarrio = cboEstado.SelectedValue.ToString();
+                var idBarrio = cboBarrio.SelectedValue.ToString();
                 strSql += "AND (barrio=@idBarrio) ";
                 parametros.Add("idBarrio", idBarrio);
             }
