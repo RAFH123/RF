@@ -35,7 +35,6 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtClave = new System.Windows.Forms.TextBox();
             this.lblBienvenido = new System.Windows.Forms.Label();
-            this.btnRegistrarse = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnIngresar
@@ -100,33 +99,15 @@
             this.lblBienvenido.AutoSize = true;
             this.lblBienvenido.Location = new System.Drawing.Point(13, 13);
             this.lblBienvenido.Name = "lblBienvenido";
-
-            this.lblBienvenido.Size = new System.Drawing.Size(66, 13);
-            this.lblBienvenido.TabIndex = 6;
-            //this.lblBienvenido.Text = "Bienvenido$";
-
             this.lblBienvenido.Size = new System.Drawing.Size(63, 13);
             this.lblBienvenido.TabIndex = 6;
             this.lblBienvenido.Text = "Bienvenido!";
-
-            // 
-            // btnRegistrarse
-            // 
-            this.btnRegistrarse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarse.Location = new System.Drawing.Point(210, 147);
-            this.btnRegistrarse.Name = "btnRegistrarse";
-            this.btnRegistrarse.Size = new System.Drawing.Size(88, 32);
-            this.btnRegistrarse.TabIndex = 7;
-            this.btnRegistrarse.Text = "Registrarse";
-            this.btnRegistrarse.UseVisualStyleBackColor = true;
-            this.btnRegistrarse.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(310, 188);
-            this.Controls.Add(this.btnRegistrarse);
             this.Controls.Add(this.lblBienvenido);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.txtUsuario);
@@ -151,6 +132,5 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.Label lblBienvenido;
-        private System.Windows.Forms.Button btnRegistrarse;
     }
 }

@@ -36,5 +36,11 @@ namespace Distribuidora.RF
             fl.Dispose();
 
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmClientes frmC = new frmClientes();
+            frmC.ShowDialog();
+        }
     }
 }
