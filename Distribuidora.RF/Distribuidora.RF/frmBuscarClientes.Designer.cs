@@ -29,32 +29,35 @@
         private void InitializeComponent()
         {
             this.gbFiltros = new System.Windows.Forms.GroupBox();
+            this.txtFechaHasta = new System.Windows.Forms.MaskedTextBox();
+            this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
+            this.cboBarrio = new System.Windows.Forms.ComboBox();
+            this.cboTipo = new System.Windows.Forms.ComboBox();
+            this.cboEstado = new System.Windows.Forms.ComboBox();
+            this.cboCiudad = new System.Windows.Forms.ComboBox();
+            this.lblBarrio = new System.Windows.Forms.Label();
+            this.lblTipo = new System.Windows.Forms.Label();
+            this.lblEstado = new System.Windows.Forms.Label();
+            this.lblCiudad = new System.Windows.Forms.Label();
+            this.lblFechaHasta = new System.Windows.Forms.Label();
+            this.lblFechaDesde = new System.Windows.Forms.Label();
             this.btnAplicar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgvSalida = new System.Windows.Forms.DataGridView();
             this.lblBuscarPorID = new System.Windows.Forms.Label();
             this.cboBuscarPorID = new System.Windows.Forms.ComboBox();
-            this.lblFechaDesde = new System.Windows.Forms.Label();
-            this.lblFechaHasta = new System.Windows.Forms.Label();
-            this.lblCiudad = new System.Windows.Forms.Label();
-            this.lblEstado = new System.Windows.Forms.Label();
-            this.lblTipo = new System.Windows.Forms.Label();
-            this.lblBarrio = new System.Windows.Forms.Label();
-            this.cboCiudad = new System.Windows.Forms.ComboBox();
-            this.cboEstado = new System.Windows.Forms.ComboBox();
-            this.cboTipo = new System.Windows.Forms.ComboBox();
-            this.cboBarrio = new System.Windows.Forms.ComboBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.idCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Barrio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
-            this.txtFechaHasta = new System.Windows.Forms.MaskedTextBox();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalida)).BeginInit();
             this.SuspendLayout();
@@ -80,6 +83,114 @@
             this.gbFiltros.TabIndex = 0;
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Aplicar Filtros";
+            // 
+            // txtFechaHasta
+            // 
+            this.txtFechaHasta.Location = new System.Drawing.Point(289, 24);
+            this.txtFechaHasta.Mask = "00/00/0000";
+            this.txtFechaHasta.Name = "txtFechaHasta";
+            this.txtFechaHasta.Size = new System.Drawing.Size(100, 20);
+            this.txtFechaHasta.TabIndex = 13;
+            this.txtFechaHasta.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtFechaDesde
+            // 
+            this.txtFechaDesde.Location = new System.Drawing.Point(95, 24);
+            this.txtFechaDesde.Mask = "00/00/0000";
+            this.txtFechaDesde.Name = "txtFechaDesde";
+            this.txtFechaDesde.Size = new System.Drawing.Size(100, 20);
+            this.txtFechaDesde.TabIndex = 12;
+            this.txtFechaDesde.ValidatingType = typeof(System.DateTime);
+            // 
+            // cboBarrio
+            // 
+            this.cboBarrio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBarrio.FormattingEnabled = true;
+            this.cboBarrio.Location = new System.Drawing.Point(52, 93);
+            this.cboBarrio.Name = "cboBarrio";
+            this.cboBarrio.Size = new System.Drawing.Size(121, 21);
+            this.cboBarrio.TabIndex = 11;
+            // 
+            // cboTipo
+            // 
+            this.cboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipo.FormattingEnabled = true;
+            this.cboTipo.Location = new System.Drawing.Point(400, 61);
+            this.cboTipo.Name = "cboTipo";
+            this.cboTipo.Size = new System.Drawing.Size(106, 21);
+            this.cboTipo.TabIndex = 10;
+            // 
+            // cboEstado
+            // 
+            this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEstado.FormattingEnabled = true;
+            this.cboEstado.Location = new System.Drawing.Point(234, 61);
+            this.cboEstado.Name = "cboEstado";
+            this.cboEstado.Size = new System.Drawing.Size(111, 21);
+            this.cboEstado.TabIndex = 9;
+            // 
+            // cboCiudad
+            // 
+            this.cboCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCiudad.FormattingEnabled = true;
+            this.cboCiudad.Location = new System.Drawing.Point(52, 62);
+            this.cboCiudad.Name = "cboCiudad";
+            this.cboCiudad.Size = new System.Drawing.Size(121, 21);
+            this.cboCiudad.TabIndex = 8;
+            // 
+            // lblBarrio
+            // 
+            this.lblBarrio.AutoSize = true;
+            this.lblBarrio.Location = new System.Drawing.Point(7, 101);
+            this.lblBarrio.Name = "lblBarrio";
+            this.lblBarrio.Size = new System.Drawing.Size(34, 13);
+            this.lblBarrio.TabIndex = 5;
+            this.lblBarrio.Text = "Barrio";
+            // 
+            // lblTipo
+            // 
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Location = new System.Drawing.Point(366, 65);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(28, 13);
+            this.lblTipo.TabIndex = 4;
+            this.lblTipo.Text = "Tipo";
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Location = new System.Drawing.Point(188, 65);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(40, 13);
+            this.lblEstado.TabIndex = 3;
+            this.lblEstado.Text = "Estado";
+            // 
+            // lblCiudad
+            // 
+            this.lblCiudad.AutoSize = true;
+            this.lblCiudad.Location = new System.Drawing.Point(6, 65);
+            this.lblCiudad.Name = "lblCiudad";
+            this.lblCiudad.Size = new System.Drawing.Size(40, 13);
+            this.lblCiudad.TabIndex = 2;
+            this.lblCiudad.Text = "Ciudad";
+            // 
+            // lblFechaHasta
+            // 
+            this.lblFechaHasta.AutoSize = true;
+            this.lblFechaHasta.Location = new System.Drawing.Point(204, 32);
+            this.lblFechaHasta.Name = "lblFechaHasta";
+            this.lblFechaHasta.Size = new System.Drawing.Size(69, 13);
+            this.lblFechaHasta.TabIndex = 1;
+            this.lblFechaHasta.Text = "Fecha hasta:";
+            // 
+            // lblFechaDesde
+            // 
+            this.lblFechaDesde.AutoSize = true;
+            this.lblFechaDesde.Location = new System.Drawing.Point(6, 32);
+            this.lblFechaDesde.Name = "lblFechaDesde";
+            this.lblFechaDesde.Size = new System.Drawing.Size(72, 13);
+            this.lblFechaDesde.TabIndex = 0;
+            this.lblFechaDesde.Text = "Fecha desde:";
             // 
             // btnAplicar
             // 
@@ -109,11 +220,14 @@
             this.idCliente,
             this.NomLocal,
             this.NomCliente,
-            this.Ciudad,
+            this.Calle,
+            this.Numero,
             this.Barrio,
             this.Estado,
             this.TipoCliente,
-            this.FechaRegistro});
+            this.FechaRegistro,
+            this.Telefono,
+            this.Email});
             this.dgvSalida.Location = new System.Drawing.Point(15, 160);
             this.dgvSalida.Name = "dgvSalida";
             this.dgvSalida.ReadOnly = true;
@@ -140,96 +254,6 @@
             this.cboBuscarPorID.Size = new System.Drawing.Size(121, 21);
             this.cboBuscarPorID.TabIndex = 5;
             // 
-            // lblFechaDesde
-            // 
-            this.lblFechaDesde.AutoSize = true;
-            this.lblFechaDesde.Location = new System.Drawing.Point(6, 32);
-            this.lblFechaDesde.Name = "lblFechaDesde";
-            this.lblFechaDesde.Size = new System.Drawing.Size(72, 13);
-            this.lblFechaDesde.TabIndex = 0;
-            this.lblFechaDesde.Text = "Fecha desde:";
-            // 
-            // lblFechaHasta
-            // 
-            this.lblFechaHasta.AutoSize = true;
-            this.lblFechaHasta.Location = new System.Drawing.Point(204, 32);
-            this.lblFechaHasta.Name = "lblFechaHasta";
-            this.lblFechaHasta.Size = new System.Drawing.Size(69, 13);
-            this.lblFechaHasta.TabIndex = 1;
-            this.lblFechaHasta.Text = "Fecha hasta:";
-            // 
-            // lblCiudad
-            // 
-            this.lblCiudad.AutoSize = true;
-            this.lblCiudad.Location = new System.Drawing.Point(6, 65);
-            this.lblCiudad.Name = "lblCiudad";
-            this.lblCiudad.Size = new System.Drawing.Size(40, 13);
-            this.lblCiudad.TabIndex = 2;
-            this.lblCiudad.Text = "Ciudad";
-            // 
-            // lblEstado
-            // 
-            this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(188, 65);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(40, 13);
-            this.lblEstado.TabIndex = 3;
-            this.lblEstado.Text = "Estado";
-            // 
-            // lblTipo
-            // 
-            this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(366, 65);
-            this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(28, 13);
-            this.lblTipo.TabIndex = 4;
-            this.lblTipo.Text = "Tipo";
-            // 
-            // lblBarrio
-            // 
-            this.lblBarrio.AutoSize = true;
-            this.lblBarrio.Location = new System.Drawing.Point(7, 101);
-            this.lblBarrio.Name = "lblBarrio";
-            this.lblBarrio.Size = new System.Drawing.Size(34, 13);
-            this.lblBarrio.TabIndex = 5;
-            this.lblBarrio.Text = "Barrio";
-            // 
-            // cboCiudad
-            // 
-            this.cboCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCiudad.FormattingEnabled = true;
-            this.cboCiudad.Location = new System.Drawing.Point(52, 62);
-            this.cboCiudad.Name = "cboCiudad";
-            this.cboCiudad.Size = new System.Drawing.Size(121, 21);
-            this.cboCiudad.TabIndex = 8;
-            // 
-            // cboEstado
-            // 
-            this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEstado.FormattingEnabled = true;
-            this.cboEstado.Location = new System.Drawing.Point(234, 61);
-            this.cboEstado.Name = "cboEstado";
-            this.cboEstado.Size = new System.Drawing.Size(111, 21);
-            this.cboEstado.TabIndex = 9;
-            // 
-            // cboTipo
-            // 
-            this.cboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTipo.FormattingEnabled = true;
-            this.cboTipo.Location = new System.Drawing.Point(400, 61);
-            this.cboTipo.Name = "cboTipo";
-            this.cboTipo.Size = new System.Drawing.Size(106, 21);
-            this.cboTipo.TabIndex = 10;
-            // 
-            // cboBarrio
-            // 
-            this.cboBarrio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBarrio.FormattingEnabled = true;
-            this.cboBarrio.Location = new System.Drawing.Point(52, 93);
-            this.cboBarrio.Name = "cboBarrio";
-            this.cboBarrio.Size = new System.Drawing.Size(121, 21);
-            this.cboBarrio.TabIndex = 11;
-            // 
             // btnLimpiar
             // 
             this.btnLimpiar.Location = new System.Drawing.Point(18, 398);
@@ -241,6 +265,7 @@
             // 
             // idCliente
             // 
+            this.idCliente.DataPropertyName = "id_cliente";
             this.idCliente.HeaderText = "Id";
             this.idCliente.Name = "idCliente";
             this.idCliente.ReadOnly = true;
@@ -248,63 +273,78 @@
             // 
             // NomLocal
             // 
+            this.NomLocal.DataPropertyName = "nombre_local";
             this.NomLocal.HeaderText = "Nombre Local";
             this.NomLocal.Name = "NomLocal";
             this.NomLocal.ReadOnly = true;
             // 
             // NomCliente
             // 
+            this.NomCliente.DataPropertyName = "nombre_cliente";
             this.NomCliente.HeaderText = "Nombre Cliente";
             this.NomCliente.Name = "NomCliente";
             this.NomCliente.ReadOnly = true;
             // 
-            // Ciudad
+            // Calle
             // 
-            this.Ciudad.HeaderText = "Ciudad";
-            this.Ciudad.Name = "Ciudad";
-            this.Ciudad.ReadOnly = true;
+            this.Calle.DataPropertyName = "domicilio_calle";
+            this.Calle.HeaderText = "Calle";
+            this.Calle.Name = "Calle";
+            this.Calle.ReadOnly = true;
+            // 
+            // Numero
+            // 
+            this.Numero.DataPropertyName = "domicilio_numero";
+            this.Numero.HeaderText = "Número";
+            this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
+            this.Numero.Width = 40;
             // 
             // Barrio
             // 
+            this.Barrio.DataPropertyName = "barrio";
             this.Barrio.HeaderText = "Barrio";
             this.Barrio.Name = "Barrio";
             this.Barrio.ReadOnly = true;
+            this.Barrio.Width = 30;
             // 
             // Estado
             // 
+            this.Estado.DataPropertyName = "estado_cliente";
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
+            this.Estado.Width = 30;
             // 
             // TipoCliente
             // 
+            this.TipoCliente.DataPropertyName = "tipo_cliente";
             this.TipoCliente.HeaderText = "Tipo";
             this.TipoCliente.Name = "TipoCliente";
             this.TipoCliente.ReadOnly = true;
+            this.TipoCliente.Width = 30;
             // 
             // FechaRegistro
             // 
+            this.FechaRegistro.DataPropertyName = "fecha_registro";
             this.FechaRegistro.HeaderText = "Fecha Registro";
             this.FechaRegistro.Name = "FechaRegistro";
             this.FechaRegistro.ReadOnly = true;
             // 
-            // txtFechaDesde
+            // Telefono
             // 
-            this.txtFechaDesde.Location = new System.Drawing.Point(95, 24);
-            this.txtFechaDesde.Mask = "00/00/0000";
-            this.txtFechaDesde.Name = "txtFechaDesde";
-            this.txtFechaDesde.Size = new System.Drawing.Size(100, 20);
-            this.txtFechaDesde.TabIndex = 12;
-            this.txtFechaDesde.ValidatingType = typeof(System.DateTime);
+            this.Telefono.DataPropertyName = "telefono";
+            this.Telefono.HeaderText = "Teléfono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
             // 
-            // txtFechaHasta
+            // Email
             // 
-            this.txtFechaHasta.Location = new System.Drawing.Point(289, 24);
-            this.txtFechaHasta.Mask = "00/00/0000";
-            this.txtFechaHasta.Name = "txtFechaHasta";
-            this.txtFechaHasta.Size = new System.Drawing.Size(100, 20);
-            this.txtFechaHasta.TabIndex = 13;
-            this.txtFechaHasta.ValidatingType = typeof(System.DateTime);
+            this.Email.DataPropertyName = "email";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Width = 150;
             // 
             // frmBuscarClientes
             // 
@@ -349,15 +389,18 @@
         private System.Windows.Forms.ComboBox cboEstado;
         private System.Windows.Forms.ComboBox cboCiudad;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.MaskedTextBox txtFechaHasta;
+        private System.Windows.Forms.MaskedTextBox txtFechaDesde;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomLocal;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ciudad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Calle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn Barrio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
-        private System.Windows.Forms.MaskedTextBox txtFechaHasta;
-        private System.Windows.Forms.MaskedTextBox txtFechaDesde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
     }
 }
