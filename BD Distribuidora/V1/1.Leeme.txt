@@ -6,6 +6,8 @@ CREATE DATABASE Distribuidora_v1
 
 3.Luego ejecutar el script "Registros_dis_V1" para agregar registros en las tablas
 
+4.Ejecutar el archivo ScriptClientes para agregar 10 clientes a la tabla.
+
 NOTAS:
 Es la primera version de la base de datos
 En un futuro implementar la version2 ("Distribuidora_V2")
