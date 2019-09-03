@@ -61,9 +61,9 @@ namespace Distribuidora.RF
 
             if (!string.IsNullOrEmpty(cboBarrio.Text))
             {
-                var idBarrio = cboBarrio.SelectedValue.ToString();
+                var idBarrioc = cboBarrio.SelectedValue.ToString();
                 strSql += "AND (barrio=@idBarrio) ";
-                parametros.Add("idBarrio", idBarrio);
+                parametros.Add("idBarrio", idBarrioc);
             }
 
             if (!string.IsNullOrEmpty(cboEstado.Text))
@@ -80,13 +80,12 @@ namespace Distribuidora.RF
                 parametros.Add("tipo_cliente", tipoc);
             }
 
-            strSql += " ORDER BY nombre_local DESC";
+            strSql += " ORDER BY nombre_local";
             MessageBox.Show(strSql);
 
             dgvSalida.DataSource = Datos.GetDatos().ConsultaSQLConParametros(strSql, parametros);
             if (dgvSalida.Rows.Count == 0)
             {
-                MessageBox.Show("No se encontraron coincidencias para el/los filtros ingresados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MessageBox.Show("No se encontraron coincidencias para el/los filtros ingresados", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
