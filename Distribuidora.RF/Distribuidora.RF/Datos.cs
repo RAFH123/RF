@@ -19,7 +19,8 @@ namespace Distribuidora.RF
 
 //        private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=Ariel-PC\SQLExpress;Integrated Security=SSPI;Initial Catalog=Distribuidora_v1";
 //        private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=ESCRITORIO10\SQLExpress;Integrated Security=SSPI;Initial Catalog=Distribuidora_v1
-        private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=Ariel-PC\SQLExpress;Integrated Security=SSPI;Initial Catalog=Distribuidora_v1";
+//        private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=Ariel-PC\SQLExpress;Integrated Security=SSPI;Initial Catalog=Distribuidora_v1";
+        private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=ESCRITORIO10\SQLExpress;Integrated Security=SSPI;Initial Catalog=Distribuidora_v1";
 
         public static Datos GetDatos()
         {

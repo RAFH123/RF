@@ -27,7 +27,28 @@ namespace Distribuidora.RF
 
         private void frmClientes_Load(object sender, EventArgs e)
         {
-            LlenarCombo(cboBuscarPorID, Datos.GetDatos().consultar("Select * from Clientes"), "nombre", "id_cliente");                      
+        }
+
+        private void frmBuscarClientes_Load(object sender, EventArgs e)
+        {
+            dtpFechaDesde.Value = DateTime.Today;
+            dtpFechaHasta.Value = DateTime.Today;
+            LlenarCombo(cboBuscarPorID, Datos.GetDatos().consultar("Select * from Clientes"), "nombre", "id_cliente");
+            LlenarCombo(cboCiudad, Datos.GetDatos().consultar("Select * from Ciudades"), "nombre", "id_ciudad");
+            LlenarCombo(cboBarrio, Datos.GetDatos().consultar("Select * from Barrios"), "nombre", "id_barrio");
+            LlenarCombo(cboEstado, Datos.GetDatos().consultar("Select * from EstadoCliente"), "descripcion", "id_estadoC");
+            LlenarCombo(cboTipo, Datos.GetDatos().consultar("Select * from TipoCliente"), "descripcion", "id_tipoC");
+
+        }
+
+        private void btnAplicar_Click(object sender, EventArgs e)
+        {
+            //string consultaSQL = "SELECT "
+        }
+
+        private void dgvSalida_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

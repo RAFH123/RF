@@ -45,6 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos.cs" />
+    <Compile Include="Distribuidora_v1DataSet.cs">
+      <DependentUpon>Distribuidora_v1DataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Distribuidora_v1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
