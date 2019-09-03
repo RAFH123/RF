@@ -10,12 +10,23 @@ namespace Distribuidora.RF
 {
     class Datos
     {
+        private static Datos instance = new Datos();
         private OleDbConnection conexion = new OleDbConnection();
         private OleDbCommand comando = new OleDbCommand();
 //        private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=MAQUIS;User ID=avisuales1;Initial Catalog=BD_bugs;Password=avisuales1";
 //        private string cadenaConexion = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\31823\ProyectoNum\ProyectoNum\BD\BDUsuarios.mdb";
 //        private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=ESCRITORIO10\SQLExpress;Integrated Security=SSPI;Initial Catalog=RF";
-        private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=ESCRITORIO10\SQLExpress;Integrated Security=SSPI;Initial Catalog=Distribuidora_v1";
+
+//        private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=Ariel-PC\SQLExpress;Integrated Security=SSPI;Initial Catalog=Distribuidora_v1";
+//        private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=ESCRITORIO10\SQLExpress;Integrated Security=SSPI;Initial Catalog=Distribuidora_v1
+        private string cadenaConexion = @"Provider=SQLNCLI11;Data Source=Ariel-PC\SQLExpress;Integrated Security=SSPI;Initial Catalog=Distribuidora_v1";
+
+        public static Datos GetDatos()
+        {
+            if (instance == null)
+                instance = new Datos();
+            return instance;
+        }
 
         private void conectar()
         {

@@ -42,5 +42,11 @@ namespace Distribuidora.RF
             frmClientes frmC = new frmClientes();
             frmC.ShowDialog();
         }
+
+        private void buscarClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBuscarClientes frmC = new frmBuscarClientes();
+            frmC.ShowDialog();            
+        }
     }
 }
