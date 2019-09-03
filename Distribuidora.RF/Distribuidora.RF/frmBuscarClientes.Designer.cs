@@ -40,8 +40,6 @@
             this.lblEstado = new System.Windows.Forms.Label();
             this.lblTipo = new System.Windows.Forms.Label();
             this.lblBarrio = new System.Windows.Forms.Label();
-            this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
-            this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.cboCiudad = new System.Windows.Forms.ComboBox();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.cboTipo = new System.Windows.Forms.ComboBox();
@@ -55,6 +53,8 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
+            this.txtFechaHasta = new System.Windows.Forms.MaskedTextBox();
             this.gbFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalida)).BeginInit();
             this.SuspendLayout();
@@ -62,12 +62,12 @@
             // gbFiltros
             // 
             this.gbFiltros.BackColor = System.Drawing.SystemColors.Control;
+            this.gbFiltros.Controls.Add(this.txtFechaHasta);
+            this.gbFiltros.Controls.Add(this.txtFechaDesde);
             this.gbFiltros.Controls.Add(this.cboBarrio);
             this.gbFiltros.Controls.Add(this.cboTipo);
             this.gbFiltros.Controls.Add(this.cboEstado);
             this.gbFiltros.Controls.Add(this.cboCiudad);
-            this.gbFiltros.Controls.Add(this.dtpFechaHasta);
-            this.gbFiltros.Controls.Add(this.dtpFechaDesde);
             this.gbFiltros.Controls.Add(this.lblBarrio);
             this.gbFiltros.Controls.Add(this.lblTipo);
             this.gbFiltros.Controls.Add(this.lblEstado);
@@ -194,22 +194,6 @@
             this.lblBarrio.TabIndex = 5;
             this.lblBarrio.Text = "Barrio";
             // 
-            // dtpFechaDesde
-            // 
-            this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDesde.Location = new System.Drawing.Point(85, 24);
-            this.dtpFechaDesde.Name = "dtpFechaDesde";
-            this.dtpFechaDesde.Size = new System.Drawing.Size(107, 20);
-            this.dtpFechaDesde.TabIndex = 6;
-            // 
-            // dtpFechaHasta
-            // 
-            this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaHasta.Location = new System.Drawing.Point(280, 24);
-            this.dtpFechaHasta.Name = "dtpFechaHasta";
-            this.dtpFechaHasta.Size = new System.Drawing.Size(115, 20);
-            this.dtpFechaHasta.TabIndex = 7;
-            // 
             // cboCiudad
             // 
             this.cboCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -304,6 +288,24 @@
             this.FechaRegistro.Name = "FechaRegistro";
             this.FechaRegistro.ReadOnly = true;
             // 
+            // txtFechaDesde
+            // 
+            this.txtFechaDesde.Location = new System.Drawing.Point(95, 24);
+            this.txtFechaDesde.Mask = "00/00/0000";
+            this.txtFechaDesde.Name = "txtFechaDesde";
+            this.txtFechaDesde.Size = new System.Drawing.Size(100, 20);
+            this.txtFechaDesde.TabIndex = 12;
+            this.txtFechaDesde.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtFechaHasta
+            // 
+            this.txtFechaHasta.Location = new System.Drawing.Point(289, 24);
+            this.txtFechaHasta.Mask = "00/00/0000";
+            this.txtFechaHasta.Name = "txtFechaHasta";
+            this.txtFechaHasta.Size = new System.Drawing.Size(100, 20);
+            this.txtFechaHasta.TabIndex = 13;
+            this.txtFechaHasta.ValidatingType = typeof(System.DateTime);
+            // 
             // frmBuscarClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,8 +348,6 @@
         private System.Windows.Forms.ComboBox cboTipo;
         private System.Windows.Forms.ComboBox cboEstado;
         private System.Windows.Forms.ComboBox cboCiudad;
-        private System.Windows.Forms.DateTimePicker dtpFechaHasta;
-        private System.Windows.Forms.DateTimePicker dtpFechaDesde;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomLocal;
@@ -357,5 +357,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
+        private System.Windows.Forms.MaskedTextBox txtFechaHasta;
+        private System.Windows.Forms.MaskedTextBox txtFechaDesde;
     }
 }

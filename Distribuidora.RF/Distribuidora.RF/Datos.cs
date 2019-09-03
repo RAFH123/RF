@@ -50,5 +50,49 @@ namespace Distribuidora.RF
             return tabla;
         }
 
+        /// Resumen:
+        ///      Se utiliza para sentencias SQL del tipo “Select” con parámetros recibidos desde la interfaz
+        ///      La función recibe por valor una sentencia sql como string y un diccionario de objetos como parámetros
+        /// Devuelve:
+        ///      un objeto de tipo DataTable con el resultado de la consulta
+        /// Excepciones:
+        ///      System.Data.SqlClient.SqlException:
+        ///          El error de conexión se produce:
+        ///              a) durante la apertura de la conexión
+        ///              b) durante la ejecución del comando.
+        public DataTable ConsultaSQLConParametros(string sqlStr, Dictionary<string, object> prs)
+        {
+            //SqlConnection cnn = new SqlConnection();
+            //SqlCommand cmd = new SqlCommand();
+            DataTable tabla = new DataTable();
+
+            try
+            {
+                conexion.ConnectionString = cadenaConexion;
+                conexion.Open();
+                comando.Connection = conexion;
+
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = sqlStr;
+
+                //Agregamos a la colección de parámetros del comando los filtros recibidos
+                foreach (var item in prs)
+                {
+                    comando.Parameters.AddWithValue(item.Key, item.Value);
+                }
+
+                tabla.Load(comando.ExecuteReader());
+                return tabla;
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                this.desconectar();
+            }
+        }
+
     }
 }
