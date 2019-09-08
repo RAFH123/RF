@@ -70,26 +70,26 @@ namespace Distribuidora.RF
         ///              b) durante la ejecución del comando.
         public DataTable ConsultaSQLConParametros(string sqlStr, Dictionary<string, object> prs)
         {
-//            SqlConnection cnn = new SqlConnection();
-//            SqlCommand cmd = new SqlCommand();
+            SqlConnection cnn2 = new SqlConnection();
+            SqlCommand cmd2 = new SqlCommand();
             DataTable tabla = new DataTable();
 
             try
             {
-                cnn.ConnectionString = cadenaConexion;
-                cnn.Open();
-                cmd.Connection = cnn;
+                cnn2.ConnectionString = cadenaConexion;
+                cnn2.Open();
+                cmd2.Connection = cnn2;
 
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = sqlStr;
+                cmd2.CommandType = CommandType.Text;
+                cmd2.CommandText = sqlStr;
 
                 //Agregamos a la colección de parámetros del comando los filtros recibidos
                 foreach (var item in prs)
                 {
-                    cmd.Parameters.AddWithValue(item.Key, item.Value);
+                    cmd2.Parameters.AddWithValue(item.Key, item.Value);
                 }
 
-                tabla.Load(cmd.ExecuteReader());
+                tabla.Load(cmd2.ExecuteReader());
                 return tabla;
             }
             catch (Exception ex)

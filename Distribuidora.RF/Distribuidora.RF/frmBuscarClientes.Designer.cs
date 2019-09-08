@@ -47,6 +47,7 @@
             this.lblBuscarPorID = new System.Windows.Forms.Label();
             this.cboBuscarPorID = new System.Windows.Forms.ComboBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnDetalle = new System.Windows.Forms.Button();
             this.idCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +57,6 @@
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalida)).BeginInit();
@@ -210,6 +210,7 @@
             this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // dgvSalida
             // 
@@ -226,7 +227,6 @@
             this.Estado,
             this.TipoCliente,
             this.FechaRegistro,
-            this.Telefono,
             this.Email});
             this.dgvSalida.Location = new System.Drawing.Point(15, 160);
             this.dgvSalida.Name = "dgvSalida";
@@ -262,6 +262,16 @@
             this.btnLimpiar.TabIndex = 6;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // btnDetalle
+            // 
+            this.btnDetalle.Location = new System.Drawing.Point(249, 398);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(75, 23);
+            this.btnDetalle.TabIndex = 7;
+            this.btnDetalle.Text = "Detalle";
+            this.btnDetalle.UseVisualStyleBackColor = true;
             // 
             // idCliente
             // 
@@ -277,6 +287,7 @@
             this.NomLocal.HeaderText = "Nombre Local";
             this.NomLocal.Name = "NomLocal";
             this.NomLocal.ReadOnly = true;
+            this.NomLocal.Width = 115;
             // 
             // NomCliente
             // 
@@ -291,6 +302,7 @@
             this.Calle.HeaderText = "Calle";
             this.Calle.Name = "Calle";
             this.Calle.ReadOnly = true;
+            this.Calle.Width = 85;
             // 
             // Numero
             // 
@@ -298,7 +310,7 @@
             this.Numero.HeaderText = "Número";
             this.Numero.Name = "Numero";
             this.Numero.ReadOnly = true;
-            this.Numero.Width = 40;
+            this.Numero.Width = 47;
             // 
             // Barrio
             // 
@@ -306,23 +318,23 @@
             this.Barrio.HeaderText = "Barrio";
             this.Barrio.Name = "Barrio";
             this.Barrio.ReadOnly = true;
-            this.Barrio.Width = 30;
+            this.Barrio.Width = 70;
             // 
             // Estado
             // 
-            this.Estado.DataPropertyName = "estado_cliente";
+            this.Estado.DataPropertyName = "Estado";
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
-            this.Estado.Width = 30;
+            this.Estado.Width = 45;
             // 
             // TipoCliente
             // 
-            this.TipoCliente.DataPropertyName = "tipo_cliente";
+            this.TipoCliente.DataPropertyName = "Tipo";
             this.TipoCliente.HeaderText = "Tipo";
             this.TipoCliente.Name = "TipoCliente";
             this.TipoCliente.ReadOnly = true;
-            this.TipoCliente.Width = 30;
+            this.TipoCliente.Width = 65;
             // 
             // FechaRegistro
             // 
@@ -330,13 +342,7 @@
             this.FechaRegistro.HeaderText = "Fecha Registro";
             this.FechaRegistro.Name = "FechaRegistro";
             this.FechaRegistro.ReadOnly = true;
-            // 
-            // Telefono
-            // 
-            this.Telefono.DataPropertyName = "telefono";
-            this.Telefono.HeaderText = "Teléfono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
+            this.FechaRegistro.Width = 70;
             // 
             // Email
             // 
@@ -344,7 +350,7 @@
             this.Email.HeaderText = "Email";
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
-            this.Email.Width = 150;
+            this.Email.Width = 185;
             // 
             // frmBuscarClientes
             // 
@@ -352,6 +358,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(891, 434);
+            this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.cboBuscarPorID);
             this.Controls.Add(this.lblBuscarPorID);
@@ -391,6 +398,7 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.MaskedTextBox txtFechaHasta;
         private System.Windows.Forms.MaskedTextBox txtFechaDesde;
+        private System.Windows.Forms.Button btnDetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomLocal;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomCliente;
@@ -400,7 +408,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
     }
 }

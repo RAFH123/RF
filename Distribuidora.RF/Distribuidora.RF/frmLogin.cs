@@ -28,7 +28,6 @@ namespace Distribuidora.RF
 
          private void frmLogin_Load(object sender, EventArgs e)
         {
-
         }
 
          private void btnIngresar_Click(object sender, EventArgs e)
@@ -60,6 +59,17 @@ namespace Distribuidora.RF
          private void button1_Click(object sender, EventArgs e)
          {
              MessageBox.Show("Lo sentimos. Aún no se puede registrarse");
+         }
+
+         private void frmLogin_KeyPress(object sender, KeyPressEventArgs e)
+         {
+             if (e.KeyChar == Convert.ToChar(Keys.Return))
+                 this.btnIngresar.PerformClick();
+         }
+
+         private void frmLogin_Shown(object sender, EventArgs e)
+         {
+             txtUsuario.Focus();
          }
     }
 }

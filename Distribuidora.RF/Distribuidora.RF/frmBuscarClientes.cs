@@ -33,17 +33,35 @@ namespace Distribuidora.RF
         {
 //            dtpFechaDesde.Value = DateTime.Today;
 //            dtpFechaHasta.Value = DateTime.Today;
-            LlenarCombo(cboBuscarPorID, Datos.GetDatos().consultar("Select * from Clientes"), "nombre", "id_cliente");
+            LlenarCombo(cboBuscarPorID, Datos.GetDatos().consultar("Select * from Clientes"), "nombre_cliente", "id_cliente");
             LlenarCombo(cboCiudad, Datos.GetDatos().consultar("Select * from Ciudades"), "nombre", "id_ciudad");
             LlenarCombo(cboBarrio, Datos.GetDatos().consultar("Select * from Barrios"), "nombre", "id_barrio");
             LlenarCombo(cboEstado, Datos.GetDatos().consultar("Select * from EstadoCliente"), "descripcion", "id_estadoC");
             LlenarCombo(cboTipo, Datos.GetDatos().consultar("Select * from TipoCliente"), "descripcion", "id_tipoC");
 
+            // Configuramos la AutoGenerateColumns en false para que no se autogeneren las columnas
+            dgvSalida.AutoGenerateColumns = false;
+
+            // Cambia el tamaño de la altura de los encabezados de columna.
+            dgvSalida.AutoResizeColumnHeadersHeight();
+
+            // Cambia el tamaño de todas las alturas de fila para ajustar el contenido de todas las celdas que no sean de encabezado.
+            dgvSalida.AutoResizeRows(DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders);
+
         }
 
         private void btnAplicar_Click(object sender, EventArgs e)
         {
-            string strSql = "SELECT TOP 20 * FROM Clientes WHERE 1=1 ";
+//            string strSql = "SELECT TOP 20 * FROM Clientes WHERE 1=1 ";
+            string strSql = "SELECT C.id_cliente, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
+                                        + "C.domicilio_numero, B.nombre AS barrio, E.descripcion AS estado, "
+                                        + "T.descripcion AS Tipo, C.fecha_registro, C.email "
+                                    + "FROM Clientes C "
+                                        + "INNER JOIN Barrios B ON B.id_barrio = C.barrio "
+                                        + "INNER JOIN EstadoCliente E ON E.id_estadoc = C.estado_cliente "
+                                        + "INNER JOIN TipoCliente T ON T.id_tipoC = C.tipo_cliente "
+                                    + "WHERE 1=1 ";
+
 
             // Dictionary: Representa una colección de claves y valores.
             Dictionary<string, object> parametros = new Dictionary<string, object>();
@@ -69,15 +87,22 @@ namespace Distribuidora.RF
             if (!string.IsNullOrEmpty(cboEstado.Text))
             {
                 var estadoc = cboEstado.SelectedValue.ToString();
-                strSql += "AND (estado_cliente=@estadoc) ";
+                strSql += "AND (estado_cliente=@estado) ";
                 parametros.Add("estado", estadoc);
             }
 
             if (!string.IsNullOrEmpty(cboTipo.Text))
             {
-                var tipoc = cboTipo.SelectedValue.ToString();
+                var tipocl = cboTipo.SelectedValue.ToString();
                 strSql += "AND (tipo_cliente=@tipoc) ";
-                parametros.Add("tipo_cliente", tipoc);
+                parametros.Add("tipoc", tipocl);
+            }
+
+            if (!string.IsNullOrEmpty(cboBuscarPorID.Text))
+            {
+                var idc = cboBuscarPorID.SelectedValue.ToString();
+                strSql += "AND (id_cliente=@idcliente) ";
+                parametros.Add("idcliente", idc);
             }
 
             strSql += " ORDER BY nombre_local";
@@ -93,6 +118,22 @@ namespace Distribuidora.RF
         private void dgvSalida_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtFechaDesde.Text = "";
+            txtFechaHasta.Text = "";
+            cboBarrio.SelectedIndex = -1;
+            cboBuscarPorID.SelectedIndex = -1;
+            cboCiudad.SelectedIndex = -1;
+            cboEstado.SelectedIndex = -1;
+            cboTipo.SelectedIndex = -1;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

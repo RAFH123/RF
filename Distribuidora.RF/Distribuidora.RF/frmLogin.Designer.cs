@@ -115,9 +115,12 @@
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnIngresar);
+            this.KeyPreview = true;
             this.Name = "frmLogin";
             this.Text = "Ingresando al sistema";
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.Shown += new System.EventHandler(this.frmLogin_Shown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmLogin_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
