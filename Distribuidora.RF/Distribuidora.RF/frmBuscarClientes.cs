@@ -106,7 +106,7 @@ namespace Distribuidora.RF
             }
 
             strSql += " ORDER BY nombre_local";
-            MessageBox.Show(strSql);
+            //MessageBox.Show(strSql);
 
             dgvSalida.DataSource = Datos.GetDatos().ConsultaSQLConParametros(strSql, parametros);
             if (dgvSalida.Rows.Count == 0)
@@ -117,7 +117,8 @@ namespace Distribuidora.RF
 
         private void dgvSalida_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            // Cuando seleccionamos una fila de la grilla habilitamos el boton btnDetalleBug.
+            btnDetalle.Enabled = true;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -134,6 +135,18 @@ namespace Distribuidora.RF
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            if (dgvSalida.CurrentRow != null)
+            {
+                frmDetalle frmDet = new frmDetalle();
+                var selectedItem = (DataRowView)dgvSalida.CurrentRow.DataBoundItem;
+                frmDet.InicializarDetalle(selectedItem["id_cliente"].ToString());
+                frmDet.Enabled = true;
+                frmDet.ShowDialog();
+            }
         }
     }
 }

@@ -266,12 +266,14 @@
             // 
             // btnDetalle
             // 
+            this.btnDetalle.Enabled = false;
             this.btnDetalle.Location = new System.Drawing.Point(249, 398);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(75, 23);
             this.btnDetalle.TabIndex = 7;
             this.btnDetalle.Text = "Detalle";
             this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
             // idCliente
             // 
