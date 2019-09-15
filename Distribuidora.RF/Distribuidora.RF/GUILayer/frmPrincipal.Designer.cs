@@ -1,4 +1,4 @@
-﻿namespace Distribuidora.RF
+﻿namespace Distribuidora.RF.GUILayer
 {
     partial class frmPrincipal
     {
@@ -57,7 +57,7 @@
             this.tablasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clientesToolStripMenuItem});
             this.tablasToolStripMenuItem.Name = "tablasToolStripMenuItem";
-            this.tablasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.tablasToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.tablasToolStripMenuItem.Text = "Tablas";
             // 
             // clientesToolStripMenuItem
@@ -107,6 +107,7 @@
             this.Name = "frmPrincipal";
             this.Text = "Distribuidora RF";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

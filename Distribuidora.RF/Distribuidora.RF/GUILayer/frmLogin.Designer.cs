@@ -1,4 +1,4 @@
-﻿namespace Distribuidora.RF
+﻿namespace Distribuidora.RF.GUILayer
 {
     partial class frmLogin
     {
