@@ -31,13 +31,13 @@ namespace Distribuidora.RF.DataAccessLayer
             //Construimos la consulta sql para buscar el usuario en la base de datos.
             String consultaSql = string.Concat(" SELECT id_usuario, n_usuario, email, estado, password ",
                                                "   FROM Usuarios ",
-                                               "  WHERE borrado=0 and n_usuario =  '", pUsuario, "'");
+                                               "  WHERE borrado =  0 and n_usuario =  '", pUsuario, "'");
 
             //Usando el método GetDBHelper obtenemos la instancia unica de DBHelper (Patrón Singleton) y ejecutamos el método ConsultaSQL()
             var resultado = DBHelper.GetDBHelper().ConsultaSQL(consultaSql);
 
             // Validamos que el resultado tenga al menos una fila.
-             if (resultado.Rows.Count > 0)
+            if (resultado.Rows.Count > 0)
             {
                 return MappingUsuario(resultado.Rows[0]);
             }
@@ -50,7 +50,7 @@ namespace Distribuidora.RF.DataAccessLayer
             Usuario oUsuario = new Usuario
             {
                 IdUsuario = Convert.ToInt32(row["id_usuario"].ToString()),
-                NombreUsuario = row["usuario"].ToString(),
+                NombreUsuario = row["n_usuario"].ToString(),
                 Email = row["email"].ToString(),
                 Estado = row["estado"].ToString(),
                 Password = row.Table.Columns.Contains("password") ? row["password"].ToString() : null

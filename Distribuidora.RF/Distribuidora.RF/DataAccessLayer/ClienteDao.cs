@@ -14,13 +14,14 @@ namespace Distribuidora.RF.DataAccessLayer
         public Cliente GetClienteById(int IDCliente)
         {
             var strSql = "SELECT C.id_cliente, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
-                                        + "C.domicilio_numero, B.nombre AS barrio, E.descripcion AS estado, "
+                                        + "C.domicilio_numero, C.telefono, B.id_barrio, B.nombre AS barrio, E.descripcion AS estado, "
+                                        + "E.id_estadoc, T.id_tipoc, "
                                         + "T.descripcion AS Tipo, C.fecha_registro, C.email "
                                     + "FROM Clientes C "
                                         + "INNER JOIN Barrios B ON B.id_barrio = C.barrio "
                                         + "INNER JOIN EstadoCliente E ON E.id_estadoc = C.estado_cliente "
                                         + "INNER JOIN TipoCliente T ON T.id_tipoC = C.tipo_cliente "
-                                    + "WHERE C.borrado = 0 AND C.id.cliente = " + IDCliente.ToString();
+                                    + "WHERE C.borrado = 0 AND C.id_cliente = " + IDCliente.ToString();
             return MappingCliente(DBHelper.GetDBHelper().ConsultaSQL(strSql).Rows[0]);
         }
         
@@ -29,8 +30,9 @@ namespace Distribuidora.RF.DataAccessLayer
             List<Cliente> listadoClientes = new List<Cliente>();
 
             var strSql = "SELECT C.id_cliente, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
-                                        + "C.domicilio_numero, B.nombre AS barrio, E.descripcion AS estado, "
-                                        + "T.descripcion AS Tipo, C.fecha_registro, C.email "
+                                        + "C.domicilio_numero, C.telefono, B.id_barrio, B.nombre AS barrio, "
+                                        + "E.id_estadoc, E.descripcion AS estado, "
+                                        + "T.id_tipoc, T.descripcion AS tipo, C.fecha_registro, C.email "
                                     + "FROM Clientes C "
                                         + "INNER JOIN Barrios B ON B.id_barrio = C.barrio "
                                         + "INNER JOIN EstadoCliente E ON E.id_estadoc = C.estado_cliente "
@@ -41,11 +43,11 @@ namespace Distribuidora.RF.DataAccessLayer
                 strSql += " AND (fecha_registro>=@fechaDesde AND fecha_registro<=@fechaHasta) ";
             if (parametros.ContainsKey("idBarrio"))
                 strSql += " AND (B.id_barrio=@idBarrio) ";
-            if (parametros.ContainsKey("idEstadoCliente"))
-                strSql += " AND (E.id_estadoC=@idEstadoCliente) ";
-            if (parametros.ContainsKey("idTipoCliente"))
-                strSql += " AND (T.id_tipoC=@idTipoCliente) ";
-            strSql += " ORDER BY C.nombre_cliente DESC";
+            if (parametros.ContainsKey("estado"))
+                strSql += " AND (E.id_estadoC=@estado) ";
+            if (parametros.ContainsKey("tipo"))
+                strSql += " AND (T.id_tipoC=@tipo) ";
+            strSql += " ORDER BY C.nombre_cliente";
 
             var resultadoConsulta = (DataRowCollection)DBHelper.GetDBHelper().ConsultaSQLConParametros(strSql, parametros).Rows;
 
@@ -63,8 +65,8 @@ namespace Distribuidora.RF.DataAccessLayer
             String sqlcondiciones = condiciones;
 
             var strSql = "SELECT C.id_cliente, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
-                                        + "C.domicilio_numero, B.nombre AS barrio, E.descripcion AS estado, "
-                                        + "T.descripcion AS Tipo, C.fecha_registro, C.email "
+                                        + "C.domicilio_numero, C.telefono, C.id_barrio, B.nombre AS barrio, E.descripcion AS estado, "
+                                        + "T.descripcion AS tipo, C.fecha_registro, C.email "
                                     + "FROM Clientes C "
                                         + "INNER JOIN Barrios B ON B.id_barrio = C.barrio "
                                         + "INNER JOIN EstadoCliente E ON E.id_estadoc = C.estado_cliente "
@@ -101,15 +103,15 @@ namespace Distribuidora.RF.DataAccessLayer
 
             oCliente.Barrio = new Barrio();
             oCliente.Barrio.ID_Barrio = Convert.ToInt32(row["id_barrio"].ToString());
-            oCliente.Barrio.Nombre = row["nombre"].ToString();
+            oCliente.Barrio.Nombre = row["barrio"].ToString();
 
             oCliente.Tipo_Cliente = new Tipo_Cliente();
             oCliente.Tipo_Cliente.ID_TipoC = Convert.ToInt32(row["id_tipoc"].ToString());
-            oCliente.Tipo_Cliente.Descripcion = row["descripciont"].ToString();
+            oCliente.Tipo_Cliente.Descripcion = row["tipo"].ToString();
 
             oCliente.Estado_Cliente = new Estado_Cliente();
             oCliente.Estado_Cliente.ID_EstadoC = Convert.ToInt32(row["id_estadoc"].ToString());
-            oCliente.Estado_Cliente.Descripcion = row["descripcione"].ToString();
+            oCliente.Estado_Cliente.Descripcion = row["estado"].ToString();
 
             return oCliente;
         }

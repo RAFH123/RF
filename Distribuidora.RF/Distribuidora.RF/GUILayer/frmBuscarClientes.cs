@@ -43,20 +43,13 @@ namespace Distribuidora.RF.GUILayer
 
         private void frmBuscarClientes_Load(object sender, EventArgs e)
         {
-////            dtpFechaDesde.Value = DateTime.Today;
-////            dtpFechaHasta.Value = DateTime.Today;
-//            LlenarCombo(cboBuscarPorID, Datos.GetDatos().consultar("Select * from Clientes"), "nombre_cliente", "id_cliente");
-//            LlenarCombo(cboCiudad, Datos.GetDatos().consultar("Select * from Ciudades"), "nombre", "id_ciudad");
-//            LlenarCombo(cboBarrio, Datos.GetDatos().consultar("Select * from Barrios"), "nombre", "id_barrio");
-//            LlenarCombo(cboEstado, Datos.GetDatos().consultar("Select * from EstadoCliente"), "descripcion", "id_estadoC");
-//            LlenarCombo(cboTipo, Datos.GetDatos().consultar("Select * from TipoCliente"), "descripcion", "id_tipoC");
 
             //LLenar combos y limpiar grid
 //            LlenarCombo(cboBuscarPorID, ClienteService.ObtenerTodos(), "Nombre_Cliente", "ID_Cliente");
 //            LlenarCombo(cboCiudad, ciudadService.ObtenerTodos(), "Nombre", "ID_Ciudad");
             LlenarCombo(cboBarrio, barrioService.ObtenerTodos(), "Nombre", "ID_Barrio");
-            LlenarCombo(cboEstado, estado_clienteService.ObtenerTodos(), "Descripcione", "ID_EstadoC");
-            LlenarCombo(cboTipo, tipo_clienteService.ObtenerTodos(), "Descripciont", "ID_TipoC");
+            LlenarCombo(cboEstado, estado_clienteService.ObtenerTodos(), "Descripcion", "ID_EstadoC");
+            LlenarCombo(cboTipo, tipo_clienteService.ObtenerTodos(), "Descripcion", "ID_TipoC");
             
             
             // Configuramos la AutoGenerateColumns en false para que no se autogeneren las columnas
@@ -72,17 +65,6 @@ namespace Distribuidora.RF.GUILayer
 
         private void btnAplicar_Click(object sender, EventArgs e)
         {
-////            string strSql = "SELECT TOP 20 * FROM Clientes WHERE 1=1 ";
-//            string strSql = "SELECT C.id_cliente, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
-//                                        + "C.domicilio_numero, B.nombre AS barrio, E.descripcion AS estado, "
-//                                        + "T.descripcion AS Tipo, C.fecha_registro, C.email "
-//                                    + "FROM Clientes C "
-//                                        + "INNER JOIN Barrios B ON B.id_barrio = C.barrio "
-//                                        + "INNER JOIN EstadoCliente E ON E.id_estadoc = C.estado_cliente "
-//                                        + "INNER JOIN TipoCliente T ON T.id_tipoC = C.tipo_cliente "
-//                                    + "WHERE 1=1 ";
-
-
             // las condiciones de los filtros se puede pasar a traves de una coleccion de claves y valores (Dictionary)
             // o bien a través de una cadena de condiciones 
             String sqlcondiciones;
@@ -105,7 +87,6 @@ namespace Distribuidora.RF.GUILayer
             if (!string.IsNullOrEmpty(cboBarrio.Text))
             {
                 var idBarrioc = cboBarrio.SelectedValue.ToString();
-//                strSql += "AND (barrio=@idBarrio) ";
                 sqlcondiciones += " AND (C.barrio = " + idBarrioc + ") ";
                 parametros.Add("idBarrio", idBarrioc);
             }
@@ -113,29 +94,23 @@ namespace Distribuidora.RF.GUILayer
             if (!string.IsNullOrEmpty(cboEstado.Text))
             {
                 var estadoc = cboEstado.SelectedValue.ToString();
-//                strSql += "AND (estado_cliente=@estado) ";
-                sqlcondiciones += " AND (C.estado_cliente = " + estadoc + ") ";
+                sqlcondiciones += " AND (C.id_estadoc = " + estadoc + ") ";
                 parametros.Add("estado", estadoc);
             }
 
             if (!string.IsNullOrEmpty(cboTipo.Text))
             {
                 var tipocl = cboTipo.SelectedValue.ToString();
-//                strSql += "AND (tipo_cliente=@tipoc) ";
-                sqlcondiciones += " AND (C.tipo_cliente = " + tipocl + ") ";
-                parametros.Add("tipoc", tipocl);
+                sqlcondiciones += " AND (C.id_tipoc = " + tipocl + ") ";
+                parametros.Add("tipo", tipocl);
             }
 
             if (!string.IsNullOrEmpty(cboBuscarPorID.Text))
             {
                 var idc = cboBuscarPorID.SelectedValue.ToString();
-//                strSql += "AND (id_cliente=@idcliente) ";
                 sqlcondiciones += " AND (C.id_cliente = " + idc + ") ";
-                parametros.Add("idcliente", idc);
+                parametros.Add("id_cliente", idc);
             }
-
-//            strSql += " ORDER BY nombre_local";
-//            MessageBox.Show(strSql);
 
             //usando parametros
             IList<Cliente> listadoClientes = clienteService.ConsultarClientesConFiltros(parametros);
@@ -176,7 +151,7 @@ namespace Distribuidora.RF.GUILayer
                 frmDetalle frmDet = new frmDetalle();
                 Cliente selectedItem = (Cliente)dgvSalida.CurrentRow.DataBoundItem;
                 frmDet.InicializarDetalle(selectedItem.ID_Cliente);
-//                frmDet.Enabled = true;
+                frmDet.Enabled = true;
                 frmDet.ShowDialog();
             }
         }

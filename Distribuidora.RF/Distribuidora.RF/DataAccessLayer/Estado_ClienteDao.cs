@@ -14,8 +14,8 @@ namespace Distribuidora.RF.DataAccessLayer
         {
             List<Estado_Cliente> listadoEstadoClientes = new List<Estado_Cliente>();
 
-            var strSql = "SELECT id_barrio, nombre from Barrios where borrado=0";
-
+            var strSql = "SELECT id_estadoc, descripcion from EstadoCliente where borrado=0";
+            
             var resultadoConsulta = DBHelper.GetDBHelper().ConsultaSQL(strSql);
 
             foreach (DataRow row in resultadoConsulta.Rows)
@@ -31,7 +31,7 @@ namespace Distribuidora.RF.DataAccessLayer
             Estado_Cliente oEstadoCliente = new Estado_Cliente
             {
                 ID_EstadoC = Convert.ToInt32(row["id_estadoc"].ToString()),
-                Descripcion = row["descripcione"].ToString()
+                Descripcion = row["descripcion"].ToString()
             };
 
             return oEstadoCliente;

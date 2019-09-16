@@ -14,7 +14,7 @@ namespace Distribuidora.RF.DataAccessLayer
         {
             List<Tipo_Cliente> listadoTipoClientes = new List<Tipo_Cliente>();
 
-            var strSql = "SELECT id_tipoc, descripcion from Tipo_Cliente where borrado=0";
+            var strSql = "SELECT id_tipoc, descripcion from TipoCliente where borrado=0";
 
             var resultadoConsulta = DBHelper.GetDBHelper().ConsultaSQL(strSql);
 
@@ -31,7 +31,7 @@ namespace Distribuidora.RF.DataAccessLayer
             Tipo_Cliente oTipoCliente = new Tipo_Cliente
             {
                 ID_TipoC = Convert.ToInt32(row["id_tipoc"].ToString()),
-                Descripcion = row["descripciont"].ToString()
+                Descripcion = row["descripcion"].ToString()
             };
 
             return oTipoCliente;

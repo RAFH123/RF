@@ -133,8 +133,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="BD\RF.sql" />
-    <Content Include="BD\RF2.sql" />
+    <Content Include="BD\Distribuidora_V2.sql" />
+    <Content Include="BD\Registros_dis_V2.sql" />
+    <Content Include="BD\ScriptClientes_V2.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

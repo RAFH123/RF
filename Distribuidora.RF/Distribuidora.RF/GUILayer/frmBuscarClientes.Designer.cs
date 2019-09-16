@@ -44,6 +44,10 @@
             this.btnAplicar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgvSalida = new System.Windows.Forms.DataGridView();
+            this.lblBuscarPorID = new System.Windows.Forms.Label();
+            this.cboBuscarPorID = new System.Windows.Forms.ComboBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnDetalle = new System.Windows.Forms.Button();
             this.idCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,10 +58,6 @@
             this.TipoCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblBuscarPorID = new System.Windows.Forms.Label();
-            this.cboBuscarPorID = new System.Windows.Forms.ComboBox();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnDetalle = new System.Windows.Forms.Button();
             this.gbFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalida)).BeginInit();
             this.SuspendLayout();
@@ -236,6 +236,45 @@
             this.dgvSalida.TabIndex = 3;
             this.dgvSalida.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSalida_CellClick);
             // 
+            // lblBuscarPorID
+            // 
+            this.lblBuscarPorID.AutoSize = true;
+            this.lblBuscarPorID.Location = new System.Drawing.Point(592, 44);
+            this.lblBuscarPorID.Name = "lblBuscarPorID";
+            this.lblBuscarPorID.Size = new System.Drawing.Size(67, 13);
+            this.lblBuscarPorID.TabIndex = 4;
+            this.lblBuscarPorID.Text = "Bucar por ID";
+            // 
+            // cboBuscarPorID
+            // 
+            this.cboBuscarPorID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBuscarPorID.FormattingEnabled = true;
+            this.cboBuscarPorID.Location = new System.Drawing.Point(706, 36);
+            this.cboBuscarPorID.Name = "cboBuscarPorID";
+            this.cboBuscarPorID.Size = new System.Drawing.Size(121, 21);
+            this.cboBuscarPorID.TabIndex = 5;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(18, 398);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 6;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // btnDetalle
+            // 
+            this.btnDetalle.Enabled = false;
+            this.btnDetalle.Location = new System.Drawing.Point(249, 398);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(75, 23);
+            this.btnDetalle.TabIndex = 7;
+            this.btnDetalle.Text = "Detalle";
+            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
+            // 
             // idCliente
             // 
             this.idCliente.DataPropertyName = "id_cliente";
@@ -285,7 +324,7 @@
             // 
             // Estado
             // 
-            this.Estado.DataPropertyName = "Estado";
+            this.Estado.DataPropertyName = "estado_cliente";
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
@@ -293,7 +332,7 @@
             // 
             // TipoCliente
             // 
-            this.TipoCliente.DataPropertyName = "Tipo";
+            this.TipoCliente.DataPropertyName = "tipo_cliente";
             this.TipoCliente.HeaderText = "Tipo";
             this.TipoCliente.Name = "TipoCliente";
             this.TipoCliente.ReadOnly = true;
@@ -314,45 +353,6 @@
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
             this.Email.Width = 185;
-            // 
-            // lblBuscarPorID
-            // 
-            this.lblBuscarPorID.AutoSize = true;
-            this.lblBuscarPorID.Location = new System.Drawing.Point(592, 44);
-            this.lblBuscarPorID.Name = "lblBuscarPorID";
-            this.lblBuscarPorID.Size = new System.Drawing.Size(67, 13);
-            this.lblBuscarPorID.TabIndex = 4;
-            this.lblBuscarPorID.Text = "Bucar por ID";
-            // 
-            // cboBuscarPorID
-            // 
-            this.cboBuscarPorID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBuscarPorID.FormattingEnabled = true;
-            this.cboBuscarPorID.Location = new System.Drawing.Point(706, 36);
-            this.cboBuscarPorID.Name = "cboBuscarPorID";
-            this.cboBuscarPorID.Size = new System.Drawing.Size(121, 21);
-            this.cboBuscarPorID.TabIndex = 5;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(18, 398);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 6;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // btnDetalle
-            // 
-            this.btnDetalle.Enabled = false;
-            this.btnDetalle.Location = new System.Drawing.Point(249, 398);
-            this.btnDetalle.Name = "btnDetalle";
-            this.btnDetalle.Size = new System.Drawing.Size(75, 23);
-            this.btnDetalle.TabIndex = 7;
-            this.btnDetalle.Text = "Detalle";
-            this.btnDetalle.UseVisualStyleBackColor = true;
-            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
             // frmBuscarClientes
             // 
