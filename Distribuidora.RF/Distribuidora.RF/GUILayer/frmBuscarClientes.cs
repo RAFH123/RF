@@ -33,14 +33,10 @@ namespace Distribuidora.RF.GUILayer
 
         private void LlenarCombo(ComboBox cbo, Object source, string display, String value)
         {
+            cbo.ValueMember = value;
             cbo.DataSource = source;
             cbo.DisplayMember = display;
-            cbo.ValueMember = value;
             cbo.SelectedIndex = -1;
-        }
-
-        private void frmClientes_Load(object sender, EventArgs e)
-        {
         }
 
         private void frmBuscarClientes_Load(object sender, EventArgs e)
@@ -145,6 +141,7 @@ namespace Distribuidora.RF.GUILayer
             cboCiudad.SelectedIndex = -1;
             cboEstado.SelectedIndex = -1;
             cboTipo.SelectedIndex = -1;
+            LlenarCombo(cboBarrio, barrioService.ObtenerTodos(""), "Nombre", "ID_Barrio");
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -170,14 +167,10 @@ namespace Distribuidora.RF.GUILayer
             btnDetalle.Enabled = true;
         }
 
-        private void cboCiudad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-//            LlenarCombo(cboBarrio, barrioService.ObtenerTodos((Int32)cboBarrio.SelectedValue), "Nombre", "ID_Barrio");
-        }
-
         private void cboCiudad_SelectedValueChanged(object sender, EventArgs e)
         {
-            LlenarCombo(cboBarrio, barrioService.ObtenerTodos(cboBarrio.SelectedValue.ToString()), "Nombre", "ID_Barrio");
+            if (cboCiudad.SelectedValue != null)
+                LlenarCombo(cboBarrio, barrioService.ObtenerTodos(cboCiudad.SelectedValue.ToString()), "Nombre", "ID_Barrio");
         }
     }
 }
