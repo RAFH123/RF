@@ -6,19 +6,18 @@ using System.Threading.Tasks;
 using Distribuidora.RF.Entities;
 using Distribuidora.RF.DataAccessLayer;
 
-
 namespace Distribuidora.RF.BusinessLayer
 {
-    public class BarrioService
+    public class CiudadService
     {
-        private BarrioDao oBarrioDao;
-        public BarrioService()
+        private CiudadDao oCiudadDao;
+        public CiudadService()
         {
-            oBarrioDao = new BarrioDao();
+            oCiudadDao = new CiudadDao();
         }
-        public IList<Barrio> ObtenerTodos(string idciu)
+        public IList<Ciudad> ObtenerTodos()
         {
-            return oBarrioDao.GetAll(idciu);
+            return oCiudadDao.GetAll();
         }
 
     }

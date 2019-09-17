@@ -16,6 +16,7 @@ namespace Distribuidora.RF.GUILayer
     {
         private readonly ClienteService clienteService;
         private readonly BarrioService barrioService;
+        private readonly CiudadService ciudadService;
         private readonly Tipo_ClienteService tipo_clienteService;
         private readonly Estado_ClienteService estado_clienteService;
 
@@ -25,6 +26,7 @@ namespace Distribuidora.RF.GUILayer
             
             clienteService = new ClienteService();
             barrioService = new BarrioService();
+            ciudadService = new CiudadService();
             tipo_clienteService = new Tipo_ClienteService();
             estado_clienteService = new Estado_ClienteService();
         }
@@ -45,9 +47,9 @@ namespace Distribuidora.RF.GUILayer
         {
 
             //LLenar combos y limpiar grid
-//            LlenarCombo(cboBuscarPorID, ClienteService.ObtenerTodos(), "Nombre_Cliente", "ID_Cliente");
-//            LlenarCombo(cboCiudad, ciudadService.ObtenerTodos(), "Nombre", "ID_Ciudad");
-            LlenarCombo(cboBarrio, barrioService.ObtenerTodos(), "Nombre", "ID_Barrio");
+            LlenarCombo(cboBuscarPorID, clienteService.ObtenerTodos(), "Nombre_Cliente", "ID_Cliente");
+            LlenarCombo(cboCiudad, ciudadService.ObtenerTodos(), "Nombre", "ID_Ciudad");
+            LlenarCombo(cboBarrio, barrioService.ObtenerTodos(""), "Nombre", "ID_Barrio");
             LlenarCombo(cboEstado, estado_clienteService.ObtenerTodos(), "Descripcion", "ID_EstadoC");
             LlenarCombo(cboTipo, tipo_clienteService.ObtenerTodos(), "Descripcion", "ID_TipoC");
             
@@ -83,7 +85,6 @@ namespace Distribuidora.RF.GUILayer
                 parametros.Add("fechaHasta", txtFechaHasta.Text);
             }
 
-
             if (!string.IsNullOrEmpty(cboBarrio.Text))
             {
                 var idBarrioc = cboBarrio.SelectedValue.ToString();
@@ -110,6 +111,13 @@ namespace Distribuidora.RF.GUILayer
                 var idc = cboBuscarPorID.SelectedValue.ToString();
                 sqlcondiciones += " AND (C.id_cliente = " + idc + ") ";
                 parametros.Add("id_cliente", idc);
+            }
+
+            if (!string.IsNullOrEmpty(cboCiudad.Text))
+            {
+                var idciu = cboCiudad.SelectedValue.ToString();
+                sqlcondiciones += " AND (Ciu.id_ciudad = " + idciu + ") ";
+                parametros.Add("id_ciudad", idciu);
             }
 
             //usando parametros
@@ -160,6 +168,16 @@ namespace Distribuidora.RF.GUILayer
         {
             // Cuando seleccionamos una fila de la grilla habilitamos el boton btnDetalle.
             btnDetalle.Enabled = true;
+        }
+
+        private void cboCiudad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+//            LlenarCombo(cboBarrio, barrioService.ObtenerTodos((Int32)cboBarrio.SelectedValue), "Nombre", "ID_Barrio");
+        }
+
+        private void cboCiudad_SelectedValueChanged(object sender, EventArgs e)
+        {
+            LlenarCombo(cboBarrio, barrioService.ObtenerTodos(cboBarrio.SelectedValue.ToString()), "Nombre", "ID_Barrio");
         }
     }
 }

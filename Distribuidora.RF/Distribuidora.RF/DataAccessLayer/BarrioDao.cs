@@ -10,11 +10,13 @@ namespace Distribuidora.RF.DataAccessLayer
 {
     public class BarrioDao
     {
-        public IList<Barrio> GetAll()
+        public IList<Barrio> GetAll(string idciu)
         {
             List<Barrio> listadoBarrios = new List<Barrio>();
 
-            var strSql = "SELECT id_barrio, nombre from Barrios where borrado=0";
+            var strSql = "SELECT id_barrio, nombre FROM Barrios WHERE borrado = 0 ";
+            if (!string.IsNullOrEmpty(idciu))
+                strSql += " AND ciudad = " + idciu;
 
             var resultadoConsulta = DBHelper.GetDBHelper().ConsultaSQL(strSql);
 

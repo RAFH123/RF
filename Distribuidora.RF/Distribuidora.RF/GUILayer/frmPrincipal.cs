@@ -21,24 +21,12 @@ namespace Distribuidora.RF.GUILayer
         {
             this.WindowState = FormWindowState.Maximized;
             frmLogin login = new frmLogin();
+
+            this.Visible = false;
             login.ShowDialog();
-//            lblUsuarioLogueado.Text = login.UsuarioLogueado;
-            
-//            frmLogin fl = new frmLogin();
-//            this.Visible = false;
-//            fl.ShowDialog();
-//            this.Visible = true;
-//
-//            this.usuarioActual = fl.MiUsuario;
-//            if (this.usuarioActual.Id_usuario == 0)
-//                this.Close();
-//            else
-//                this.Text = this.Text + "    -     Usuario: " + this.usuarioActual.N_usuario;
-//            //            this.Text = this.Text + " Usuario: ";
+            this.Visible = true;
 
-//            fl.Dispose();
             this.Text = this.Text + "  - Usuario: " + login.UsuarioLogueado;
-
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)

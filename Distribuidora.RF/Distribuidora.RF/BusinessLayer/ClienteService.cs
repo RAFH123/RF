@@ -30,5 +30,10 @@ namespace Distribuidora.RF.BusinessLayer
         {
             return oClienteDao.GetClienteById(id);
         }
+        public IList<Cliente> ObtenerTodos()
+        {
+            return oClienteDao.GetAll();
+        }
+
     }
 }

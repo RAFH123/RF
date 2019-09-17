@@ -45,11 +45,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayer\BarrioService.cs" />
+    <Compile Include="BusinessLayer\CiudadService.cs" />
     <Compile Include="BusinessLayer\ClienteService.cs" />
     <Compile Include="BusinessLayer\Estado_ClienteService.cs" />
     <Compile Include="BusinessLayer\Tipo_ClienteService.cs" />
     <Compile Include="BusinessLayer\UsuarioService.cs" />
     <Compile Include="DataAccessLayer\BarrioDao.cs" />
+    <Compile Include="DataAccessLayer\CiudadDao.cs" />
     <Compile Include="DataAccessLayer\ClienteDao.cs" />
     <Compile Include="DataAccessLayer\DBHelper.cs" />
     <Compile Include="DataAccessLayer\Estado_ClienteDao.cs" />
