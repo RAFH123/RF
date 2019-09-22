@@ -48,5 +48,11 @@ namespace Distribuidora.RF.GUILayer
             if (rpta == DialogResult.No)
                 e.Cancel = true;
         }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuarios frmDetalle = new frmUsuarios();
+            frmDetalle.ShowDialog();
+        }
     }
 }

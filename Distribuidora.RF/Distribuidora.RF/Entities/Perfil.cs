@@ -8,7 +8,7 @@ namespace Distribuidora.RF.Entities
 {
     public class Perfil
     {
-        public int IdPerfil { get; set; }
+        public int IdP { get; set; }
         public string Nombre { get; set; }
 
         public override string ToString()

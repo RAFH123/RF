@@ -185,10 +185,14 @@ SET IDENTITY_INSERT [dbo].[Usuarios] OFF
 
 CREATE TABLE [dbo].[Perfiles](
 	[id_Perfil] [int] NOT NULL,
-	[descripcion] [varchar](10) NOT NULL,
+	[descripcion] [varchar](30) NOT NULL,
 	[borrado] [bit] NOT NULL DEFAULT 0	
 ) ON [PRIMARY]
 GO
-INSERT [dbo].[Perfiles] ([id_Perfil], [descripcion]) VALUES (1, N'Admins')
+--INSERT [dbo].[Perfiles] ([id_Perfil], [descripcion]) VALUES (1, N'Admins')
+INSERT [dbo].[Perfiles] ([id_perfil], [descripcion], [borrado]) VALUES (1, N'Administrador', 0)
+INSERT [dbo].[Perfiles] ([id_perfil], [descripcion], [borrado]) VALUES (2, N'Tester', 0)
+INSERT [dbo].[Perfiles] ([id_perfil], [descripcion], [borrado]) VALUES (3, N'Desarrollador', 0)
+INSERT [dbo].[Perfiles] ([id_perfil], [descripcion], [borrado]) VALUES (4, N'Responsable de Reportes', 0)
 
  --INT CONSTRAINT FK_ FOREIGN KEY REFERENCES Tabla (campo)
