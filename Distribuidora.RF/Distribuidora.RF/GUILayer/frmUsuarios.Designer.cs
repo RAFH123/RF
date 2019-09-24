@@ -197,12 +197,12 @@
 
         internal System.Windows.Forms.Button btnQuitar;
         internal System.Windows.Forms.DataGridView dgvUsers;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn columnNombre;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn columIdPerfil;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn columnMail;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn columnPerfil;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn columnId;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn columnPass;
+//        internal System.Windows.Forms.DataGridViewTextBoxColumn columnNombre;
+//        internal System.Windows.Forms.DataGridViewTextBoxColumn columIdPerfil;
+//        internal System.Windows.Forms.DataGridViewTextBoxColumn columnMail;
+//        internal System.Windows.Forms.DataGridViewTextBoxColumn columnPerfil;
+//        internal System.Windows.Forms.DataGridViewTextBoxColumn columnId;
+//        internal System.Windows.Forms.DataGridViewTextBoxColumn columnPass;
         internal System.Windows.Forms.Button btnSalir;
         internal System.Windows.Forms.Button btnEditar;
         internal System.Windows.Forms.Button btnNuevo;

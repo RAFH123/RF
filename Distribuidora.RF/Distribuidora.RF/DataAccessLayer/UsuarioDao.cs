@@ -209,16 +209,14 @@ namespace Distribuidora.RF.DataAccessLayer
             //1) No tomaba las condiciones cuando no se chequeaban todos
             //2) No se adecuaba las condiciones para tomar el operador LIKE
             //3) Implementar la habilitacion/deshabilitación de Usuarios
-
+            //4) Warnings sobre columnas del dgv no usadas.
 
             //CON PARAMETROS
-            Usuario oUser = new Usuario();
-            oUser = GetUserConParametros(oUsuario.NombreUsuario);
-            oUser.Estado = oUser.Estado == "S" ? "N" : "S"; 
+            var estadoUsuario = oUsuario.Estado == "S" ? "N" : "S"; 
 
             string str_sql = "UPDATE Usuarios " +
-                             "SET estado = " + "'" + oUser.Estado + "'"  +
-                             " WHERE id_usuario=" + oUser.IdUsuario;
+                             "SET estado = " + "'" + estadoUsuario + "'"  +
+                             " WHERE id_usuario=" + oUsuario.IdUsuario;
 
             return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
         }

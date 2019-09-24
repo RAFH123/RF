@@ -162,11 +162,13 @@
     <Content Include="Resources\agregar.png" />
     <Content Include="Resources\BUSCAR01.bmp" />
     <Content Include="Resources\cabecera.png" />
+    <None Include="Resources\cancelar3.png" />
     <Content Include="Resources\cerrarBug.png" />
     <Content Include="Resources\comentar.png" />
     <Content Include="Resources\editar.png" />
     <Content Include="Resources\eliminar.png" />
     <Content Include="Resources\Empty Recycle Bin 2000.ico" />
+    <None Include="Resources\grabar3.png" />
     <Content Include="Resources\menu.png" />
     <Content Include="Resources\salir.png" />
     <Content Include="Resources\test.png" />

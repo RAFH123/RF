@@ -34,6 +34,28 @@ namespace Distribuidora.RF.BusinessLayer
         {
             return oClienteDao.GetAll();
         }
+        internal bool CrearCliente(Cliente oUsuario)
+        {
+            return oClienteDao.Create(oUsuario);
+        }
 
+        internal bool ActualizarCliente(Cliente oClienteSelected)
+        {
+            return oClienteDao.Update(oClienteSelected);
+        }
+
+        internal object ObtenerCliente(string cliente)
+        {
+            //SIN PARAMETROS
+            return oClienteDao.GetClienteSinParametros(cliente);
+
+            //CON PARAMETROS
+            // return oUsuarioDao.GetUserConParametros(usuario);
+        }
+        internal bool EliminarCliente(Cliente oClienteSelected)
+        {
+            //            throw new NotImplementedException();
+            return oClienteDao.Eliminar(oClienteSelected);
+        }
     }
 }
