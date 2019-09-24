@@ -43,16 +43,24 @@ namespace Distribuidora.RF.GUILayer
             // Configuramos la AutoGenerateColumns en false para que no se autogeneren las columnas
             dgvClientes.AutoGenerateColumns = false;
 
-            dgvClientes.DataSource = oClienteService.ObtenerTodos();
+            IList<Cliente> listcli = new List<Cliente>();
+            listcli = oClienteService.ObtenerTodos();
+
+//            dgvClientes.DataSource = oClienteService.ObtenerTodos();
+            dgvClientes.DataSource = listcli;
+            for (int i = 0; i < dgvClientes.RowCount; i++)
+            {
+                dgvClientes.Rows[i].Cells["Ciudad"].Value = listcli[i].Barrio.Ciudad;
+            }
 
             this.habilitar(false);
         }
 
         private void LlenarCombo(ComboBox cbo, Object source, string display, String value)
         {
-            cbo.DataSource = source;
             cbo.DisplayMember = display;
             cbo.ValueMember = value;
+            cbo.DataSource = source;
             cbo.SelectedIndex = -1;
         }
         
@@ -70,6 +78,7 @@ namespace Distribuidora.RF.GUILayer
             txtTelefono.Clear();
             txtEmail.Clear();
             txtFechaRegistro.Clear();
+            LlenarCombo(cboBarrio, oBarrioService.ObtenerTodos(""), "Nombre", "ID_Barrio");
         }
         private void habilitar(bool x)
         {
@@ -108,10 +117,25 @@ namespace Distribuidora.RF.GUILayer
                 txtCalle.Text = oCli.Domicilio_Calle;
                 txtNumero.Text = oCli.Domicilio_Numero.ToString();
                 cboCiudad.SelectedValue = oCli.Barrio.Ciudad.ID_Ciudad;
+
+                if (cboCiudad.SelectedValue != null)
+                    LlenarCombo(cboBarrio, oBarrioService.ObtenerTodos(cboCiudad.SelectedValue.ToString()), "Nombre", "ID_Barrio");
+                else
+                    LlenarCombo(cboBarrio, oBarrioService.ObtenerTodos(""), "Nombre", "ID_Barrio");
                 cboBarrio.SelectedValue = oCli.Barrio.ID_Barrio;
+                
                 txtTelefono.Text = oCli.Telefono;
                 txtEmail.Text = oCli.Email;
-                txtFechaRegistro.Text = oCli.Fecha_Registro.ToString("dd/MM/yyyy");
+
+                if (oCli.Fecha_Registro.ToString("dd/MM/yyyy") != "01/01/0001")
+                    txtFechaRegistro.Text = oCli.Fecha_Registro.ToString("dd/MM/yyyy");
+                else
+                {  
+//                    if (this.nuevo)
+//                        txtFechaRegistro.Text = DateTime.Now.ToString("dd/MM/yyyy");
+//                    else
+                        txtFechaRegistro.Text = string.Empty;
+                }
             }
         }
 
@@ -134,7 +158,7 @@ namespace Distribuidora.RF.GUILayer
                 { 
                     if (txtNumero.Text == string.Empty)
                     {
-                        txtCalle.Focus();
+                        txtNumero.Focus();
                         return false;
                     }
                     else
@@ -152,6 +176,7 @@ namespace Distribuidora.RF.GUILayer
         private void dgvClientes_SelectionChanged(object sender, EventArgs e)
         {
             this.actualizarCampos(Convert.ToInt32(dgvClientes.CurrentRow.Cells[0].Value));
+            this.habilitar(false);
         }
         
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -159,13 +184,16 @@ namespace Distribuidora.RF.GUILayer
             this.nuevo = true;
             this.limpiar();
             this.habilitar(true);
+            txtFechaRegistro.Text = DateTime.Now.ToString("dd/MM/yyyy");
             this.txtNomLocal.Focus();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             this.habilitar(true);
+            this.nuevo = false;
             this.txtNomLocal.Focus();
+            this.btnCancelar.Enabled = false;
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
@@ -200,7 +228,12 @@ namespace Distribuidora.RF.GUILayer
                 if (DateTime.TryParse(txtFechaRegistro.Text, out result))
                     oCli.Fecha_Registro = result;
                 else
-                    oCli.Fecha_Registro = DateTime.Now;
+                {  
+                    if (this.nuevo)
+                        oCli.Fecha_Registro = DateTime.Now;
+                    else
+                        oCli.Fecha_Registro = DateTime.Parse("01/01/0001");
+                }
 
                 if (this.nuevo == true)
                 { 
@@ -225,7 +258,18 @@ namespace Distribuidora.RF.GUILayer
                     else
                         MessageBox.Show("Error al actualizar el cliente!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }   
-                this.dgvClientes.DataSource = oClienteService.ObtenerTodos();
+
+//                this.dgvClientes.DataSource = oClienteService.ObtenerTodos();
+                IList<Cliente> listcli = new List<Cliente>();
+                listcli = oClienteService.ObtenerTodos();
+
+//                dgvClientes.DataSource = oClienteService.ObtenerTodos();
+                dgvClientes.DataSource = listcli;
+                for (i = 0; i < dgvClientes.RowCount; i++)
+                {
+                    dgvClientes.Rows[i].Cells["Ciudad"].Value = listcli[i].Barrio.Ciudad;
+                }
+
                 this.habilitar(false);
             }
             else
@@ -249,35 +293,44 @@ namespace Distribuidora.RF.GUILayer
 
                 Cliente oCli = new Cliente();
                 oCli.ID_Cliente = int.Parse(txtId.Text);
-                oCli.Nombre_Local = txtNomLocal.Text;
-                oCli.Nombre_Cliente = txtNomCliente.Text;
 
-                oCli.Tipo_Cliente = new Tipo_Cliente();
-                oCli.Tipo_Cliente.ID_TipoC = (int)cboTipo.SelectedValue;
+// No hace falta cargar todos los datos del cliente
+//                oCli.Nombre_Local = txtNomLocal.Text;
+//                oCli.Nombre_Cliente = txtNomCliente.Text;
 
-                oCli.Estado_Cliente = new Estado_Cliente();
-                oCli.Estado_Cliente.ID_EstadoC = (int)cboEstado.SelectedValue;
-                oCli.Domicilio_Calle = txtCalle.Text;
-                oCli.Domicilio_Numero = int.Parse(txtNumero.Text);
+//                oCli.Tipo_Cliente = new Tipo_Cliente();
+//                oCli.Tipo_Cliente.ID_TipoC = (int)cboTipo.SelectedValue;
 
-                oCli.Barrio = new Barrio();
-                oCli.Barrio.ID_Barrio = (int)cboBarrio.SelectedValue;
+//                oCli.Estado_Cliente = new Estado_Cliente();
+//                oCli.Estado_Cliente.ID_EstadoC = (int)cboEstado.SelectedValue;
+//                oCli.Domicilio_Calle = txtCalle.Text;
+//                oCli.Domicilio_Numero = int.Parse(txtNumero.Text);
 
-                oCli.Barrio.Ciudad = new Ciudad();
-                oCli.Barrio.Ciudad.ID_Ciudad = (int)cboCiudad.SelectedValue;
+//                oCli.Barrio = new Barrio();
+//                oCli.Barrio.ID_Barrio = (int)cboBarrio.SelectedValue;
 
-                oCli.Telefono = txtTelefono.Text;
-                oCli.Email = txtEmail.Text;
-                oCli.Fecha_Registro = DateTime.Parse(txtFechaRegistro.Text);
+//                oCli.Barrio.Ciudad = new Ciudad();
+//                oCli.Barrio.Ciudad.ID_Ciudad = (int)cboCiudad.SelectedValue;
+
+//                oCli.Telefono = txtTelefono.Text;
+//                oCli.Email = txtEmail.Text;
+//                oCli.Fecha_Registro = DateTime.Parse(txtFechaRegistro.Text);
 
                 if (oClienteService.EliminarCliente(oCli))
                     MessageBox.Show("Cliente Eliminado!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
                     MessageBox.Show("Error al eliminar el cliente!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-//                this.dgvClientes.ClearSelection();
-//                this.dgvClientes.Rows[this.dgvClientes.Rows.Count - 1].Selected = true;
-                this.dgvClientes.DataSource = oClienteService.ObtenerTodos();
+                //this.dgvClientes.DataSource = oClienteService.ObtenerTodos();
+                IList<Cliente> listcli = new List<Cliente>();
+                listcli = oClienteService.ObtenerTodos();
+
+//                dgvClientes.DataSource = oClienteService.ObtenerTodos();
+                dgvClientes.DataSource = listcli;
+                for (int i = 0; i < dgvClientes.RowCount; i++)
+                {
+                    dgvClientes.Rows[i].Cells["Ciudad"].Value = listcli[i].Barrio.Ciudad;
+                }
             }
         }
 
@@ -293,6 +346,13 @@ namespace Distribuidora.RF.GUILayer
 
             this.habilitar(false);
             this.nuevo = false;
+            this.dgvClientes_SelectionChanged(null, null);
+        }
+
+        private void cboCiudad_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cboCiudad.SelectedValue != null)
+                LlenarCombo(cboBarrio, oBarrioService.ObtenerTodos(cboCiudad.SelectedValue.ToString()), "Nombre", "ID_Barrio");
         }
     }
 }
