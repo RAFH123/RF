@@ -10,6 +10,8 @@ namespace Distribuidora.RF.Entities
     {
         public int ID_Cliente { get; set; }
 
+        public string CUIT { get; set; }
+
         public string Nombre_Local { get; set; }
 
         public string Nombre_Cliente { get; set; }

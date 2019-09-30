@@ -54,5 +54,11 @@ namespace Distribuidora.RF.GUILayer
             frmUsuarios frmDetalle = new frmUsuarios();
             frmDetalle.ShowDialog();
         }
+
+        private void facturaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmFactura ofrmFactura = new frmFactura();
+            ofrmFactura.ShowDialog();
+        }
     }
 }

@@ -49,22 +49,31 @@
     <Compile Include="BusinessLayer\ClienteService.cs" />
     <Compile Include="BusinessLayer\Estado_ClienteService.cs" />
     <Compile Include="BusinessLayer\PerfilService.cs" />
+    <Compile Include="BusinessLayer\ProductoService.cs" />
+    <Compile Include="BusinessLayer\TipoFacturaService.cs" />
     <Compile Include="BusinessLayer\Tipo_ClienteService.cs" />
     <Compile Include="BusinessLayer\UsuarioService.cs" />
+    <Compile Include="BusinessLayer\VentasService.cs" />
     <Compile Include="DataAccessLayer\BarrioDao.cs" />
     <Compile Include="DataAccessLayer\CiudadDao.cs" />
     <Compile Include="DataAccessLayer\ClienteDao.cs" />
     <Compile Include="DataAccessLayer\DBHelper.cs" />
     <Compile Include="DataAccessLayer\Estado_ClienteDao.cs" />
     <Compile Include="DataAccessLayer\PerfilDao.cs" />
+    <Compile Include="DataAccessLayer\ProductoDao.cs" />
+    <Compile Include="DataAccessLayer\TipoFacturaDao.cs" />
     <Compile Include="DataAccessLayer\Tipo_ClienteDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
+    <Compile Include="DataAccessLayer\VentasDao.cs" />
     <Compile Include="Entities\Barrio.cs" />
     <Compile Include="Entities\Ciudad.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Estado_Cliente.cs" />
     <Compile Include="Entities\Perfil.cs" />
+    <Compile Include="Entities\Producto.cs" />
+    <Compile Include="Entities\TipoFactura.cs" />
     <Compile Include="Entities\Tipo_Cliente.cs" />
+    <Compile Include="Entities\Ventas.cs" />
     <Compile Include="GUILayer\frmABMUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +97,12 @@
     </Compile>
     <Compile Include="GUILayer\frmDetalle.Designer.cs">
       <DependentUpon>frmDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\frmFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmFactura.Designer.cs">
+      <DependentUpon>frmFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -121,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmDetalle.resx">
       <DependentUpon>frmDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmFactura.resx">
+      <DependentUpon>frmFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
@@ -159,6 +177,7 @@
     <Content Include="BD\Distribuidora_V2.sql" />
     <Content Include="BD\Registros_dis_V2.sql" />
     <Content Include="BD\ScriptClientes_V2.sql" />
+    <Content Include="BD\ScriptProductos_V2.sql" />
     <Content Include="Resources\agregar.png" />
     <Content Include="Resources\BUSCAR01.bmp" />
     <Content Include="Resources\cabecera.png" />
@@ -170,6 +189,7 @@
     <Content Include="Resources\Empty Recycle Bin 2000.ico" />
     <None Include="Resources\grabar3.png" />
     <Content Include="Resources\menu.png" />
+    <None Include="Resources\nuevo1.png" />
     <Content Include="Resources\salir.png" />
     <Content Include="Resources\test.png" />
     <Content Include="Resources\user.jpg" />

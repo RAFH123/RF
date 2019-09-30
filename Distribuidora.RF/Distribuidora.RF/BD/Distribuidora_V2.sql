@@ -75,6 +75,7 @@ borrado BIT NOT NULL DEFAULT 0
 --Clientes
 CREATE TABLE Clientes(
 id_cliente INT PRIMARY KEY NOT NULL IDENTITY (1,1),
+cuit VARCHAR(13),
 nombre_local VARCHAR(50),
 nombre_cliente VARCHAR(50) NOT NULL,
 domicilio_calle VARCHAR(50)NOT NULL,
@@ -113,6 +114,8 @@ fecha_registro date,
 estado INT CONSTRAINT FK_estadoProducto FOREIGN KEY REFERENCES EstadoProducto (id_estadoPr),
 categoria INT CONSTRAINT FK_categoria FOREIGN KEY REFERENCES Categorias (id_categoria),
 proveedor INT CONSTRAINT FK_proveedor_productos FOREIGN KEY REFERENCES Proveedores (id_proveedor),
+precio DECIMAL(10,2) NOT NULL,
+stock INT NOT NULL DEFAULT 0,
 borrado BIT NOT NULL DEFAULT 0
 )
 
@@ -122,7 +125,7 @@ borrado BIT NOT NULL DEFAULT 0
 
 --Ventas
 CREATE TABLE Ventas(
-nro_factura INT not null IDENTITY (1,1000),
+nro_factura INT not null IDENTITY (1,1),
 fecha date not null,
 cliente INT CONSTRAINT FK_cliente_ventas FOREIGN KEY REFERENCES Clientes (id_cliente),
 tipoFactura CHAR CONSTRAINT FK_tipoFactura_ventas FOREIGN KEY REFERENCES TipoFactura (id_tipoFactura),

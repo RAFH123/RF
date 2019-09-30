@@ -128,7 +128,7 @@ namespace Distribuidora.RF.DataAccessLayer
         public Cliente GetClienteSinParametros(string nombreCliente)
         {
             //Construimos la consulta sql para buscar el cliente en la base de datos.
-            String strSql = "SELECT C.id_cliente, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
+            String strSql = "SELECT C.id_cliente, C.cuit, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
                                         + "C.domicilio_numero, C.telefono, B.id_barrio, B.nombre AS barrio, E.descripcion AS estado, "
                                         + "E.id_estadoc, T.id_tipoc, B.ciudad, Ciu.nombre AS nomciu, "
                                         + "T.descripcion AS Tipo, C.fecha_registro, C.email "
@@ -157,7 +157,7 @@ namespace Distribuidora.RF.DataAccessLayer
 
 //            var strSql = "SELECT id_cliente, nombre_cliente FROM Clientes WHERE borrado = 0";
 
-            var strSql = "SELECT C.id_cliente, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
+            var strSql = "SELECT C.id_cliente, C.cuit, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
                                         + "C.domicilio_numero, C.telefono, B.id_barrio, B.nombre AS barrio, E.descripcion AS estado, "
                                         + "E.id_estadoc, T.id_tipoc, B.ciudad, Ciu.nombre AS nomciu, "
                                         + "T.descripcion AS Tipo, C.fecha_registro, C.email "
@@ -183,7 +183,7 @@ namespace Distribuidora.RF.DataAccessLayer
 
         public Cliente GetClienteById(int IDCliente)
         {
-            var strSql = "SELECT C.id_cliente, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
+            var strSql = "SELECT C.id_cliente, C.cuit, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
                                         + "C.domicilio_numero, C.telefono, B.id_barrio, B.nombre AS barrio, E.descripcion AS estado, "
                                         + "E.id_estadoc, T.id_tipoc, B.ciudad, Ciu.nombre AS nomciu, "
                                         + "T.descripcion AS Tipo, C.fecha_registro, C.email "
@@ -216,7 +216,7 @@ namespace Distribuidora.RF.DataAccessLayer
 //                                        + "INNER JOIN TipoCliente T ON T.id_tipoC = C.tipo_cliente "
 //                                    + "WHERE C.borrado = 0 ";
 
-            var strSql = "SELECT C.id_cliente, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
+            var strSql = "SELECT C.id_cliente, C.cuit, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
                                         + "C.domicilio_numero, C.telefono, B.id_barrio, B.nombre AS barrio, "
                                         + "E.id_estadoc, E.descripcion AS estado, B.ciudad, Ciu.nombre AS nomciu, "
                                         + "T.id_tipoc, T.descripcion AS tipo, C.fecha_registro, C.email "
@@ -257,7 +257,7 @@ namespace Distribuidora.RF.DataAccessLayer
             List<Cliente> listadoClientes = new List<Cliente>();
             String sqlcondiciones = condiciones;
 
-            var strSql = "SELECT C.id_cliente, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
+            var strSql = "SELECT C.id_cliente, C.cuit, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
                                         + "C.domicilio_numero, C.telefono, C.id_barrio, B.nombre AS barrio, E.descripcion AS estado, "
                                         + "T.descripcion AS tipo, C.fecha_registro, C.email, B.ciudad, Ciu.nombre AS nomciu "
                                     + "FROM Clientes C "
@@ -287,6 +287,7 @@ namespace Distribuidora.RF.DataAccessLayer
         {
             Cliente oCliente = new Cliente();
             oCliente.ID_Cliente = Convert.ToInt32(row["id_cliente"].ToString());
+            oCliente.CUIT = row["cuit"].ToString();
             oCliente.Nombre_Local = row["nombre_local"].ToString();
             oCliente.Nombre_Cliente = row["nombre_cliente"].ToString();
             oCliente.Domicilio_Calle = row["domicilio_calle"].ToString();
