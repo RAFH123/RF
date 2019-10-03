@@ -174,10 +174,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="BD\Distribuidora_V2.sql" />
-    <Content Include="BD\Registros_dis_V2.sql" />
-    <Content Include="BD\ScriptClientes_V2.sql" />
-    <Content Include="BD\ScriptProductos_V2.sql" />
+    <Content Include="BD\DistribuidoraDBScript.sql" />
     <Content Include="Resources\agregar.png" />
     <Content Include="Resources\BUSCAR01.bmp" />
     <Content Include="Resources\cabecera.png" />
