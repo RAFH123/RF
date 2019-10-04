@@ -263,7 +263,7 @@ namespace Distribuidora.RF.GUILayer
             decimal neto = Math.Round(subtotal - (subtotal * descuento / 100), 2);
             txtImporteNeto.Text = neto.ToString();
             txtIVAInscr.Text = Math.Round(neto * 21 / 100, 2).ToString();
-            txtImporteTotal.Text = txtIVAInscr.Enabled ? Math.Round((neto + (neto * 21 / 100)), 2).ToString() : neto.ToString();
+            txtImporteTotal.Text = txtIVAInscr.Visible ? Math.Round((neto + (neto * 21 / 100)), 2).ToString() : neto.ToString();
 
         }
         private void _cboArticulo_SelectionChangeCommitted(object sender, EventArgs e)
@@ -376,7 +376,7 @@ namespace Distribuidora.RF.GUILayer
             txtImporteNeto.Text = neto.ToString();
             decimal iva = Math.Round(neto * 21 / 100, 2);
             txtIVAInscr.Text = iva.ToString();
-            txtImporteTotal.Text = txtIVAInscr.Enabled ? (neto + iva).ToString() : neto.ToString();
+            txtImporteTotal.Text = txtIVAInscr.Visible ? (neto + iva).ToString() : neto.ToString();
         }
 
     }
