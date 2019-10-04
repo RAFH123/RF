@@ -190,6 +190,7 @@ namespace Distribuidora.RF.GUILayer
             this._cboArticulo.SelectedIndex = -1;
             this._txtCantidad.Text = "";
             this._txtPrecio.Text = "0,00";
+            this._txtImporte.Text = "0,00";
             this._cboArticulo.Select();
 
             _btnCancelar.Enabled = true;
@@ -204,8 +205,8 @@ namespace Distribuidora.RF.GUILayer
             if(ValidarItem())
             {
                 int idArt = (int) _cboArticulo.SelectedValue;
-                this.dgvDetalle.Rows.Add((this.dgvDetalle.Rows.Count + 1), idArt, oProductoService.ObtenerProductoPorId(idArt), 
-                                        _txtCantidad.Text, _txtPrecio.Text, 
+                this.dgvDetalle.Rows.Add((this.dgvDetalle.Rows.Count + 1), idArt, _cboArticulo.Text,
+                                        _txtCantidad.Text, _txtPrecio.Text,
                                         (int.Parse(_txtCantidad.Text) * decimal.Parse(_txtPrecio.Text)));
 
                 _btnNuevo.Enabled = true;
@@ -213,26 +214,11 @@ namespace Distribuidora.RF.GUILayer
                 _btnCancelar.Enabled = false;
                 _btnQuitar.Enabled = true;
 
-                dgvDetalle.FirstDisplayedScrollingRowIndex = dgvDetalle.Rows[dgvDetalle.Rows.Count - 1].Index;
-                dgvDetalle.ClearSelection();
-                dgvDetalle.Refresh();
                 dgvDetalle.CurrentCell = dgvDetalle.Rows[dgvDetalle.Rows.Count - 1].Cells[0];
                 dgvDetalle.Rows[dgvDetalle.Rows.Count - 1].Selected = true;
                 dgvDetalle_SelectionChanged(null, null);
 
-                decimal subtotal = 0;
-                int descuento = 0;
-                for (int i = 0; i < dgvDetalle.Rows.Count; i++ )
-                { 
-                        dgvDetalle.Rows[i].Cells[0].Value = i + 1;
-                        subtotal += decimal.Parse(dgvDetalle.Rows[i].Cells["Importe"].Value.ToString());
-                }
-                txtSubtotal.Text = subtotal.ToString();
-                Int32.TryParse(txtDescuento.Text.Trim(), out descuento);
-                decimal neto = Math.Round(subtotal - (subtotal * descuento / 100), 2);
-                txtImporteNeto.Text = neto.ToString();
-                txtIVAInscr.Text = Math.Round(neto * 21 / 100, 2).ToString();
-                txtImporteTotal.Text = txtIVAInscr.Enabled ? Math.Round((neto + (neto * 21 / 100)), 2).ToString() : neto.ToString();
+                CalcularImportesFactura();
             }
         }
 
@@ -263,8 +249,39 @@ namespace Distribuidora.RF.GUILayer
             return true;
         }
 
+        private void CalcularImportesFactura()
+        {
+            decimal subtotal = 0;
+            int descuento = 0;
+            for (int i = 0; i < dgvDetalle.Rows.Count; i++)
+            {
+                dgvDetalle.Rows[i].Cells[0].Value = i + 1;
+                subtotal += decimal.Parse(dgvDetalle.Rows[i].Cells["Importe"].Value.ToString());
+            }
+            txtSubtotal.Text = subtotal.ToString();
+            Int32.TryParse(txtDescuento.Text.Trim(), out descuento);
+            decimal neto = Math.Round(subtotal - (subtotal * descuento / 100), 2);
+            txtImporteNeto.Text = neto.ToString();
+            txtIVAInscr.Text = Math.Round(neto * 21 / 100, 2).ToString();
+            txtImporteTotal.Text = txtIVAInscr.Enabled ? Math.Round((neto + (neto * 21 / 100)), 2).ToString() : neto.ToString();
+
+        }
         private void _cboArticulo_SelectionChangeCommitted(object sender, EventArgs e)
         {
+
+            if (dgvDetalle.Rows.Count > 0)
+            {
+                for (int i = 0; i < dgvDetalle.Rows.Count; i++)
+                {
+                    if (dgvDetalle.Rows[i].Cells["CodArt"].Value.ToString() == _cboArticulo.SelectedValue.ToString())
+                    {
+                        MessageBox.Show("El artículo " + _cboArticulo.SelectedText + " ya se ingresó en el Detalle...");
+                        _cboArticulo.SelectedIndex = -1;
+                        return;
+                    }
+                }
+            }
+
             Producto oProd;
             oProd = oProductoService.ObtenerProductoPorId(int.Parse(_cboArticulo.SelectedValue.ToString()));
 
@@ -290,6 +307,7 @@ namespace Distribuidora.RF.GUILayer
         private void _btnCancelar_Click(object sender, EventArgs e)
         {
             LimpiarDetalle();
+            dgvDetalle_SelectionChanged(null, null);
         }
 
         private void dgvDetalle_SelectionChanged(object sender, EventArgs e)
@@ -338,42 +356,14 @@ namespace Distribuidora.RF.GUILayer
 
                 if (dgvDetalle.Rows.Count > 0)
                 {
-                    decimal subtotal = 0;
-                    int descuento = 0;
-                    for (int i = 0; i < dgvDetalle.Rows.Count; i++ )
-                    { 
-                        dgvDetalle.Rows[i].Cells[0].Value = i + 1;
-                        subtotal += decimal.Parse(dgvDetalle.Rows[i].Cells["Importe"].Value.ToString());
-                    }
-                    txtSubtotal.Text = subtotal.ToString();
-                    Int32.TryParse(txtDescuento.Text.Trim(), out descuento);
-                    decimal neto = Math.Round(subtotal - (subtotal * descuento / 100), 2);
-                    txtImporteNeto.Text = neto.ToString();
-                    txtIVAInscr.Text = Math.Round(neto * 21 / 100, 2).ToString();
-                    txtImporteTotal.Text = txtIVAInscr.Enabled ? Math.Round((neto + (neto * 21 / 100)), 2).ToString() : neto.ToString();
+                    CalcularImportesFactura();
 
-                    dgvDetalle.FirstDisplayedScrollingRowIndex = dgvDetalle.Rows[dgvDetalle.Rows.Count - 1].Index;
-                    dgvDetalle.ClearSelection();
-                    dgvDetalle.Refresh();
                     dgvDetalle.CurrentCell = dgvDetalle.Rows[dgvDetalle.Rows.Count - 1].Cells[0];
                     dgvDetalle.Rows[dgvDetalle.Rows.Count - 1].Selected = true;
                 }
                 
                 dgvDetalle_SelectionChanged(null, null);
-
-
-                
             }
-        }
-
-        private void dgvDetalle_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-        {
-            //dgvDetalle_SelectionChanged(null, null);
-        }
-
-        private void dgvDetalle_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            //dgvDetalle_SelectionChanged(null, null);
         }
 
         private void txtDescuento_TextChanged(object sender, EventArgs e)
@@ -387,8 +377,6 @@ namespace Distribuidora.RF.GUILayer
             decimal iva = Math.Round(neto * 21 / 100, 2);
             txtIVAInscr.Text = iva.ToString();
             txtImporteTotal.Text = txtIVAInscr.Enabled ? (neto + iva).ToString() : neto.ToString();
-
-
         }
 
     }

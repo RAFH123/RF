@@ -42,6 +42,9 @@
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtNroFact = new System.Windows.Forms.TextBox();
             this.dpbDetalle = new System.Windows.Forms.GroupBox();
+            this._txtCantidad = new System.Windows.Forms.MaskedTextBox();
+            this._txtImporte = new System.Windows.Forms.TextBox();
+            this.lblImporte = new System.Windows.Forms.Label();
             this._btnNuevo = new System.Windows.Forms.Button();
             this._btnCancelar = new System.Windows.Forms.Button();
             this._btnQuitar = new System.Windows.Forms.Button();
@@ -76,9 +79,6 @@
             this.txtIVAInscr = new System.Windows.Forms.TextBox();
             this.txtImporteTotal = new System.Windows.Forms.TextBox();
             this.lblSugerido = new System.Windows.Forms.Label();
-            this.lblImporte = new System.Windows.Forms.Label();
-            this._txtImporte = new System.Windows.Forms.TextBox();
-            this._txtCantidad = new System.Windows.Forms.MaskedTextBox();
             this.dpbDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
@@ -225,6 +225,34 @@
             this.dpbDetalle.TabStop = false;
             this.dpbDetalle.Text = "Detalle";
             // 
+            // _txtCantidad
+            // 
+            this._txtCantidad.Enabled = false;
+            this._txtCantidad.Location = new System.Drawing.Point(267, 29);
+            this._txtCantidad.Mask = "99999";
+            this._txtCantidad.Name = "_txtCantidad";
+            this._txtCantidad.Size = new System.Drawing.Size(41, 20);
+            this._txtCantidad.TabIndex = 1;
+            this._txtCantidad.ValidatingType = typeof(int);
+            this._txtCantidad.TextChanged += new System.EventHandler(this._txtCantidad_TextChanged);
+            // 
+            // _txtImporte
+            // 
+            this._txtImporte.Location = new System.Drawing.Point(512, 28);
+            this._txtImporte.Name = "_txtImporte";
+            this._txtImporte.ReadOnly = true;
+            this._txtImporte.Size = new System.Drawing.Size(68, 20);
+            this._txtImporte.TabIndex = 3;
+            // 
+            // lblImporte
+            // 
+            this.lblImporte.AutoSize = true;
+            this.lblImporte.Location = new System.Drawing.Point(467, 33);
+            this.lblImporte.Name = "lblImporte";
+            this.lblImporte.Size = new System.Drawing.Size(42, 13);
+            this.lblImporte.TabIndex = 8;
+            this.lblImporte.Text = "Importe";
+            // 
             // _btnNuevo
             // 
             this._btnNuevo.Image = global::Distribuidora.RF.Properties.Resources.nuevo1;
@@ -284,8 +312,6 @@
             this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetalle.Size = new System.Drawing.Size(760, 180);
             this.dgvDetalle.TabIndex = 7;
-            this.dgvDetalle.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetalle_RowsAdded);
-            this.dgvDetalle.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvDetalle_RowsRemoved);
             this.dgvDetalle.SelectionChanged += new System.EventHandler(this.dgvDetalle_SelectionChanged);
             // 
             // NroItem
@@ -535,34 +561,6 @@
             this.lblSugerido.Size = new System.Drawing.Size(53, 13);
             this.lblSugerido.TabIndex = 30;
             this.lblSugerido.Text = "(sugerido)";
-            // 
-            // lblImporte
-            // 
-            this.lblImporte.AutoSize = true;
-            this.lblImporte.Location = new System.Drawing.Point(467, 33);
-            this.lblImporte.Name = "lblImporte";
-            this.lblImporte.Size = new System.Drawing.Size(42, 13);
-            this.lblImporte.TabIndex = 8;
-            this.lblImporte.Text = "Importe";
-            // 
-            // _txtImporte
-            // 
-            this._txtImporte.Location = new System.Drawing.Point(512, 28);
-            this._txtImporte.Name = "_txtImporte";
-            this._txtImporte.ReadOnly = true;
-            this._txtImporte.Size = new System.Drawing.Size(68, 20);
-            this._txtImporte.TabIndex = 3;
-            // 
-            // _txtCantidad
-            // 
-            this._txtCantidad.Enabled = false;
-            this._txtCantidad.Location = new System.Drawing.Point(267, 29);
-            this._txtCantidad.Mask = "99999";
-            this._txtCantidad.Name = "_txtCantidad";
-            this._txtCantidad.Size = new System.Drawing.Size(41, 20);
-            this._txtCantidad.TabIndex = 1;
-            this._txtCantidad.ValidatingType = typeof(int);
-            this._txtCantidad.TextChanged += new System.EventHandler(this._txtCantidad_TextChanged);
             // 
             // frmFactura
             // 
