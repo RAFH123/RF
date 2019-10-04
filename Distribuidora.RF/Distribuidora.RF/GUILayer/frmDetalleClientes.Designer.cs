@@ -1,6 +1,6 @@
 ﻿namespace Distribuidora.RF.GUILayer
 {
-    partial class frmDetalle
+    partial class frmDetalleClientes
     {
         /// <summary>
         /// Required designer variable.

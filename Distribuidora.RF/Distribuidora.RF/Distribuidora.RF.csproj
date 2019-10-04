@@ -86,17 +86,17 @@
     <Compile Include="GUILayer\frmBuscarClientes.Designer.cs">
       <DependentUpon>frmBuscarClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\frmClientes.cs">
+    <Compile Include="GUILayer\frmABMClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\frmClientes.Designer.cs">
-      <DependentUpon>frmClientes.cs</DependentUpon>
+    <Compile Include="GUILayer\frmABMClientes.Designer.cs">
+      <DependentUpon>frmABMClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\frmDetalle.cs">
+    <Compile Include="GUILayer\frmDetalleClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\frmDetalle.Designer.cs">
-      <DependentUpon>frmDetalle.cs</DependentUpon>
+    <Compile Include="GUILayer\frmDetalleClientes.Designer.cs">
+      <DependentUpon>frmDetalleClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\frmFactura.cs">
       <SubType>Form</SubType>
@@ -131,11 +131,11 @@
     <EmbeddedResource Include="GUILayer\frmBuscarClientes.resx">
       <DependentUpon>frmBuscarClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\frmClientes.resx">
-      <DependentUpon>frmClientes.cs</DependentUpon>
+    <EmbeddedResource Include="GUILayer\frmABMClientes.resx">
+      <DependentUpon>frmABMClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\frmDetalle.resx">
-      <DependentUpon>frmDetalle.cs</DependentUpon>
+    <EmbeddedResource Include="GUILayer\frmDetalleClientes.resx">
+      <DependentUpon>frmDetalleClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmFactura.resx">
       <DependentUpon>frmFactura.cs</DependentUpon>

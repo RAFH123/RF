@@ -153,7 +153,7 @@ namespace Distribuidora.RF.GUILayer
         {
             if (dgvSalida.CurrentRow != null)
             {
-                frmDetalle frmDet = new frmDetalle();
+                frmDetalleClientes frmDet = new frmDetalleClientes();
                 Cliente selectedItem = (Cliente)dgvSalida.CurrentRow.DataBoundItem;
                 frmDet.InicializarDetalle(selectedItem.ID_Cliente);
                 frmDet.Enabled = true;

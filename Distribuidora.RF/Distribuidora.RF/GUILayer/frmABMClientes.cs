@@ -12,7 +12,7 @@ using Distribuidora.RF.Entities;
 
 namespace Distribuidora.RF.GUILayer
 {
-    public partial class frmClientes : Form
+    public partial class frmABMClientes : Form
     {
         private ClienteService oClienteService;
         private Tipo_ClienteService oTipoClienteService;
@@ -22,7 +22,7 @@ namespace Distribuidora.RF.GUILayer
 
         bool nuevo = false;
 
-        public frmClientes()
+        public frmABMClientes()
         {
             InitializeComponent();
          

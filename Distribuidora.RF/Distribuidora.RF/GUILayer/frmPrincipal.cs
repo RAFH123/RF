@@ -31,7 +31,7 @@ namespace Distribuidora.RF.GUILayer
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmClientes frmC = new frmClientes();
+            frmABMClientes frmC = new frmABMClientes();
             frmC.ShowDialog();
         }
 

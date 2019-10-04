@@ -75,14 +75,14 @@ namespace Distribuidora.RF.GUILayer
 
         private void cboTipoFact_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            switch (this.cboTipoFact.SelectedValue.ToString())
+            switch (Convert.ToChar(this.cboTipoFact.SelectedValue))
             {
-                case "65":
+                case 'A':
                     this.txtNroFact.Text = (oVentasService.ObtenerProximoNroFactura('A') + 1).ToString("0001-00000000");
                     HabilitarCamposFA();
                     RecalcularImporteT("A");
                     break;
-                case "66":
+                case 'B':
                     this.txtNroFact.Text = (oVentasService.ObtenerProximoNroFactura('B') + 1).ToString("0001-00000000");
 //                    this.cboCondIVA.Text = "Consumidor final";
                     this.cboCondIVA.SelectedIndex = 0;
@@ -90,7 +90,7 @@ namespace Distribuidora.RF.GUILayer
                     HabilitarCamposFBC();
                     RecalcularImporteT(string.Empty);
                     break;
-                case "67":
+                case 'C':
                     this.txtNroFact.Text = (oVentasService.ObtenerProximoNroFactura('C') + 1).ToString("0001-00000000");
                     this.cboCondIVA.SelectedIndex = -1;
                     this.cboCondIVA.Enabled = true;
@@ -240,7 +240,7 @@ namespace Distribuidora.RF.GUILayer
                 }
                 if((int.Parse(_txtCantidad.Text)) > stockArt)
                 {
-                    MessageBox.Show("El stock actual del artículo es :" + stockArt.ToString());
+                    MessageBox.Show("El stock actual del artículo es : " + stockArt.ToString());
                     _txtCantidad.Focus();
                     return false;
                 }

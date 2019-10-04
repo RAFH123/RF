@@ -12,11 +12,11 @@ using Distribuidora.RF.BusinessLayer;
 
 namespace Distribuidora.RF.GUILayer
 {
-    public partial class frmDetalle : Form
+    public partial class frmDetalleClientes : Form
     {
         private ClienteService clienteService;
         
-        public frmDetalle()
+        public frmDetalleClientes()
         {
             InitializeComponent();
             clienteService = new ClienteService();
