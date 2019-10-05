@@ -10,35 +10,46 @@ namespace Distribuidora.RF.DataAccessLayer
 {
     class VentasDao
     {
-        internal bool Create(Cliente oCli)
+        public int Create(Ventas oVenta, List<ItemVenta> oListDetalle)
         {
-            string nomlocal, tel, email, fecreg, barrio, tipoc, estadoc;
-            nomlocal = oCli.Nombre_Local.Trim() == string.Empty ? "NULL" : ("'" + oCli.Nombre_Local + "'");
-            tel = oCli.Telefono.Trim() == string.Empty ? "NULL" : ("'" + oCli.Telefono + "'");
-            email = oCli.Email.Trim() == string.Empty ? "NULL" : ("'" + oCli.Email + "'");
-            if (oCli.Fecha_Registro.ToString("dd/MM/yyyy") != "01/01/0001")
-                fecreg = "'" + oCli.Fecha_Registro.ToString("dd/MM/yyyy") + "'";
-            else
-                fecreg = "NULL";
-            barrio = oCli.Barrio.ID_Barrio == 0 ? "NULL" : oCli.Barrio.ID_Barrio.ToString();
-            tipoc = oCli.Tipo_Cliente.ID_TipoC == 0 ? "NULL" : oCli.Tipo_Cliente.ID_TipoC.ToString();
-            estadoc = oCli.Estado_Cliente.ID_EstadoC == 0 ? "NULL" : oCli.Estado_Cliente.ID_EstadoC.ToString();
+            int nrofactreal = 0;
+            try
+            {
+                DBHelper.GetDBHelper().Open();
+                DBHelper.GetDBHelper().BeginTransaction();
 
-            string str_sql = "INSERT INTO Clientes (nombre_local, nombre_cliente, domicilio_calle, domicilio_numero, " +
-                                "telefono, email, fecha_registro, barrio, tipo_cliente, estado_cliente, borrado)" +
-                            " VALUES (" +
-                            nomlocal + ", " +
-                            "'" + oCli.Nombre_Cliente + "', " +
-                            "'" + oCli.Domicilio_Calle + "', " +
-                            "'" + oCli.Domicilio_Numero + "', " +
-                            tel + ", " +
-                            email + ", " +
-                            fecreg + ", " +
-                            barrio + ", " +
-                            tipoc + ", " +
-                            estadoc + ", 0)";
+                nrofactreal = GetNextNumberFact(oVenta.TipoFactura.Id_TipoFactura);
 
-            return (DBHelper.GetDBHelper().EjecutarSQL(str_sql) == 1);
+                string strSql = "INSERT INTO Ventas (tipoFactura, nro_factura, fecha, cliente, condiva, condventa," 
+                                + "subtotal, porc_descuento, importe_neto, importe_total) "
+                                + "VALUES ('" + oVenta.TipoFactura.Id_TipoFactura + "', " + nrofactreal + ", '" 
+                                + oVenta.Fecha.ToString("dd/MM/yyyy") + "', " + oVenta.Cliente.ID_Cliente + ", '"
+                                + oVenta.CondIVA + "', '" + oVenta.CondVenta + "', " + oVenta.Subtotal.ToString().Replace(',','.') + ", "
+                                + oVenta.PorcDescuento.ToString().Replace(',', '.') + ", "
+                                + oVenta.ImporteNeto.ToString().Replace(',', '.') + ", "
+                                + oVenta.ImporteTotal.ToString().Replace(',', '.') + ")";
+
+                //System.Windows.Forms.MessageBox.Show(strSql);
+                DBHelper.GetDBHelper().EjecutarSQLconTransaccion(strSql);
+
+                DetalleVentasDao oDet = new DetalleVentasDao();
+                oDet.Create(oVenta.TipoFactura.Id_TipoFactura, nrofactreal, oListDetalle);
+
+                DBHelper.GetDBHelper().Commit();
+
+            }
+            catch (Exception ex)
+            {
+                DBHelper.GetDBHelper().Rollback();
+                nrofactreal = 0;
+                throw ex;
+            }
+            finally
+            {
+                // Cierra la conexión 
+                DBHelper.GetDBHelper().Close();
+            }
+            return nrofactreal;
         }
 
         public int GetNextNumberFact(char tipoFact)
@@ -46,7 +57,7 @@ namespace Distribuidora.RF.DataAccessLayer
             var strSql = "SELECT MAX(nro_factura) AS UltimoNro FROM Ventas WHERE tipoFactura = '" + tipoFact + "' AND borrado = 0";
             DataTable fila = DBHelper.GetDBHelper().ConsultaSQL(strSql);
 
-            return (fila.Rows[0]["UltimoNro"] != DBNull.Value ? (int)fila.Rows[0]["UltimoNro"] : 0);
+            return (fila.Rows[0]["UltimoNro"] != DBNull.Value ? Convert.ToInt32(fila.Rows[0]["UltimoNro"]) + 1 : 1);
         }
     }
 }

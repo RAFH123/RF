@@ -78,12 +78,12 @@ namespace Distribuidora.RF.GUILayer
             switch (Convert.ToChar(this.cboTipoFact.SelectedValue))
             {
                 case 'A':
-                    this.txtNroFact.Text = (oVentasService.ObtenerProximoNroFactura('A') + 1).ToString("0001-00000000");
+                    this.txtNroFact.Text = oVentasService.ObtenerProximoNroFactura('A').ToString("0001-00000000");
                     HabilitarCamposFA();
                     RecalcularImporteT("A");
                     break;
                 case 'B':
-                    this.txtNroFact.Text = (oVentasService.ObtenerProximoNroFactura('B') + 1).ToString("0001-00000000");
+                    this.txtNroFact.Text = oVentasService.ObtenerProximoNroFactura('B').ToString("0001-00000000");
 //                    this.cboCondIVA.Text = "Consumidor final";
                     this.cboCondIVA.SelectedIndex = 0;
                     this.cboCondIVA.Enabled = false;
@@ -91,7 +91,7 @@ namespace Distribuidora.RF.GUILayer
                     RecalcularImporteT(string.Empty);
                     break;
                 case 'C':
-                    this.txtNroFact.Text = (oVentasService.ObtenerProximoNroFactura('C') + 1).ToString("0001-00000000");
+                    this.txtNroFact.Text = oVentasService.ObtenerProximoNroFactura('C').ToString("0001-00000000");
                     this.cboCondIVA.SelectedIndex = -1;
                     this.cboCondIVA.Enabled = true;
                     HabilitarCamposFBC();
@@ -292,7 +292,7 @@ namespace Distribuidora.RF.GUILayer
             _txtCantidad.Text = "";
             _txtImporte.Text = "0,00";
 
-            this._btnCancelar.Enabled = true;
+            _btnCancelar.Enabled = true;
             _btnAgregar.Enabled = false;
         }
 
@@ -344,7 +344,7 @@ namespace Distribuidora.RF.GUILayer
         private void _btnQuitar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Está seguro de eliminar el articulo " + _cboArticulo.Text + "?",
-                                "ELiminando",
+                                "Eliminando",
                                 MessageBoxButtons.YesNo,
                                 MessageBoxIcon.Error,
                                 MessageBoxDefaultButton.Button2) == DialogResult.Yes)
@@ -379,5 +379,133 @@ namespace Distribuidora.RF.GUILayer
             txtImporteTotal.Text = txtIVAInscr.Visible ? (neto + iva).ToString() : neto.ToString();
         }
 
+        private void btnGrabar_Click(object sender, EventArgs e)
+        {
+            if (ValidarFactura())
+            {
+                Ventas oVenta = new Ventas();
+                oVenta.TipoFactura = new TipoFactura();
+                oVenta.TipoFactura.Id_TipoFactura = Convert.ToChar(this.cboTipoFact.SelectedValue);
+                oVenta.Fecha = dtpFecha.Value;
+                oVenta.Cliente = new Cliente();
+                oVenta.Cliente.ID_Cliente = (int)cboCliente.SelectedValue;
+                oVenta.CondIVA = cboCondIVA.SelectedItem != null ? cboCondIVA.SelectedItem.ToString() : string.Empty;
+                oVenta.CondVenta = cboCondVenta.SelectedItem != null ? cboCondVenta.SelectedItem.ToString() : string.Empty;
+                oVenta.Subtotal = decimal.Parse(txtSubtotal.Text);
+                oVenta.PorcDescuento = txtDescuento.Text == string.Empty ? 0 : int.Parse(txtDescuento.Text);
+                oVenta.ImporteNeto = decimal.Parse(txtImporteNeto.Text);
+                oVenta.ImporteTotal = decimal.Parse(txtImporteTotal.Text);
+
+                List<ItemVenta> oDetalleVentas;
+                oDetalleVentas = new List<ItemVenta>();
+                for (int i = 0; i < dgvDetalle.Rows.Count; i++)
+                {
+                    ItemVenta oItemVenta = new ItemVenta();
+                    oItemVenta.ProdDetalle = new Producto();
+                    oItemVenta.NroItem = int.Parse(dgvDetalle.Rows[i].Cells["NroItem"].Value.ToString());
+                    oItemVenta.ProdDetalle.Id_Producto = int.Parse(dgvDetalle.Rows[i].Cells["CodArt"].Value.ToString());
+                    oItemVenta.Cantidad = int.Parse(dgvDetalle.Rows[i].Cells["Cantidad"].Value.ToString());
+                    oItemVenta.Precio = decimal.Parse(dgvDetalle.Rows[i].Cells["Precio"].Value.ToString());
+                    oItemVenta.Importe = decimal.Parse(dgvDetalle.Rows[i].Cells["Importe"].Value.ToString());
+                    oDetalleVentas.Add(oItemVenta);
+                }
+
+                int nrofactcargada = oVentasService.CargarFactura(oVenta, oDetalleVentas);
+                if (nrofactcargada > 0)
+                    MessageBox.Show("Factura " + oVenta.TipoFactura.Id_TipoFactura + " Nro.: "
+                                    + nrofactcargada.ToString("0001-00000000")
+                                    + " cargada!.");
+                else
+                    MessageBox.Show("No pudo cargarse la factura...");
+
+                btnGrabar.Enabled = false;
+
+                _btnNuevo.Enabled = false;
+                _btnQuitar.Enabled = false;
+                _btnCancelar.Enabled = false;
+                _btnAgregar.Enabled = false;
+
+            }
+        }
+
+        private bool ValidarFactura()
+        {
+            if (cboTipoFact.SelectedIndex < 0)
+            {
+                MessageBox.Show("Seleccione un tipo de factura...");
+                cboTipoFact.Select();
+                return false;
+            }
+            if (cboCliente.SelectedIndex < 0)
+            {
+                MessageBox.Show("Seleccione un cliente...");
+                cboCliente.Select();
+                return false;
+            }
+            if (Convert.ToChar(cboTipoFact.SelectedValue) == 'C' && cboCondIVA.SelectedIndex < 0)
+            {
+                MessageBox.Show("Seleccione una condicion de IVA...");
+                cboCondIVA.Select();
+                return false;
+            }
+            if (cboCondVenta.SelectedIndex < 0)
+            {
+                MessageBox.Show("Ingrese una condición de venta...");
+                cboCondVenta.Select();
+                return false;
+            }
+            if (dgvDetalle.Rows.Count == 0)
+            {
+                MessageBox.Show("Ingrese al menos un ítem en el Detalle de la Factura...");
+                _btnNuevo.Focus();
+                return false;
+            }
+            return true;
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            if (!btnGrabar.Enabled)
+            {
+                LimpiarTodo();
+                return;
+            }
+
+            if (cboTipoFact.SelectedIndex >= 0 || cboCliente.SelectedIndex >= 0 || dgvDetalle.Rows.Count > 0)
+            {
+                if (MessageBox.Show("Está seguro de cancelar la carga de la factura?",
+                                    "Cancelando",
+                                    MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Error,
+                                    MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                    LimpiarTodo();
+            }
+        }
+
+        void LimpiarTodo()
+        {
+            cboTipoFact.SelectedIndex = -1;
+            txtNroFact.Text = string.Empty;
+            cboCliente.SelectedIndex = -1;
+            cboCondIVA.SelectedIndex = -1;
+            cboCondVenta.SelectedIndex = -1;
+            txtCUIT.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            dgvDetalle.Rows.Clear();
+            LimpiarDetalle();
+
+            txtSubtotal.Text = "0";
+            txtDescuento.Text = "0";
+            txtImporteNeto.Text = "0";
+            txtIVAInscr.Text = "0";
+            txtImporteTotal.Text = "0";
+
+            _btnAgregar.Enabled = false;
+            _btnNuevo.Enabled = true;
+            _btnCancelar.Enabled = false;
+            _btnQuitar.Enabled = false;
+
+            btnGrabar.Enabled = true;
+        }
     }
 }

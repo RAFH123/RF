@@ -8,7 +8,7 @@ namespace Distribuidora.RF.Entities
 {
     class TipoFactura
     {
-        public int Id_TipoFactura { get; set; }
+        public char Id_TipoFactura { get; set; }
 
         public string Descripcion { get; set; }
 

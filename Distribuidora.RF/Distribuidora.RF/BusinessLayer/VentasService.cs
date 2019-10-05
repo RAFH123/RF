@@ -16,9 +16,9 @@ namespace Distribuidora.RF.BusinessLayer
             oVentasDao = new VentasDao();
         }
 
-        internal bool CrearCliente(Cliente oUsuario)
+        internal int CargarFactura(Ventas oVenta, List<ItemVenta> oDetalleVentas)
         {
-            return oVentasDao.Create(oUsuario);
+            return oVentasDao.Create(oVenta, oDetalleVentas);
         }
 
         internal int ObtenerProximoNroFactura(char tipoFact)

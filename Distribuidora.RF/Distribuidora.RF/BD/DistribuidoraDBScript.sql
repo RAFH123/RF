@@ -125,21 +125,31 @@ borrado BIT NOT NULL DEFAULT 0
 
 --Ventas
 CREATE TABLE Ventas(
-nro_factura INT not null IDENTITY (1,1),
+tipoFactura CHAR NOT NULL CONSTRAINT FK_tipoFactura_ventas FOREIGN KEY REFERENCES TipoFactura (id_tipoFactura),
+nro_factura DECIMAL(8,0) NOT NULL,
+PRIMARY KEY (tipoFactura, nro_factura),
 fecha date not null,
 cliente INT CONSTRAINT FK_cliente_ventas FOREIGN KEY REFERENCES Clientes (id_cliente),
-tipoFactura CHAR CONSTRAINT FK_tipoFactura_ventas FOREIGN KEY REFERENCES TipoFactura (id_tipoFactura),
-PRIMARY KEY (nro_factura, tipoFactura),
+condiva VARCHAR(40),
+condventa VARCHAR(20),
+subtotal DECIMAL(10,2),
+porc_descuento INT,
+importe_neto DECIMAL(10,2),
+importe_iva DECIMAL(10,2) DEFAULT 0,
+importe_total DECIMAL(10,2),
 borrado BIT NOT NULL DEFAULT 0
 )
 
 --DetVentas
 CREATE TABLE DetVentas(
-nro_factura INT ,
 tipo_factura CHAR,
+nro_factura DECIMAL(8,0),
 id_producto INT CONSTRAINT FK_producto_detVenta FOREIGN KEY REFERENCES Productos (id_producto),
-PRIMARY KEY (nro_factura,tipo_factura,id_producto),
-FOREIGN KEY (nro_factura,tipo_factura) REFERENCES Ventas (nro_factura, tipoFactura),
+PRIMARY KEY (tipo_factura,nro_factura,id_producto),
+FOREIGN KEY (tipo_factura,nro_factura) REFERENCES Ventas (tipoFactura,nro_factura),
+precio DECIMAL(10,2),
+cantidad INT,
+importe DECIMAL(10,2),
 borrado BIT NOT NULL DEFAULT 0
 )
 
@@ -324,12 +334,12 @@ INSERT INTO Categorias VALUES ('Alimentos digestivos',0)
 
 
 use Distribuidora_v2
-INSERT INTO Clientes VALUES(NULL, 'Pato Azul', 'Arturo Viñas', 'San Martín', 788, '0351-4514753','patoazul@gmail.com','2019-09-03',1,1,1,0)
-INSERT INTO Clientes VALUES(NULL, 'Vida Sana', 'Maria Vegas', 'Oncativo', 1454, '0351-4518013','vidasanaproductos@gmail.com','2019-01-01',2,1,1,0)
-INSERT INTO Clientes VALUES(NULL, 'Amanecer', 'Esmeralda Di Pietro', 'Santa Fé', 5120, '0351-159913445','dipietroventa@gmail.com','2017-08-13',3,3,1,0)
-INSERT INTO Clientes VALUES(NULL, 'Dietetica Anahi', 'Anahi Sosa', 'Perón', 1157, '0351-450598','psosaadietetica@gmail.com','2018-05-07',5,1,1,0)
-INSERT INTO Clientes VALUES(NULL, 'Holy Seed', 'Rosa Zabala', 'San Lorenzo', 510, '0351-4587009','holyseedmoon@gmail.com','2018-11-28',4,2,1,0)
-INSERT INTO Clientes VALUES(NULL, 'Salud Hoy', 'Dario Brites', 'Av. Pueyrredón', 985, '0351-15145805','vidasaanainsumos@gmail.com','2018-11-28',21,2,1,0)
+INSERT INTO Clientes VALUES('30-50108624-6', 'Pato Azul', 'Arturo Viñas', 'San Martín', 788, '0351-4514753','patoazul@gmail.com','2019-09-03',1,1,1,0)
+INSERT INTO Clientes VALUES('30-66916066-2', 'Vida Sana', 'Maria Vegas', 'Oncativo', 1454, '0351-4518013','vidasanaproductos@gmail.com','2019-01-01',2,1,1,0)
+INSERT INTO Clientes VALUES('30-67867622-1', 'Amanecer', 'Esmeralda Di Pietro', 'Santa Fé', 5120, '0351-159913445','dipietroventa@gmail.com','2017-08-13',3,3,1,0)
+INSERT INTO Clientes VALUES('30-71070556-5', 'Dietetica Anahi', 'Anahi Sosa', 'Perón', 1157, '0351-450598','psosaadietetica@gmail.com','2018-05-07',5,1,1,0)
+INSERT INTO Clientes VALUES('30-70908678-9', 'Holy Seed', 'Rosa Zabala', 'San Lorenzo', 510, '0351-4587009','holyseedmoon@gmail.com','2018-11-28',4,2,1,0)
+INSERT INTO Clientes VALUES('30-68537634-9', 'Salud Hoy', 'Dario Brites', 'Av. Pueyrredón', 985, '0351-15145805','vidasaanainsumos@gmail.com','2018-11-28',21,2,1,0)
 INSERT INTO Clientes VALUES(NULL, 'Dietetica San Lorenzo', 'Sofía Meinas', 'Perú', 320, '0351-4519772','dieteticasanlorenzo@gmail.com','2019-03-08',25,2,1,0)
 INSERT INTO Clientes VALUES(NULL, 'Mundo Salud', 'Josefina Ariza', 'Independiente', 1828, '0351-15360028','mundosalud_josef@gmail.com','2019-03-28',4,1,1,0)
 INSERT INTO Clientes VALUES(NULL, 'Comunidad Crecer', 'Thom Yorke', 'Obispo Trejo', 570, '0351-4588755','saludcomunidad_crecer@gmail.com','2018-03-12',10,3,1,0)

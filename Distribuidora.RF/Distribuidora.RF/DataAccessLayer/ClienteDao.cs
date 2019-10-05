@@ -41,20 +41,6 @@ namespace Distribuidora.RF.DataAccessLayer
             tipoc = oCli.Tipo_Cliente.ID_TipoC == 0 ? "NULL" : oCli.Tipo_Cliente.ID_TipoC.ToString();
             estadoc = oCli.Estado_Cliente.ID_EstadoC == 0 ? "NULL" : oCli.Estado_Cliente.ID_EstadoC.ToString();
 
-//            string str_sql = "INSERT INTO Clientes (nombre_local, nombre_cliente, domicilio_calle, domicilio_numero, " +
-//                                "telefono, email, fecha_registro, barrio, tipo_cliente, estado_cliente, borrado)" +
-//                            " VALUES (" +
-//                            "'" + oCli.Nombre_Local + "', " +
-//                            "'" + oCli.Nombre_Cliente + "', " +
-//                           "'" + oCli.Domicilio_Calle + "', " +
-//                            "'" + oCli.Domicilio_Numero + "', " +
-//                            "'" + oCli.Telefono + "', " +
-//                            "'" + oCli.Email + "', " +
-//                            "'" + oCli.Fecha_Registro.ToString("dd/MM/yyyy") + "', " +
-//                            "'" + oCli.Barrio.ID_Barrio + "', " +
-//                            "'" + oCli.Tipo_Cliente.ID_TipoC + "', " +
-//                            "'" + oCli.Estado_Cliente.ID_EstadoC + "', 0)";
-
             string str_sql = "INSERT INTO Clientes (nombre_local, nombre_cliente, domicilio_calle, domicilio_numero, " +
                                 "telefono, email, fecha_registro, barrio, tipo_cliente, estado_cliente, borrado)" +
                             " VALUES (" +
@@ -88,19 +74,6 @@ namespace Distribuidora.RF.DataAccessLayer
             tipoc = oCli.Tipo_Cliente.ID_TipoC == 0 ? "NULL" : oCli.Tipo_Cliente.ID_TipoC.ToString();
             estadoc = oCli.Estado_Cliente.ID_EstadoC == 0 ? "NULL" : oCli.Estado_Cliente.ID_EstadoC.ToString();
  
-//            string str_sql = "UPDATE Clientes " +
-//                             "SET nombre_local = '" + oCli.Nombre_Local + "', " +
-//                             "nombre_cliente = '" + oCli.Nombre_Cliente + "', " +
-//                             "domicilio_calle = '" + oCli.Domicilio_Calle + "', " +
-//                             "domicilio_numero = '" + oCli.Domicilio_Numero + "', " +
-//                             "telefono = '" + oCli.Telefono + "', " +
-//                             "email = '" + oCli.Email + "', " +
-//                             "fecha_registro = '" + oCli.Fecha_Registro.ToString("dd/MM/yyyy") + "', " +
-//                             "barrio = '" + oCli.Barrio.ID_Barrio + "', " +
-//                            "tipo_cliente = '" + oCli.Tipo_Cliente.ID_TipoC + "', " +
-//                            "estado_cliente = '" + oCli.Estado_Cliente.ID_EstadoC + "', " +
-//                            "borrado = 0 WHERE id_cliente=" + oCli.ID_Cliente;
-
             string str_sql = "UPDATE Clientes " +
                              "SET nombre_local = " + nomlocal + ", " +
                              "nombre_cliente = '" + oCli.Nombre_Cliente + "', " +
@@ -155,8 +128,6 @@ namespace Distribuidora.RF.DataAccessLayer
         {
             List<Cliente> listadoClientes = new List<Cliente>();
 
-//            var strSql = "SELECT id_cliente, nombre_cliente FROM Clientes WHERE borrado = 0";
-
             var strSql = "SELECT C.id_cliente, C.cuit, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
                                         + "C.domicilio_numero, C.telefono, B.id_barrio, B.nombre AS barrio, E.descripcion AS estado, "
                                         + "E.id_estadoc, T.id_tipoc, B.ciudad, Ciu.nombre AS nomciu, "
@@ -174,7 +145,6 @@ namespace Distribuidora.RF.DataAccessLayer
    
             foreach (DataRow row in resultadoConsulta.Rows)
             {
-//                listadoClientes.Add(MappingClienteSimple(row));
                 listadoClientes.Add(MappingCliente(row));
             }
 
@@ -196,7 +166,6 @@ namespace Distribuidora.RF.DataAccessLayer
 
             DataTable fila = DBHelper.GetDBHelper().ConsultaSQL(strSql);
             if (fila.Rows.Count > 0)
-                //                return MappingCliente(DBHelper.GetDBHelper().ConsultaSQL(strSql).Rows[0]);
                 return MappingCliente(fila.Rows[0]);
             else
                 return null;
@@ -205,16 +174,6 @@ namespace Distribuidora.RF.DataAccessLayer
         public IList<Cliente> GetClienteByFilters(Dictionary<string, object> parametros)
         {
             List<Cliente> listadoClientes = new List<Cliente>();
-
-//            var strSql = "SELECT C.id_cliente, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
-//                                        + "C.domicilio_numero, C.telefono, B.id_barrio, B.nombre AS barrio, "
-//                                        + "E.id_estadoc, E.descripcion AS estado, "
-//                                        + "T.id_tipoc, T.descripcion AS tipo, C.fecha_registro, C.email "
-//                                    + "FROM Clientes C "
-//                                        + "INNER JOIN Barrios B ON B.id_barrio = C.barrio "
-//                                        + "INNER JOIN EstadoCliente E ON E.id_estadoc = C.estado_cliente "
-//                                        + "INNER JOIN TipoCliente T ON T.id_tipoC = C.tipo_cliente "
-//                                    + "WHERE C.borrado = 0 ";
 
             var strSql = "SELECT C.id_cliente, C.cuit, C.nombre_local, C.nombre_cliente, C.domicilio_calle, "
                                         + "C.domicilio_numero, C.telefono, B.id_barrio, B.nombre AS barrio, "
@@ -272,7 +231,6 @@ namespace Distribuidora.RF.DataAccessLayer
             //sin parametros
             strSql += "ORDER BY C.nombre_cliente DESC";
 
-
             var resultadoConsulta = (DataRowCollection)DBHelper.GetDBHelper().ConsultaSQL(strSql).Rows;
 
             foreach (DataRow row in resultadoConsulta)
@@ -324,13 +282,5 @@ namespace Distribuidora.RF.DataAccessLayer
 
             return oCliente;
         }
-//        private Cliente MappingClienteSimple(DataRow row)
-//        {
-//            Cliente oCliente = new Cliente();
-//            oCliente.ID_Cliente = Convert.ToInt32(row["id_cliente"].ToString());
-//            oCliente.Nombre_Cliente = row["nombre_cliente"].ToString();
-//
-//            return oCliente;
-//        }
     }
 }

@@ -58,6 +58,7 @@
     <Compile Include="DataAccessLayer\CiudadDao.cs" />
     <Compile Include="DataAccessLayer\ClienteDao.cs" />
     <Compile Include="DataAccessLayer\DBHelper.cs" />
+    <Compile Include="DataAccessLayer\DetalleVentasDao.cs" />
     <Compile Include="DataAccessLayer\Estado_ClienteDao.cs" />
     <Compile Include="DataAccessLayer\PerfilDao.cs" />
     <Compile Include="DataAccessLayer\ProductoDao.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Entities\Barrio.cs" />
     <Compile Include="Entities\Ciudad.cs" />
     <Compile Include="Entities\Cliente.cs" />
+    <Compile Include="Entities\ItemVenta.cs" />
     <Compile Include="Entities\Estado_Cliente.cs" />
     <Compile Include="Entities\Perfil.cs" />
     <Compile Include="Entities\Producto.cs" />

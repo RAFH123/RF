@@ -13,10 +13,43 @@ namespace Distribuidora.RF.DataAccessLayer
         private string string_conexion;
         private static DBHelper instance = new DBHelper();
 
+        private SqlConnection dbConnection;
+        private SqlTransaction dbTransaction;
+
+        public void BeginTransaction()
+        {
+            if (dbConnection.State == ConnectionState.Open)
+                dbTransaction =  dbConnection.BeginTransaction();
+        }
+
+        public void Commit()
+        {
+            if (dbTransaction != null)
+                dbTransaction.Commit();
+        }
+
+        public void Rollback()
+        {
+            if (dbTransaction != null)
+                dbTransaction.Rollback();
+        }
+        public void Open()
+        {
+            if (dbConnection.State != ConnectionState.Open)
+                dbConnection.Open();
+        }
+    
+        public void Close()
+        {
+            if (dbConnection.State != ConnectionState.Closed)
+                dbConnection.Close();
+        }
+        
         private DBHelper()
         {
-            //            string_conexion = "Data Source=localhost;Initial Catalog=BugTracker_36697;User ID=sa;Password=Gustavo$1404";
             string_conexion = @"Data Source=ESCRITORIO10\SQLExpress;Initial Catalog=Distribuidora_v2;Integrated Security=True";
+            dbConnection = new SqlConnection();
+            dbConnection.ConnectionString = string_conexion;
         }
 
         public static DBHelper GetDBHelper()
@@ -71,6 +104,39 @@ namespace Distribuidora.RF.DataAccessLayer
 
             return afectadas;
         }
+
+        public int EjecutarSQLconTransaccion(string strSql, List<SqlParameter> parametros = null)
+        {
+            // Se utiliza para sentencias SQL del tipo “Insert/Update/Delete”
+
+            SqlCommand cmd = new SqlCommand();
+
+            int rtdo = 0;
+
+            // Try Catch Finally
+            // Trata de ejecutar el código contenido dentro del bloque Try - Catch
+            // Si hay error lo capta a través de una excepción
+            // Si no hubo error
+            try
+            {
+                cmd.Connection = dbConnection;
+                cmd.Transaction = dbTransaction;
+                cmd.CommandType = CommandType.Text;
+                // Establece la instrucción a ejecutar
+                cmd.CommandText = strSql;
+                if (parametros != null)
+                    cmd.Parameters.AddRange(parametros.ToArray());
+
+                // Retorna el resultado de ejecutar el comando
+                rtdo = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return rtdo;
+        }
+
 
         /// Resumen:
         ///     Se utiliza para sentencias SQL del tipo “Select”. Recibe por valor una sentencia sql como string
