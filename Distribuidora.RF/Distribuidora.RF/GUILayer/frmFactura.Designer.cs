@@ -74,11 +74,11 @@
             this.lblIVAInscr = new System.Windows.Forms.Label();
             this.lblImporteTotal = new System.Windows.Forms.Label();
             this.txtSubtotal = new System.Windows.Forms.TextBox();
-            this.txtDescuento = new System.Windows.Forms.TextBox();
             this.txtImporteNeto = new System.Windows.Forms.TextBox();
             this.txtIVAInscr = new System.Windows.Forms.TextBox();
             this.txtImporteTotal = new System.Windows.Forms.TextBox();
             this.lblSugerido = new System.Windows.Forms.Label();
+            this.txtDescuento = new System.Windows.Forms.MaskedTextBox();
             this.dpbDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
@@ -203,6 +203,7 @@
             this.txtNroFact.ReadOnly = true;
             this.txtNroFact.Size = new System.Drawing.Size(100, 20);
             this.txtNroFact.TabIndex = 1;
+            this.txtNroFact.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // dpbDetalle
             // 
@@ -234,6 +235,7 @@
             this._txtCantidad.Name = "_txtCantidad";
             this._txtCantidad.Size = new System.Drawing.Size(41, 20);
             this._txtCantidad.TabIndex = 1;
+            this._txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this._txtCantidad.ValidatingType = typeof(int);
             this._txtCantidad.TextChanged += new System.EventHandler(this._txtCantidad_TextChanged);
             // 
@@ -244,6 +246,7 @@
             this._txtImporte.ReadOnly = true;
             this._txtImporte.Size = new System.Drawing.Size(68, 20);
             this._txtImporte.TabIndex = 3;
+            this._txtImporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblImporte
             // 
@@ -364,6 +367,7 @@
             this._txtPrecio.ReadOnly = true;
             this._txtPrecio.Size = new System.Drawing.Size(68, 20);
             this._txtPrecio.TabIndex = 2;
+            this._txtPrecio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblPrecio
             // 
@@ -440,6 +444,7 @@
             this.txtCUIT.Name = "txtCUIT";
             this.txtCUIT.Size = new System.Drawing.Size(96, 20);
             this.txtCUIT.TabIndex = 4;
+            this.txtCUIT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnNuevo
             // 
@@ -523,14 +528,7 @@
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.Size = new System.Drawing.Size(100, 20);
             this.txtSubtotal.TabIndex = 8;
-            // 
-            // txtDescuento
-            // 
-            this.txtDescuento.Location = new System.Drawing.Point(206, 437);
-            this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.Size = new System.Drawing.Size(100, 20);
-            this.txtDescuento.TabIndex = 9;
-            this.txtDescuento.TextChanged += new System.EventHandler(this.txtDescuento_TextChanged);
+            this.txtSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtImporteNeto
             // 
@@ -539,6 +537,7 @@
             this.txtImporteNeto.Name = "txtImporteNeto";
             this.txtImporteNeto.Size = new System.Drawing.Size(100, 20);
             this.txtImporteNeto.TabIndex = 10;
+            this.txtImporteNeto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtIVAInscr
             // 
@@ -547,6 +546,7 @@
             this.txtIVAInscr.Name = "txtIVAInscr";
             this.txtIVAInscr.Size = new System.Drawing.Size(100, 20);
             this.txtIVAInscr.TabIndex = 11;
+            this.txtIVAInscr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtImporteTotal
             // 
@@ -555,6 +555,7 @@
             this.txtImporteTotal.Name = "txtImporteTotal";
             this.txtImporteTotal.Size = new System.Drawing.Size(100, 20);
             this.txtImporteTotal.TabIndex = 12;
+            this.txtImporteTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblSugerido
             // 
@@ -565,16 +566,26 @@
             this.lblSugerido.TabIndex = 30;
             this.lblSugerido.Text = "(sugerido)";
             // 
+            // txtDescuento
+            // 
+            this.txtDescuento.Location = new System.Drawing.Point(220, 437);
+            this.txtDescuento.Mask = "999";
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(57, 20);
+            this.txtDescuento.TabIndex = 31;
+            this.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDescuento.TextChanged += new System.EventHandler(this.txtDescuento_TextChanged);
+            // 
             // frmFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(829, 520);
+            this.Controls.Add(this.txtDescuento);
             this.Controls.Add(this.lblSugerido);
             this.Controls.Add(this.txtImporteTotal);
             this.Controls.Add(this.txtIVAInscr);
             this.Controls.Add(this.txtImporteNeto);
-            this.Controls.Add(this.txtDescuento);
             this.Controls.Add(this.txtSubtotal);
             this.Controls.Add(this.lblImporteTotal);
             this.Controls.Add(this.lblIVAInscr);
@@ -659,7 +670,6 @@
         private System.Windows.Forms.Label lblIVAInscr;
         private System.Windows.Forms.Label lblImporteTotal;
         private System.Windows.Forms.TextBox txtSubtotal;
-        private System.Windows.Forms.TextBox txtDescuento;
         private System.Windows.Forms.TextBox txtImporteNeto;
         private System.Windows.Forms.TextBox txtIVAInscr;
         private System.Windows.Forms.TextBox txtImporteTotal;
@@ -667,5 +677,6 @@
         private System.Windows.Forms.TextBox _txtImporte;
         private System.Windows.Forms.Label lblImporte;
         private System.Windows.Forms.MaskedTextBox _txtCantidad;
+        private System.Windows.Forms.MaskedTextBox txtDescuento;
     }
 }

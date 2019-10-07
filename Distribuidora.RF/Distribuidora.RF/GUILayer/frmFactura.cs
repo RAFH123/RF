@@ -21,6 +21,7 @@ namespace Distribuidora.RF.GUILayer
         private VentasService oVentasService;
 
         int stockArt = 0;
+        Cliente oCli = new Cliente();
         
         public frmFactura()
         {
@@ -64,11 +65,20 @@ namespace Distribuidora.RF.GUILayer
 
         private void cboCliente_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            Cliente oCli = new Cliente();
             if (this.cboCliente.SelectedValue != null)
             {
                 oCli = this.oClienteService.ConsultarClientesPorId((int)this.cboCliente.SelectedValue);
-                this.txtDireccion.Text = oCli.Domicilio_Calle + " " + oCli.Domicilio_Numero + ", Bº " + oCli.Barrio + ", " + oCli.Barrio.Ciudad;
+                this.txtDireccion.Text = oCli.Domicilio_Calle + " " + oCli.Domicilio_Numero + ", Bº " 
+                                            + oCli.Barrio + ", " + oCli.Barrio.Ciudad;
+                if (cboCondIVA.SelectedIndex >= 0 && ((cboCondIVA.SelectedItem.ToString() == "Responsable Inscripto") 
+                    || (cboCondIVA.SelectedItem.ToString() == "Responsable Monotributo"))
+                    && oCli.CUIT == string.Empty)
+                {
+                    MessageBox.Show("El cliente " + oCli.Nombre_Cliente + " no tiene número de CUIT cargado...");
+                    cboCliente.SelectedIndex = -1;
+                    txtDireccion.Text = "";
+                    cboCliente.Focus();
+                }
                 this.txtCUIT.Text = oCli.CUIT;
             }
         }
@@ -143,13 +153,28 @@ namespace Distribuidora.RF.GUILayer
 
         private void cboCondIVA_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if ((this.cboCondIVA.SelectedItem.ToString() == "Responsable Inscripto") || (this.cboCondIVA.SelectedItem.ToString() == "Responsable Monotributo"))
+            if (cboCliente.SelectedIndex < 0)
+                return;
+            if (cboCondIVA.SelectedItem.ToString() == "Responsable Inscripto" 
+                    || cboCondIVA.SelectedItem.ToString() == "Responsable Monotributo")
             {
-                this.lblCUIT.Visible = true;
-                this.txtCUIT.Visible = true;
-                this.txtCUIT.Enabled = true;
-                this.txtCUIT.ReadOnly = true;
-                this.txtCUIT.TabStop = false;
+                if (oCli.CUIT != string.Empty)
+                { 
+                    this.lblCUIT.Visible = true;
+                    this.txtCUIT.Visible = true;
+                    this.txtCUIT.Enabled = true;
+                    this.txtCUIT.ReadOnly = true;
+                    this.txtCUIT.TabStop = false;
+                    txtCUIT.Text = oCli.CUIT;
+                }
+                else
+                {
+                    this.lblCUIT.Visible = false;
+                    this.txtCUIT.Visible = false;
+                    MessageBox.Show("El cliente " + oCli.Nombre_Cliente + " no tiene número de CUIT cargado...");
+                    cboCondIVA.SelectedIndex = -1;
+                    cboCondIVA.Focus();
+                }
             }
             else
             {
@@ -191,7 +216,7 @@ namespace Distribuidora.RF.GUILayer
             this._txtCantidad.Text = "";
             this._txtPrecio.Text = "0,00";
             this._txtImporte.Text = "0,00";
-            this._cboArticulo.Select();
+            this._cboArticulo.Focus();
 
             _btnCancelar.Enabled = true;
             _btnNuevo.Enabled = false;
@@ -227,7 +252,7 @@ namespace Distribuidora.RF.GUILayer
             if (_cboArticulo.SelectedIndex < 0)
             { 
                 MessageBox.Show("Ingrese un artículo...");
-                _cboArticulo.Select();
+                _cboArticulo.Focus();
                 return false;
             } 
             else
@@ -277,6 +302,7 @@ namespace Distribuidora.RF.GUILayer
                     {
                         MessageBox.Show("El artículo " + _cboArticulo.SelectedText + " ya se ingresó en el Detalle...");
                         _cboArticulo.SelectedIndex = -1;
+                        _txtPrecio.Text = "0";
                         return;
                     }
                 }
@@ -298,8 +324,18 @@ namespace Distribuidora.RF.GUILayer
 
         private void _txtCantidad_TextChanged(object sender, EventArgs e)
         {
-            if (_txtCantidad.Text.Length > 0 && (int.Parse(_txtCantidad.Text) > 0 && double.Parse(_txtPrecio.Text) > 0))
-                _txtImporte.Text = (int.Parse(_txtCantidad.Text) * double.Parse(_txtPrecio.Text)).ToString();
+            if (_cboArticulo.SelectedIndex >= 0)
+                if (_txtCantidad.Text.Length > 0 && (int.Parse(_txtCantidad.Text) > 0 && double.Parse(_txtPrecio.Text) > 0))
+                { 
+                    if ((int.Parse(_txtCantidad.Text)) > stockArt)
+                    {
+                        MessageBox.Show("El stock actual del artículo es : " + stockArt.ToString());
+                        _txtCantidad.Text = stockArt.ToString();
+                        _txtCantidad.Focus();
+                    }
+                    else
+                        _txtImporte.Text = (int.Parse(_txtCantidad.Text) * double.Parse(_txtPrecio.Text)).ToString();
+                }
             _btnAgregar.Enabled = true;
             _btnNuevo.Enabled = false;
         }
@@ -369,14 +405,24 @@ namespace Distribuidora.RF.GUILayer
         private void txtDescuento_TextChanged(object sender, EventArgs e)
         {
             int desc = 0;
-            decimal subtotal = decimal.Parse(txtSubtotal.Text);
             Int32.TryParse(txtDescuento.Text.Trim(), out desc);
 
-            decimal neto = Math.Round(subtotal - (subtotal * desc / 100), 2);
-            txtImporteNeto.Text = neto.ToString();
-            decimal iva = Math.Round(neto * 21 / 100, 2);
-            txtIVAInscr.Text = iva.ToString();
-            txtImporteTotal.Text = txtIVAInscr.Visible ? (neto + iva).ToString() : neto.ToString();
+            if (desc >=0 && desc <= 100)
+            { 
+                decimal subtotal = decimal.Parse(txtSubtotal.Text);
+                decimal neto = Math.Round(subtotal - (subtotal * desc / 100), 2);
+                txtImporteNeto.Text = neto.ToString();
+                decimal iva = Math.Round(neto * 21 / 100, 2);
+                txtIVAInscr.Text = iva.ToString();
+                txtImporteTotal.Text = txtIVAInscr.Visible ? (neto + iva).ToString() : neto.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un número un número entre 0 y 100...");
+                txtDescuento.Text = "0";
+                txtDescuento.Focus();
+            }
+
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
@@ -425,6 +471,16 @@ namespace Distribuidora.RF.GUILayer
                 _btnCancelar.Enabled = false;
                 _btnAgregar.Enabled = false;
 
+                cboTipoFact.Enabled = false;
+                cboCliente.Enabled = false;
+                cboCondIVA.Enabled = false;
+                cboCondVenta.Enabled = false;
+                txtDireccion.Enabled = false;
+                txtCUIT.Enabled = false;
+                dtpFecha.Enabled = false;
+                txtNroFact.Enabled = false;
+                dgvDetalle.Enabled = false;
+
             }
         }
 
@@ -433,25 +489,25 @@ namespace Distribuidora.RF.GUILayer
             if (cboTipoFact.SelectedIndex < 0)
             {
                 MessageBox.Show("Seleccione un tipo de factura...");
-                cboTipoFact.Select();
+                cboTipoFact.Focus();
                 return false;
             }
             if (cboCliente.SelectedIndex < 0)
             {
                 MessageBox.Show("Seleccione un cliente...");
-                cboCliente.Select();
+                cboCliente.Focus();
                 return false;
             }
             if (Convert.ToChar(cboTipoFact.SelectedValue) == 'C' && cboCondIVA.SelectedIndex < 0)
             {
                 MessageBox.Show("Seleccione una condicion de IVA...");
-                cboCondIVA.Select();
+                cboCondIVA.Focus();
                 return false;
             }
             if (cboCondVenta.SelectedIndex < 0)
             {
                 MessageBox.Show("Ingrese una condición de venta...");
-                cboCondVenta.Select();
+                cboCondVenta.Focus();
                 return false;
             }
             if (dgvDetalle.Rows.Count == 0)
@@ -468,6 +524,17 @@ namespace Distribuidora.RF.GUILayer
             if (!btnGrabar.Enabled)
             {
                 LimpiarTodo();
+
+                cboTipoFact.Enabled = true;
+                cboCliente.Enabled = true;
+                cboCondIVA.Enabled = true;
+                cboCondVenta.Enabled = true;
+                txtDireccion.Enabled = true;
+                txtCUIT.Enabled = true;
+                dtpFecha.Enabled = true;
+                txtNroFact.Enabled = true;
+                dgvDetalle.Enabled = true;
+
                 return;
             }
 
