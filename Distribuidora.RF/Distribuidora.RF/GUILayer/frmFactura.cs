@@ -76,6 +76,7 @@ namespace Distribuidora.RF.GUILayer
                 {
                     MessageBox.Show("El cliente " + oCli.Nombre_Cliente + " no tiene número de CUIT cargado...");
                     cboCliente.SelectedIndex = -1;
+                    cboCondIVA.SelectedIndex = -1;
                     txtDireccion.Text = "";
                     cboCliente.Focus();
                 }
@@ -294,6 +295,17 @@ namespace Distribuidora.RF.GUILayer
         private void _cboArticulo_SelectionChangeCommitted(object sender, EventArgs e)
         {
 
+            Producto oProd;
+            oProd = oProductoService.ObtenerProductoPorId(int.Parse(_cboArticulo.SelectedValue.ToString()));
+
+            if (oProd.Stock <= 0)
+            {
+                MessageBox.Show("El artículo " + _cboArticulo.SelectedText + " no tiene existencias...");
+                _cboArticulo.SelectedIndex = -1;
+                _txtPrecio.Text = "0";
+                return;
+            }
+
             if (dgvDetalle.Rows.Count > 0)
             {
                 for (int i = 0; i < dgvDetalle.Rows.Count; i++)
@@ -307,9 +319,6 @@ namespace Distribuidora.RF.GUILayer
                     }
                 }
             }
-
-            Producto oProd;
-            oProd = oProductoService.ObtenerProductoPorId(int.Parse(_cboArticulo.SelectedValue.ToString()));
 
             _txtPrecio.Text = oProd.Precio.ToString();
             stockArt = oProd.Stock;
@@ -325,6 +334,11 @@ namespace Distribuidora.RF.GUILayer
         private void _txtCantidad_TextChanged(object sender, EventArgs e)
         {
             if (_cboArticulo.SelectedIndex >= 0)
+            { 
+                Producto oProd;
+                oProd = oProductoService.ObtenerProductoPorId(int.Parse(_cboArticulo.SelectedValue.ToString()));
+                stockArt = oProd.Stock;
+
                 if (_txtCantidad.Text.Length > 0 && (int.Parse(_txtCantidad.Text) > 0 && double.Parse(_txtPrecio.Text) > 0))
                 { 
                     if ((int.Parse(_txtCantidad.Text)) > stockArt)
@@ -336,6 +350,7 @@ namespace Distribuidora.RF.GUILayer
                     else
                         _txtImporte.Text = (int.Parse(_txtCantidad.Text) * double.Parse(_txtPrecio.Text)).ToString();
                 }
+            }
             _btnAgregar.Enabled = true;
             _btnNuevo.Enabled = false;
         }
@@ -480,6 +495,7 @@ namespace Distribuidora.RF.GUILayer
                 dtpFecha.Enabled = false;
                 txtNroFact.Enabled = false;
                 dgvDetalle.Enabled = false;
+                txtDescuento.Enabled = false;
 
             }
         }
@@ -534,6 +550,7 @@ namespace Distribuidora.RF.GUILayer
                 dtpFecha.Enabled = true;
                 txtNroFact.Enabled = true;
                 dgvDetalle.Enabled = true;
+                txtDescuento.Enabled = true;
 
                 return;
             }

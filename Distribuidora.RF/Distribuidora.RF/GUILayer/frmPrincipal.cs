@@ -60,5 +60,41 @@ namespace Distribuidora.RF.GUILayer
             frmFactura ofrmFactura = new frmFactura();
             ofrmFactura.ShowDialog();
         }
+
+        private void categoríasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMTablasSimples ofrmTablaSimple = new frmABMTablasSimples("Categorias");
+            ofrmTablaSimple.ShowDialog();
+        }
+
+        private void ciudadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMTablasSimples ofrmTablaSimple = new frmABMTablasSimples("Ciudades");
+            ofrmTablaSimple.ShowDialog();
+        }
+
+        private void estadosClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMTablasSimples ofrmTablaSimple = new frmABMTablasSimples("EstadoCliente");
+            ofrmTablaSimple.ShowDialog();
+        }
+
+        private void estadosProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMTablasSimples ofrmTablaSimple = new frmABMTablasSimples("EstadoProducto");
+            ofrmTablaSimple.ShowDialog();
+        }
+
+        private void perfilesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMTablasSimples ofrmTablaSimple = new frmABMTablasSimples("Perfiles");
+            ofrmTablaSimple.ShowDialog();
+        }
+
+        private void tiposClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMTablasSimples ofrmTablaSimple = new frmABMTablasSimples("TipoCliente");
+            ofrmTablaSimple.ShowDialog();
+        }
     }
 }

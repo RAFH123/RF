@@ -17,8 +17,8 @@ namespace Distribuidora.RF
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-//            Application.Run(new frmPrincipal());
-            Application.Run(new frmFactura());
+            Application.Run(new frmPrincipal());
+//            Application.Run(new frmFactura());
         }
     }
 }

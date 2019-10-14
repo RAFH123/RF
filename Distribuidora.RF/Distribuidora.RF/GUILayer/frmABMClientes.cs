@@ -144,6 +144,7 @@ namespace Distribuidora.RF.GUILayer
             // campos obligatorios
             if (txtNomCliente.Text.Trim() == string.Empty)
             {
+                MessageBox.Show("Ingrese un nombre de cliente...");
                 txtNomCliente.Focus();
                 return false;
             }
@@ -151,6 +152,7 @@ namespace Distribuidora.RF.GUILayer
             { 
                 if (txtCalle.Text == string.Empty)
                 {
+                    MessageBox.Show("Ingrese la calle...");
                     txtCalle.Focus();
                     return false;
                 }
@@ -158,6 +160,7 @@ namespace Distribuidora.RF.GUILayer
                 { 
                     if (txtNumero.Text == string.Empty)
                     {
+                        MessageBox.Show("Ingrese el número de la calle...");
                         txtNumero.Focus();
                         return false;
                     }
@@ -193,7 +196,7 @@ namespace Distribuidora.RF.GUILayer
             this.habilitar(true);
             this.nuevo = false;
             this.txtNomLocal.Focus();
-            this.btnCancelar.Enabled = false;
+            this.btnCancelar.Enabled = true;
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
@@ -251,19 +254,22 @@ namespace Distribuidora.RF.GUILayer
                 }      
                 else
                 {
-                    if (oClienteService.ActualizarCliente(oCli))
+                    if (ExisteCliente() == false)
                     {
-                        MessageBox.Show("Cliente actualizado!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (oClienteService.ActualizarCliente(oCli))
+                        {
+                            MessageBox.Show("Cliente actualizado!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                            MessageBox.Show("Error al actualizar el cliente!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                        MessageBox.Show("Error al actualizar el cliente!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }   
+                        MessageBox.Show("Nombre de cliente encontrado!. Ingrese un nombre diferente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
-//                this.dgvClientes.DataSource = oClienteService.ObtenerTodos();
                 IList<Cliente> listcli = new List<Cliente>();
                 listcli = oClienteService.ObtenerTodos();
 
-//                dgvClientes.DataSource = oClienteService.ObtenerTodos();
                 dgvClientes.DataSource = listcli;
                 for (i = 0; i < dgvClientes.RowCount; i++)
                 {
@@ -292,29 +298,9 @@ namespace Distribuidora.RF.GUILayer
             {
 
                 Cliente oCli = new Cliente();
+                // No hace falta cargar todos los datos del cliente
                 oCli.ID_Cliente = int.Parse(txtId.Text);
 
-// No hace falta cargar todos los datos del cliente
-//                oCli.Nombre_Local = txtNomLocal.Text;
-//                oCli.Nombre_Cliente = txtNomCliente.Text;
-
-//                oCli.Tipo_Cliente = new Tipo_Cliente();
-//                oCli.Tipo_Cliente.ID_TipoC = (int)cboTipo.SelectedValue;
-
-//                oCli.Estado_Cliente = new Estado_Cliente();
-//                oCli.Estado_Cliente.ID_EstadoC = (int)cboEstado.SelectedValue;
-//                oCli.Domicilio_Calle = txtCalle.Text;
-//                oCli.Domicilio_Numero = int.Parse(txtNumero.Text);
-
-//                oCli.Barrio = new Barrio();
-//                oCli.Barrio.ID_Barrio = (int)cboBarrio.SelectedValue;
-
-//                oCli.Barrio.Ciudad = new Ciudad();
-//                oCli.Barrio.Ciudad.ID_Ciudad = (int)cboCiudad.SelectedValue;
-
-//                oCli.Telefono = txtTelefono.Text;
-//                oCli.Email = txtEmail.Text;
-//                oCli.Fecha_Registro = DateTime.Parse(txtFechaRegistro.Text);
 
                 if (oClienteService.EliminarCliente(oCli))
                     MessageBox.Show("Cliente Eliminado!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
