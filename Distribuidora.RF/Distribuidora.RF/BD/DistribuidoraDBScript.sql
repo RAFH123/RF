@@ -41,11 +41,11 @@ borrado BIT NOT NULL DEFAULT 0
 )
 
 --EstadoProducto
-CREATE TABLE EstadoProducto(
-id_estadoPr INT PRIMARY KEY NOT NULL IDENTITY (1,1),
-descripcion VARCHAR (50),
-borrado BIT NOT NULL DEFAULT 0
-)
+--CREATE TABLE EstadoProducto(
+--id_estadoPr INT PRIMARY KEY NOT NULL IDENTITY (1,1),
+--descripcion VARCHAR (50),
+--borrado BIT NOT NULL DEFAULT 0
+--)
 
 --TipoProveedor
 CREATE TABLE TipoProveedor(
@@ -92,8 +92,9 @@ borrado BIT NOT NULL DEFAULT 0
 --Proveedores
 CREATE TABLE Proveedores(
 id_proveedor INT PRIMARY KEY NOT NULL IDENTITY (1,1),
+cuit VARCHAR(13),
 nombre_local VARCHAR (50),
-nombre_dueño VARCHAR (50) NOT NULL,
+nombre_proveedor VARCHAR (50) NOT NULL,
 domicilio_calle VARCHAR(50)NOT NULL,
 domicilio_numero INT NOT NULL,
 telefono VARCHAR(50),
@@ -111,7 +112,7 @@ id_producto INT PRIMARY KEY NOT NULL IDENTITY (1,1),
 nombre VARCHAR (50) NOT NULL,
 unidad VARCHAR (10),
 fecha_registro date,
-estado INT CONSTRAINT FK_estadoProducto FOREIGN KEY REFERENCES EstadoProducto (id_estadoPr),
+--estado INT CONSTRAINT FK_estadoProducto FOREIGN KEY REFERENCES EstadoProducto (id_estadoPr),
 categoria INT CONSTRAINT FK_categoria FOREIGN KEY REFERENCES Categorias (id_categoria),
 proveedor INT CONSTRAINT FK_proveedor_productos FOREIGN KEY REFERENCES Proveedores (id_proveedor),
 precio DECIMAL(10,2) NOT NULL,
@@ -317,8 +318,8 @@ INSERT INTO EstadoProveedor VALUES ('De Baja',0)
 ----------------------------------------------------
 --Carga de EstadoProducto
 ----------------------------------------------------
-INSERT INTO EstadoProducto VALUES ('En produccion',0)
-INSERT INTO EstadoProducto VALUES ('Fuera de produccion',0)
+--INSERT INTO EstadoProducto VALUES ('En produccion',0)
+--INSERT INTO EstadoProducto VALUES ('Fuera de produccion',0)
 
 ----------------------------------------------------
 --Carga de Categoria
@@ -326,6 +327,7 @@ INSERT INTO EstadoProducto VALUES ('Fuera de produccion',0)
 INSERT INTO Categorias VALUES ('Alimentos que aceleran el metabolismo',0)
 INSERT INTO Categorias VALUES ('Alimentos saciantes',0)
 INSERT INTO Categorias VALUES ('Alimentos digestivos',0)
+INSERT INTO Categorias VALUES ('Hierbas Medicinales',0)
 
 
 
@@ -353,18 +355,18 @@ INSERT INTO Clientes VALUES(NULL, 'Patagonia', 'Camila Maldonado', 'Entre Rios',
 
 
 use Distribuidora_v2
-INSERT INTO Productos (nombre, unidad, fecha_registro, estado, categoria, proveedor, precio, stock, borrado) 
-		VALUES('Peperina', NULL, NULL, NULL, NULL, NULL, 643.54, 150, 0)
-INSERT INTO Productos (nombre, unidad, fecha_registro, estado, categoria, proveedor, precio, stock, borrado) 
-		VALUES('Poleo', NULL, NULL, NULL, NULL, NULL, 339.93, 250, 0)
-INSERT INTO Productos (nombre, unidad, fecha_registro, estado, categoria, proveedor, precio, stock, borrado) 
-		VALUES('Palo Amarillo', NULL, NULL, NULL, NULL, NULL, 189.50, 45, 0)
-INSERT INTO Productos (nombre, unidad, fecha_registro, estado, categoria, proveedor, precio, stock, borrado) 
-		VALUES('Jarilla', NULL, NULL, NULL, NULL, NULL, 175.90, 95, 0)
-INSERT INTO Productos (nombre, unidad, fecha_registro, estado, categoria, proveedor, precio, stock, borrado) 
-		VALUES('Incayuyo', NULL, NULL, NULL, NULL, NULL, 542.57, 120, 0)
-INSERT INTO Productos (nombre, unidad, fecha_registro, estado, categoria, proveedor, precio, stock, borrado) 
-		VALUES('Té de Burro', NULL, NULL, NULL, NULL, NULL, 242.56, 145, 0)
+INSERT INTO Productos (nombre, unidad, fecha_registro, categoria, proveedor, precio, stock, borrado) 
+		VALUES('Peperina', '1 Kg', NULL, 4, NULL, 643.54, 150, 0)
+INSERT INTO Productos (nombre, unidad, fecha_registro, categoria, proveedor, precio, stock, borrado) 
+		VALUES('Poleo', '1 Kg', NULL, 4, NULL, 339.93, 250, 0)
+INSERT INTO Productos (nombre, unidad, fecha_registro, categoria, proveedor, precio, stock, borrado) 
+		VALUES('Palo Amarillo', '1 Kg', NULL, 4, NULL, 189.50, 45, 0)
+INSERT INTO Productos (nombre, unidad, fecha_registro, categoria, proveedor, precio, stock, borrado) 
+		VALUES('Jarilla', '1 Kg', NULL, 4, NULL, 175.90, 95, 0)
+INSERT INTO Productos (nombre, unidad, fecha_registro, categoria, proveedor, precio, stock, borrado) 
+		VALUES('Incayuyo', '1 Kg', NULL, 4, NULL, 542.57, 120, 0)
+INSERT INTO Productos (nombre, unidad, fecha_registro, categoria, proveedor, precio, stock, borrado) 
+		VALUES('Té de Burro', '1 Kg', NULL, 4, NULL, 242.56, 145, 0)
 
 
 

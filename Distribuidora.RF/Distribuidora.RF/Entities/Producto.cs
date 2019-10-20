@@ -8,9 +8,16 @@ namespace Distribuidora.RF.Entities
 {
     class Producto
     {
-        public int Id_Producto { get; set; }
+        public int ID_Producto { get; set; }
 
         public string Nombre { get; set; }
+        public string Unidad { get; set; }
+
+        public DateTime Fecha_Registro { get; set; }
+
+        public Categoria Categoria { get; set; }
+
+        public Proveedor Proveedor { get; set; }
 
         public double Precio { get; set; }
 

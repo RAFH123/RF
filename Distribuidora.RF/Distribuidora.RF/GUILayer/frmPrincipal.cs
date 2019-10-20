@@ -31,8 +31,8 @@ namespace Distribuidora.RF.GUILayer
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmABMClientes frmC = new frmABMClientes();
-            frmC.ShowDialog();
+            frmABMClientes ofrmC = new frmABMClientes();
+            ofrmC.ShowDialog();
         }
 
         private void buscarClientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -101,6 +101,18 @@ namespace Distribuidora.RF.GUILayer
         {
             frmABMBarrios ofrmABMBarrios = new frmABMBarrios();
             ofrmABMBarrios.ShowDialog();
+        }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMProveedores ofrmABMProveedores = new frmABMProveedores();
+            ofrmABMProveedores.ShowDialog();
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMProductos ofrmABMProductos = new frmABMProductos();
+            ofrmABMProductos.ShowDialog();
         }
     }
 }

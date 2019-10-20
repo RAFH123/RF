@@ -45,45 +45,69 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayer\BarrioService.cs" />
+    <Compile Include="BusinessLayer\CategoriaService.cs" />
     <Compile Include="BusinessLayer\CiudadService.cs" />
     <Compile Include="BusinessLayer\ClienteService.cs" />
     <Compile Include="BusinessLayer\EntidadSimpleService.cs" />
     <Compile Include="BusinessLayer\Estado_ClienteService.cs" />
+    <Compile Include="BusinessLayer\Estado_ProveedorService.cs" />
     <Compile Include="BusinessLayer\PerfilService.cs" />
     <Compile Include="BusinessLayer\ProductoService.cs" />
+    <Compile Include="BusinessLayer\ProveedorService.cs" />
     <Compile Include="BusinessLayer\TipoFacturaService.cs" />
     <Compile Include="BusinessLayer\Tipo_ClienteService.cs" />
+    <Compile Include="BusinessLayer\Tipo_ProveedorService.cs" />
     <Compile Include="BusinessLayer\UsuarioService.cs" />
     <Compile Include="BusinessLayer\VentasService.cs" />
     <Compile Include="DataAccessLayer\BarrioDao.cs" />
+    <Compile Include="DataAccessLayer\CategoriaDao.cs" />
     <Compile Include="DataAccessLayer\CiudadDao.cs" />
     <Compile Include="DataAccessLayer\ClienteDao.cs" />
     <Compile Include="DataAccessLayer\DBHelper.cs" />
     <Compile Include="DataAccessLayer\DetalleVentasDao.cs" />
     <Compile Include="DataAccessLayer\EntidadSimpleDao.cs" />
     <Compile Include="DataAccessLayer\Estado_ClienteDao.cs" />
+    <Compile Include="DataAccessLayer\Estado_ProveedorDao.cs" />
     <Compile Include="DataAccessLayer\PerfilDao.cs" />
     <Compile Include="DataAccessLayer\ProductoDao.cs" />
+    <Compile Include="DataAccessLayer\ProveedorDao.cs" />
     <Compile Include="DataAccessLayer\TipoFacturaDao.cs" />
     <Compile Include="DataAccessLayer\Tipo_ClienteDao.cs" />
+    <Compile Include="DataAccessLayer\Tipo_ProveedorDao.cs" />
     <Compile Include="DataAccessLayer\UsuarioDao.cs" />
     <Compile Include="DataAccessLayer\VentasDao.cs" />
     <Compile Include="Entities\Barrio.cs" />
+    <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\Ciudad.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\EntidadSimple.cs" />
+    <Compile Include="Entities\Estado_Proveedor.cs" />
     <Compile Include="Entities\ItemVenta.cs" />
     <Compile Include="Entities\Estado_Cliente.cs" />
     <Compile Include="Entities\Perfil.cs" />
     <Compile Include="Entities\Producto.cs" />
+    <Compile Include="Entities\Proveedor.cs" />
     <Compile Include="Entities\TipoFactura.cs" />
     <Compile Include="Entities\Tipo_Cliente.cs" />
+    <Compile Include="Entities\Tipo_Proveedor.cs" />
     <Compile Include="Entities\Ventas.cs" />
     <Compile Include="GUILayer\frmABMBarrios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\frmABMBarrios.designer.cs">
       <DependentUpon>frmABMBarrios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\frmABMProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmABMProductos.Designer.cs">
+      <DependentUpon>frmABMProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\frmABMProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmABMProveedores.Designer.cs">
+      <DependentUpon>frmABMProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\frmABMTablasSimples.cs">
       <SubType>Form</SubType>
@@ -144,6 +168,12 @@
     <Compile Include="Entities\Usuario.cs" />
     <EmbeddedResource Include="GUILayer\frmABMBarrios.resx">
       <DependentUpon>frmABMBarrios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmABMProductos.resx">
+      <DependentUpon>frmABMProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmABMProveedores.resx">
+      <DependentUpon>frmABMProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmABMTablasSimples.resx">
       <DependentUpon>frmABMTablasSimples.cs</DependentUpon>

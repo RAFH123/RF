@@ -464,7 +464,7 @@ namespace Distribuidora.RF.GUILayer
                     ItemVenta oItemVenta = new ItemVenta();
                     oItemVenta.ProdDetalle = new Producto();
                     oItemVenta.NroItem = int.Parse(dgvDetalle.Rows[i].Cells["NroItem"].Value.ToString());
-                    oItemVenta.ProdDetalle.Id_Producto = int.Parse(dgvDetalle.Rows[i].Cells["CodArt"].Value.ToString());
+                    oItemVenta.ProdDetalle.ID_Producto = int.Parse(dgvDetalle.Rows[i].Cells["CodArt"].Value.ToString());
                     oItemVenta.Cantidad = int.Parse(dgvDetalle.Rows[i].Cells["Cantidad"].Value.ToString());
                     oItemVenta.Precio = decimal.Parse(dgvDetalle.Rows[i].Cells["Precio"].Value.ToString());
                     oItemVenta.Importe = decimal.Parse(dgvDetalle.Rows[i].Cells["Importe"].Value.ToString());

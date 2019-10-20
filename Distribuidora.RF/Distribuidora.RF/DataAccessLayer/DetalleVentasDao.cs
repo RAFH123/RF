@@ -14,12 +14,12 @@ namespace Distribuidora.RF.DataAccessLayer
             foreach (ItemVenta oDet in oListDetalle)
             {
                 string strSql = "UPDATE Productos SET stock = stock - " + oDet.Cantidad
-                                + " WHERE id_producto = " + oDet.ProdDetalle.Id_Producto;
+                                + " WHERE id_producto = " + oDet.ProdDetalle.ID_Producto;
 
                 DBHelper.GetDBHelper().EjecutarSQLconTransaccion(strSql);
 
                 strSql = "INSERT INTO DetVentas (tipo_factura, nro_factura, id_producto, precio, cantidad, importe)"
-                                + " VALUES ('" + tipofact + "', " + nrofact + ", " + oDet.ProdDetalle.Id_Producto + ", "
+                                + " VALUES ('" + tipofact + "', " + nrofact + ", " + oDet.ProdDetalle.ID_Producto + ", "
                                 + oDet.Precio.ToString().Replace(',', '.') + ", " 
                                 + oDet.Cantidad + ", "
                                 + oDet.Importe.ToString().Replace(',', '.') + ")";
