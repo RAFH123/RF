@@ -76,6 +76,7 @@ namespace Distribuidora.RF.GUILayer
             cboCiudad.SelectedIndex = -1;
             cboBarrio.SelectedIndex = -1;
             txtTelefono.Clear();
+            txtCUIT.Clear();
             txtEmail.Clear();
             txtFechaRegistro.Clear();
             LlenarCombo(cboBarrio, oBarrioService.ObtenerTodos(""), "Nombre", "ID_Barrio");
@@ -91,6 +92,7 @@ namespace Distribuidora.RF.GUILayer
             cboCiudad.Enabled = x;
             cboBarrio.Enabled = x;
             txtTelefono.Enabled = x;
+            txtCUIT.Enabled = x;
             txtEmail.Enabled = x;
             txtFechaRegistro.Enabled = x;
 
@@ -125,6 +127,7 @@ namespace Distribuidora.RF.GUILayer
                 cboBarrio.SelectedValue = oCli.Barrio.ID_Barrio;
                 
                 txtTelefono.Text = oCli.Telefono;
+                txtCUIT.Text = oCli.CUIT;
                 txtEmail.Text = oCli.Email;
 
                 if (oCli.Fecha_Registro.ToString("dd/MM/yyyy") != "01/01/0001")
@@ -225,6 +228,7 @@ namespace Distribuidora.RF.GUILayer
                 oCli.Barrio.Ciudad.ID_Ciudad = cboCiudad.SelectedValue == null ? 0 : (int)cboCiudad.SelectedValue;
 
                 oCli.Telefono = txtTelefono.Text;
+                oCli.CUIT = txtCUIT.Text.Replace("-", "").Trim() == string.Empty ? string.Empty : txtCUIT.Text;
                 oCli.Email = txtEmail.Text;
 
                 DateTime result;
@@ -254,17 +258,17 @@ namespace Distribuidora.RF.GUILayer
                 }      
                 else
                 {
-                    if (ExisteCliente() == false)
-                    {
+                    //if (ExisteCliente() == false)
+                    //{
                         if (oClienteService.ActualizarCliente(oCli))
                         {
                             MessageBox.Show("Cliente actualizado!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                             MessageBox.Show("Error al actualizar el cliente!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                        MessageBox.Show("Nombre de cliente encontrado!. Ingrese un nombre diferente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //}
+                    //else
+                    //    MessageBox.Show("Nombre de cliente encontrado!. Ingrese un nombre diferente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 IList<Cliente> listcli = new List<Cliente>();

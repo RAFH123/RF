@@ -29,6 +29,8 @@ namespace Distribuidora.RF.GUILayer
 
         private void frmABMTablasSimples_Load(object sender, EventArgs e)
         {
+            this.Text = tabla;
+            
             // Configuramos la AutoGenerateColumns en false para que no se autogeneren las columnas
             dgvTablaSimple.AutoGenerateColumns = false;
 
@@ -123,17 +125,17 @@ namespace Distribuidora.RF.GUILayer
                 }
                 else
                 {
-                    if (ExisteEntidadSimple() == false)
-                    {
+                    //if (ExisteEntidadSimple() == false)
+                    //{
                         if (oESimpleService.ActualizarEntidadSimple(oESimple, tabla))
                         {
                             MessageBox.Show("Registro actualizado!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                             MessageBox.Show("Error al actualizar el registro!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                        MessageBox.Show("Descripcion encontrada!. Ingrese una descripcion diferente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //}
+                    //else
+                    //   MessageBox.Show("Descripcion encontrada!. Ingrese una descripcion diferente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 this.dgvTablaSimple.DataSource = oESimpleService.ObtenerTodos(tabla);
 
@@ -170,8 +172,7 @@ namespace Distribuidora.RF.GUILayer
 
                 EntidadSimple oESimple = new EntidadSimple();
                 oESimple.Codigo = int.Parse(txtCodigo.Text);
-                //oESimple.Tabla = tabla;
-
+                
                 if (oESimpleService.EliminarEntidadSimple(oESimple, tabla))
                     MessageBox.Show("Registro Eliminado!", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else

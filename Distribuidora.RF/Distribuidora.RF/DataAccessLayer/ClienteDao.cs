@@ -29,8 +29,9 @@ namespace Distribuidora.RF.DataAccessLayer
 
             //SIN PARAMETROS
 
-            string nomlocal, tel, email, fecreg, barrio, tipoc, estadoc;
+            string nomlocal, cuit, tel, email, fecreg, barrio, tipoc, estadoc;
             nomlocal = oCli.Nombre_Local.Trim() == string.Empty ? "NULL" : ("'" + oCli.Nombre_Local + "'");
+            cuit = oCli.CUIT.Trim() == string.Empty ? "NULL" : ("'" + oCli.CUIT + "'");
             tel = oCli.Telefono.Trim() == string.Empty ? "NULL" : ("'" + oCli.Telefono + "'");
             email = oCli.Email.Trim() == string.Empty ? "NULL" : ("'" + oCli.Email + "'");
             if (oCli.Fecha_Registro.ToString("dd/MM/yyyy") != "01/01/0001")
@@ -42,12 +43,13 @@ namespace Distribuidora.RF.DataAccessLayer
             estadoc = oCli.Estado_Cliente.ID_EstadoC == 0 ? "NULL" : oCli.Estado_Cliente.ID_EstadoC.ToString();
 
             string str_sql = "INSERT INTO Clientes (nombre_local, nombre_cliente, domicilio_calle, domicilio_numero, " +
-                                "telefono, email, fecha_registro, barrio, tipo_cliente, estado_cliente, borrado)" +
+                                "cuit, telefono, email, fecha_registro, barrio, tipo_cliente, estado_cliente, borrado)" +
                             " VALUES (" +
                             nomlocal + ", " +
                             "'" + oCli.Nombre_Cliente + "', " +
                             "'" + oCli.Domicilio_Calle + "', " +
                             "'" + oCli.Domicilio_Numero + "', " +
+                            cuit + ", " +
                             tel + ", " +
                             email + ", " +
                             fecreg + ", " +
@@ -62,8 +64,9 @@ namespace Distribuidora.RF.DataAccessLayer
         {
             //SIN PARAMETROS
 
-            string nomlocal, tel, email, fecreg, barrio, tipoc, estadoc;
+            string nomlocal, cuit, tel, email, fecreg, barrio, tipoc, estadoc;
             nomlocal = oCli.Nombre_Local.Trim() == string.Empty ? "NULL" : ("'" + oCli.Nombre_Local + "'");
+            cuit = oCli.CUIT.Trim() == string.Empty ? "NULL" : ("'" + oCli.CUIT + "'");
             tel = oCli.Telefono.Trim() == string.Empty ? "NULL" : ("'" + oCli.Telefono + "'");
             email = oCli.Email.Trim() == string.Empty ? "NULL" : ("'" + oCli.Email + "'");
             if (oCli.Fecha_Registro.ToString("dd/MM/yyyy") != "01/01/0001")
@@ -79,6 +82,7 @@ namespace Distribuidora.RF.DataAccessLayer
                              "nombre_cliente = '" + oCli.Nombre_Cliente + "', " +
                              "domicilio_calle = '" + oCli.Domicilio_Calle + "', " +
                              "domicilio_numero = '" + oCli.Domicilio_Numero + "', " +
+                             "cuit = " + cuit + ", " +
                              "telefono = " + tel + ", " +
                              "email = " + email + ", " +
                              "fecha_registro = " + fecreg + ", " +

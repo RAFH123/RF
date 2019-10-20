@@ -96,5 +96,11 @@ namespace Distribuidora.RF.GUILayer
             frmABMTablasSimples ofrmTablaSimple = new frmABMTablasSimples("TipoCliente");
             ofrmTablaSimple.ShowDialog();
         }
+
+        private void barriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMBarrios ofrmABMBarrios = new frmABMBarrios();
+            ofrmABMBarrios.ShowDialog();
+        }
     }
 }

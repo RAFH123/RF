@@ -58,9 +58,13 @@
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.txtNumero = new System.Windows.Forms.MaskedTextBox();
+            this.txtCUIT = new System.Windows.Forms.MaskedTextBox();
+            this.lblCUIT = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cuit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Calle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,7 +74,6 @@
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtNumero = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,7 +116,7 @@
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(331, 26);
+            this.lblEstado.Location = new System.Drawing.Point(299, 27);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(40, 13);
             this.lblEstado.TabIndex = 4;
@@ -122,7 +125,7 @@
             // lblCalle
             // 
             this.lblCalle.AutoSize = true;
-            this.lblCalle.Location = new System.Drawing.Point(331, 58);
+            this.lblCalle.Location = new System.Drawing.Point(299, 59);
             this.lblCalle.Name = "lblCalle";
             this.lblCalle.Size = new System.Drawing.Size(40, 13);
             this.lblCalle.TabIndex = 5;
@@ -131,16 +134,16 @@
             // lblNumero
             // 
             this.lblNumero.AutoSize = true;
-            this.lblNumero.Location = new System.Drawing.Point(331, 89);
+            this.lblNumero.Location = new System.Drawing.Point(508, 58);
             this.lblNumero.Name = "lblNumero";
-            this.lblNumero.Size = new System.Drawing.Size(54, 13);
+            this.lblNumero.Size = new System.Drawing.Size(34, 13);
             this.lblNumero.TabIndex = 6;
-            this.lblNumero.Text = "Número(*)";
+            this.lblNumero.Text = "Nro(*)";
             // 
             // lblCiudad
             // 
             this.lblCiudad.AutoSize = true;
-            this.lblCiudad.Location = new System.Drawing.Point(331, 124);
+            this.lblCiudad.Location = new System.Drawing.Point(299, 93);
             this.lblCiudad.Name = "lblCiudad";
             this.lblCiudad.Size = new System.Drawing.Size(40, 13);
             this.lblCiudad.TabIndex = 7;
@@ -199,14 +202,14 @@
             // 
             this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstado.FormattingEnabled = true;
-            this.cboEstado.Location = new System.Drawing.Point(411, 17);
+            this.cboEstado.Location = new System.Drawing.Point(345, 22);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(62, 21);
             this.cboEstado.TabIndex = 4;
             // 
             // txtCalle
             // 
-            this.txtCalle.Location = new System.Drawing.Point(411, 51);
+            this.txtCalle.Location = new System.Drawing.Point(345, 56);
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(153, 20);
             this.txtCalle.TabIndex = 5;
@@ -215,7 +218,7 @@
             // 
             this.cboCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCiudad.FormattingEnabled = true;
-            this.cboCiudad.Location = new System.Drawing.Point(411, 115);
+            this.cboCiudad.Location = new System.Drawing.Point(345, 88);
             this.cboCiudad.Name = "cboCiudad";
             this.cboCiudad.Size = new System.Drawing.Size(90, 21);
             this.cboCiudad.TabIndex = 7;
@@ -224,7 +227,7 @@
             // lblBarrio
             // 
             this.lblBarrio.AutoSize = true;
-            this.lblBarrio.Location = new System.Drawing.Point(625, 27);
+            this.lblBarrio.Location = new System.Drawing.Point(299, 126);
             this.lblBarrio.Name = "lblBarrio";
             this.lblBarrio.Size = new System.Drawing.Size(34, 13);
             this.lblBarrio.TabIndex = 18;
@@ -234,7 +237,7 @@
             // 
             this.cboBarrio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBarrio.FormattingEnabled = true;
-            this.cboBarrio.Location = new System.Drawing.Point(709, 21);
+            this.cboBarrio.Location = new System.Drawing.Point(345, 121);
             this.cboBarrio.Name = "cboBarrio";
             this.cboBarrio.Size = new System.Drawing.Size(140, 21);
             this.cboBarrio.TabIndex = 8;
@@ -263,6 +266,7 @@
             this.Id,
             this.NombreLocal,
             this.NombreCliente,
+            this.Cuit,
             this.Tipo,
             this.Estado,
             this.Calle,
@@ -272,11 +276,11 @@
             this.Telefono,
             this.Email,
             this.FechaRegistro});
-            this.dgvClientes.Location = new System.Drawing.Point(32, 167);
+            this.dgvClientes.Location = new System.Drawing.Point(12, 162);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(845, 185);
+            this.dgvClientes.Size = new System.Drawing.Size(884, 190);
             this.dgvClientes.TabIndex = 12;
             this.dgvClientes.SelectionChanged += new System.EventHandler(this.dgvClientes_SelectionChanged);
             // 
@@ -360,6 +364,33 @@
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // txtNumero
+            // 
+            this.txtNumero.Location = new System.Drawing.Point(548, 56);
+            this.txtNumero.Mask = "99999";
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(39, 20);
+            this.txtNumero.TabIndex = 6;
+            this.txtNumero.ValidatingType = typeof(int);
+            // 
+            // txtCUIT
+            // 
+            this.txtCUIT.Location = new System.Drawing.Point(709, 20);
+            this.txtCUIT.Mask = "00-00000000-0";
+            this.txtCUIT.Name = "txtCUIT";
+            this.txtCUIT.Size = new System.Drawing.Size(96, 20);
+            this.txtCUIT.TabIndex = 29;
+            this.txtCUIT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblCUIT
+            // 
+            this.lblCUIT.AutoSize = true;
+            this.lblCUIT.Location = new System.Drawing.Point(626, 23);
+            this.lblCUIT.Name = "lblCUIT";
+            this.lblCUIT.Size = new System.Drawing.Size(32, 13);
+            this.lblCUIT.TabIndex = 30;
+            this.lblCUIT.Text = "CUIT";
+            // 
             // Id
             // 
             this.Id.DataPropertyName = "ID_Cliente";
@@ -374,6 +405,7 @@
             this.NombreLocal.HeaderText = "Nombre Local";
             this.NombreLocal.Name = "NombreLocal";
             this.NombreLocal.ReadOnly = true;
+            this.NombreLocal.Width = 75;
             // 
             // NombreCliente
             // 
@@ -381,6 +413,15 @@
             this.NombreCliente.HeaderText = "Nombre Cliente";
             this.NombreCliente.Name = "NombreCliente";
             this.NombreCliente.ReadOnly = true;
+            this.NombreCliente.Width = 90;
+            // 
+            // Cuit
+            // 
+            this.Cuit.DataPropertyName = "CUIT";
+            this.Cuit.HeaderText = "CUIT";
+            this.Cuit.Name = "Cuit";
+            this.Cuit.ReadOnly = true;
+            this.Cuit.Width = 85;
             // 
             // Tipo
             // 
@@ -404,7 +445,7 @@
             this.Calle.HeaderText = "Calle";
             this.Calle.Name = "Calle";
             this.Calle.ReadOnly = true;
-            this.Calle.Width = 75;
+            this.Calle.Width = 85;
             // 
             // Numero
             // 
@@ -420,7 +461,7 @@
             this.Ciudad.HeaderText = "Ciudad";
             this.Ciudad.Name = "Ciudad";
             this.Ciudad.ReadOnly = true;
-            this.Ciudad.Width = 75;
+            this.Ciudad.Width = 70;
             // 
             // Barrio
             // 
@@ -454,20 +495,13 @@
             this.FechaRegistro.ReadOnly = true;
             this.FechaRegistro.Width = 70;
             // 
-            // txtNumero
-            // 
-            this.txtNumero.Location = new System.Drawing.Point(411, 83);
-            this.txtNumero.Mask = "99999";
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(50, 20);
-            this.txtNumero.TabIndex = 6;
-            this.txtNumero.ValidatingType = typeof(int);
-            // 
-            // frmClientes
+            // frmABMClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(908, 407);
+            this.Controls.Add(this.txtCUIT);
+            this.Controls.Add(this.lblCUIT);
             this.Controls.Add(this.txtNumero);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.txtFechaRegistro);
@@ -499,7 +533,7 @@
             this.Controls.Add(this.lblNomCliente);
             this.Controls.Add(this.lblNomLocal);
             this.Controls.Add(this.lblId);
-            this.Name = "frmClientes";
+            this.Name = "frmABMClientes";
             this.Text = "frmClientes";
             this.Load += new System.EventHandler(this.frmClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
@@ -540,9 +574,13 @@
         private System.Windows.Forms.Label lblFechaRegistro;
         private System.Windows.Forms.MaskedTextBox txtFechaRegistro;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.MaskedTextBox txtNumero;
+        private System.Windows.Forms.MaskedTextBox txtCUIT;
+        private System.Windows.Forms.Label lblCUIT;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreLocal;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cuit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Calle;
@@ -552,6 +590,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
-        private System.Windows.Forms.MaskedTextBox txtNumero;
     }
 }

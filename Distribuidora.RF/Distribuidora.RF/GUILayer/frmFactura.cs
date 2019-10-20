@@ -241,7 +241,7 @@ namespace Distribuidora.RF.GUILayer
                 _btnQuitar.Enabled = true;
 
                 dgvDetalle.CurrentCell = dgvDetalle.Rows[dgvDetalle.Rows.Count - 1].Cells[0];
-                dgvDetalle.Rows[dgvDetalle.Rows.Count - 1].Selected = true;
+                //dgvDetalle.Rows[dgvDetalle.Rows.Count - 1].Selected = true;
                 dgvDetalle_SelectionChanged(null, null);
 
                 CalcularImportesFactura();
@@ -410,7 +410,7 @@ namespace Distribuidora.RF.GUILayer
                     CalcularImportesFactura();
 
                     dgvDetalle.CurrentCell = dgvDetalle.Rows[dgvDetalle.Rows.Count - 1].Cells[0];
-                    dgvDetalle.Rows[dgvDetalle.Rows.Count - 1].Selected = true;
+                    //dgvDetalle.Rows[dgvDetalle.Rows.Count - 1].Selected = true;
                 }
                 
                 dgvDetalle_SelectionChanged(null, null);
