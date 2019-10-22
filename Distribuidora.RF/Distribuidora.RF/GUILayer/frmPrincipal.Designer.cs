@@ -48,6 +48,9 @@
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosVendidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importeVendidoXClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +60,7 @@
             this.tablasToolStripMenuItem,
             this.procesosToolStripMenuItem,
             this.buscarToolStripMenuItem,
+            this.reportesToolStripMenuItem,
             this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -203,6 +207,29 @@
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.productosVendidosToolStripMenuItem,
+            this.importeVendidoXClientesToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // productosVendidosToolStripMenuItem
+            // 
+            this.productosVendidosToolStripMenuItem.Name = "productosVendidosToolStripMenuItem";
+            this.productosVendidosToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.productosVendidosToolStripMenuItem.Text = "Cantidad Vendida x Productos";
+            this.productosVendidosToolStripMenuItem.Click += new System.EventHandler(this.productosVendidosToolStripMenuItem_Click);
+            // 
+            // importeVendidoXClientesToolStripMenuItem
+            // 
+            this.importeVendidoXClientesToolStripMenuItem.Name = "importeVendidoXClientesToolStripMenuItem";
+            this.importeVendidoXClientesToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.importeVendidoXClientesToolStripMenuItem.Text = "Importe Vendido x Clientes";
+            this.importeVendidoXClientesToolStripMenuItem.Click += new System.EventHandler(this.importeVendidoXClientesToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,6 +273,9 @@
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem barriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productosVendidosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importeVendidoXClientesToolStripMenuItem;
     }
 }
 

@@ -33,5 +33,16 @@ namespace Distribuidora.RF.Properties {
                 return ((string)(this["Distribuidora_v1ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ESCRITORIO10\\SQLExpress;Initial Catalog=Distribuidora_v2;Integrated S" +
+            "ecurity=True")]
+        public string Distribuidora_v2ConnectionString {
+            get {
+                return ((string)(this["Distribuidora_v2ConnectionString"]));
+            }
+        }
     }
 }

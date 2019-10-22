@@ -114,5 +114,17 @@ namespace Distribuidora.RF.GUILayer
             frmABMProductos ofrmABMProductos = new frmABMProductos();
             ofrmABMProductos.ShowDialog();
         }
+
+        private void productosVendidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteProductosVendidos ofrmRptProdVendidos = new frmReporteProductosVendidos();
+            ofrmRptProdVendidos.ShowDialog();
+        }
+
+        private void importeVendidoXClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmImporteVentasxCliente ofrmRptImporteVentasxCliente = new frmImporteVentasxCliente();
+            ofrmRptImporteVentasxCliente.ShowDialog();
+        }
     }
 }

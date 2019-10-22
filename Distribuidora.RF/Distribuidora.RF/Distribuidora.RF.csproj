@@ -32,8 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +47,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BD\dstProdVendidos.cs">
+      <DependentUpon>dstProdVendidos.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BD\dstProdVendidos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dstProdVendidos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BD\dstVentasxClientes.cs">
+      <DependentUpon>dstVentasxClientes.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BD\dstVentasxClientes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dstVentasxClientes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BusinessLayer\BarrioService.cs" />
     <Compile Include="BusinessLayer\CategoriaService.cs" />
     <Compile Include="BusinessLayer\CiudadService.cs" />
@@ -145,6 +166,12 @@
     <Compile Include="GUILayer\frmFactura.Designer.cs">
       <DependentUpon>frmFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUILayer\frmImporteVentasxCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmImporteVentasxCliente.Designer.cs">
+      <DependentUpon>frmImporteVentasxCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUILayer\frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +183,12 @@
     </Compile>
     <Compile Include="GUILayer\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\frmReporteProductosVendidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmReporteProductosVendidos.Designer.cs">
+      <DependentUpon>frmReporteProductosVendidos.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\frmUsuarios.cs">
       <SubType>Form</SubType>
@@ -193,11 +226,17 @@
     <EmbeddedResource Include="GUILayer\frmFactura.resx">
       <DependentUpon>frmFactura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmImporteVentasxCliente.resx">
+      <DependentUpon>frmImporteVentasxCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmReporteProductosVendidos.resx">
+      <DependentUpon>frmReporteProductosVendidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
@@ -212,6 +251,30 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\rptProdVendidos.rdlc" />
+    <EmbeddedResource Include="Reportes\rptVentasxClientes.rdlc" />
+    <None Include="BD\dstProdVendidos.xsc">
+      <DependentUpon>dstProdVendidos.xsd</DependentUpon>
+    </None>
+    <None Include="BD\dstProdVendidos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dstProdVendidos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BD\dstProdVendidos.xss">
+      <DependentUpon>dstProdVendidos.xsd</DependentUpon>
+    </None>
+    <None Include="BD\dstVentasxClientes.xsc">
+      <DependentUpon>dstVentasxClientes.xsd</DependentUpon>
+    </None>
+    <None Include="BD\dstVentasxClientes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dstVentasxClientes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BD\dstVentasxClientes.xss">
+      <DependentUpon>dstVentasxClientes.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
