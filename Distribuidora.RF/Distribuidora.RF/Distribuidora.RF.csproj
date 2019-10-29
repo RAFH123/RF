@@ -47,6 +47,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BD\dstClientes.cs">
+      <DependentUpon>dstClientes.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BD\dstClientes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dstClientes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BD\dstProductos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dstProductos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BD\dstProductosVendidosParametrizados.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dstProductosVendidosParametrizados.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BD\dstProdVendidos.cs">
       <DependentUpon>dstProdVendidos.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -55,6 +74,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dstProdVendidos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BD\dstProveedores.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dstProveedores.xsd</DependentUpon>
     </Compile>
     <Compile Include="BD\dstVentasxClientes.cs">
       <DependentUpon>dstVentasxClientes.xsd</DependentUpon>
@@ -166,11 +190,23 @@
     <Compile Include="GUILayer\frmFactura.Designer.cs">
       <DependentUpon>frmFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUILayer\frmImporteVentasxCliente.cs">
+    <Compile Include="GUILayer\frmListadoClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUILayer\frmImporteVentasxCliente.Designer.cs">
-      <DependentUpon>frmImporteVentasxCliente.cs</DependentUpon>
+    <Compile Include="GUILayer\frmListadoClientes.Designer.cs">
+      <DependentUpon>frmListadoClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\frmListadoProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmListadoProductos.Designer.cs">
+      <DependentUpon>frmListadoProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\frmListadoProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmListadoProveedores.Designer.cs">
+      <DependentUpon>frmListadoProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -184,11 +220,23 @@
     <Compile Include="GUILayer\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUILayer\frmProductosVendidosParametrizados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmProductosVendidosParametrizados.Designer.cs">
+      <DependentUpon>frmProductosVendidosParametrizados.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUILayer\frmReporteProductosVendidos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\frmReporteProductosVendidos.Designer.cs">
       <DependentUpon>frmReporteProductosVendidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\frmReporteVentasxClientesParamentrizado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmReporteVentasxClientesParamentrizado.Designer.cs">
+      <DependentUpon>frmReporteVentasxClientesParamentrizado.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\frmUsuarios.cs">
       <SubType>Form</SubType>
@@ -226,8 +274,14 @@
     <EmbeddedResource Include="GUILayer\frmFactura.resx">
       <DependentUpon>frmFactura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\frmImporteVentasxCliente.resx">
-      <DependentUpon>frmImporteVentasxCliente.cs</DependentUpon>
+    <EmbeddedResource Include="GUILayer\frmListadoClientes.resx">
+      <DependentUpon>frmListadoClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmListadoProductos.resx">
+      <DependentUpon>frmListadoProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmListadoProveedores.resx">
+      <DependentUpon>frmListadoProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
@@ -235,8 +289,14 @@
     <EmbeddedResource Include="GUILayer\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmProductosVendidosParametrizados.resx">
+      <DependentUpon>frmProductosVendidosParametrizados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmReporteProductosVendidos.resx">
       <DependentUpon>frmReporteProductosVendidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmReporteVentasxClientesParamentrizado.resx">
+      <DependentUpon>frmReporteVentasxClientesParamentrizado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
@@ -251,8 +311,45 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\rptClientes.rdlc" />
+    <EmbeddedResource Include="Reportes\rptProductos.rdlc" />
     <EmbeddedResource Include="Reportes\rptProdVendidos.rdlc" />
-    <EmbeddedResource Include="Reportes\rptVentasxClientes.rdlc" />
+    <EmbeddedResource Include="Reportes\rptProdVendidosParametrizados.rdlc" />
+    <EmbeddedResource Include="Reportes\rptProveedores.rdlc" />
+    <EmbeddedResource Include="Reportes\rptVentasxClientesParametrizados.rdlc" />
+    <None Include="BD\dstClientes.xsc">
+      <DependentUpon>dstClientes.xsd</DependentUpon>
+    </None>
+    <None Include="BD\dstClientes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dstClientes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BD\dstClientes.xss">
+      <DependentUpon>dstClientes.xsd</DependentUpon>
+    </None>
+    <None Include="BD\dstProductos.xsc">
+      <DependentUpon>dstProductos.xsd</DependentUpon>
+    </None>
+    <None Include="BD\dstProductos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dstProductos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BD\dstProductos.xss">
+      <DependentUpon>dstProductos.xsd</DependentUpon>
+    </None>
+    <None Include="BD\dstProductosVendidosParametrizados.xsc">
+      <DependentUpon>dstProductosVendidosParametrizados.xsd</DependentUpon>
+    </None>
+    <None Include="BD\dstProductosVendidosParametrizados.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dstProductosVendidosParametrizados.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BD\dstProductosVendidosParametrizados.xss">
+      <DependentUpon>dstProductosVendidosParametrizados.xsd</DependentUpon>
+    </None>
     <None Include="BD\dstProdVendidos.xsc">
       <DependentUpon>dstProdVendidos.xsd</DependentUpon>
     </None>
@@ -263,6 +360,17 @@
     </None>
     <None Include="BD\dstProdVendidos.xss">
       <DependentUpon>dstProdVendidos.xsd</DependentUpon>
+    </None>
+    <None Include="BD\dstProveedores.xsc">
+      <DependentUpon>dstProveedores.xsd</DependentUpon>
+    </None>
+    <None Include="BD\dstProveedores.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dstProveedores.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BD\dstProveedores.xss">
+      <DependentUpon>dstProveedores.xsd</DependentUpon>
     </None>
     <None Include="BD\dstVentasxClientes.xsc">
       <DependentUpon>dstVentasxClientes.xsd</DependentUpon>

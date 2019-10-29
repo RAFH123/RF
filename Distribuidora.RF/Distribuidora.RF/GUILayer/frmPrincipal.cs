@@ -117,14 +117,34 @@ namespace Distribuidora.RF.GUILayer
 
         private void productosVendidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmReporteProductosVendidos ofrmRptProdVendidos = new frmReporteProductosVendidos();
-            ofrmRptProdVendidos.ShowDialog();
+//            frmReporteProductosVendidos ofrmRptProdVendidos = new frmReporteProductosVendidos();
+//            ofrmRptProdVendidos.ShowDialog();
+            frmProductosVendidosParametrizados ofrmRptProdVendidosParametrizados = new frmProductosVendidosParametrizados();
+            ofrmRptProdVendidosParametrizados.ShowDialog();
         }
 
         private void importeVendidoXClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmImporteVentasxCliente ofrmRptImporteVentasxCliente = new frmImporteVentasxCliente();
-            ofrmRptImporteVentasxCliente.ShowDialog();
+            frmReporteVentasxClientesParamentrizado ofrmRptVentasxClientesParametrizado = new frmReporteVentasxClientesParamentrizado();
+            ofrmRptVentasxClientesParametrizado.ShowDialog();
+        }
+
+        private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmListadoClientes ofrmListadoClientes = new frmListadoClientes();
+            ofrmListadoClientes.ShowDialog();
+        }
+
+        private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmListadoProductos ofrmListadoProductos = new frmListadoProductos();
+            ofrmListadoProductos.ShowDialog();
+        }
+
+        private void proveedoresToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmListadoProveedores ofrmListadoProveedores = new frmListadoProveedores();
+            ofrmListadoProveedores.ShowDialog();
         }
     }
 }

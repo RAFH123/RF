@@ -616,7 +616,7 @@
             this.MinimizeBox = false;
             this.Name = "frmFactura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmFactura";
+            this.Text = "Facturación";
             this.Load += new System.EventHandler(this.frmFactura_Load);
             this.dpbDetalle.ResumeLayout(false);
             this.dpbDetalle.PerformLayout();
