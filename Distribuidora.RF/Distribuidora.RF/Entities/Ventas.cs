@@ -17,6 +17,7 @@ namespace Distribuidora.RF.Entities
         public decimal Subtotal { get; set; }
         public int PorcDescuento { get; set; }
         public decimal ImporteNeto { get; set; }
+        public decimal ImporteIva { get; set; }
         public decimal ImporteTotal { get; set; }
         public override string ToString()
         {

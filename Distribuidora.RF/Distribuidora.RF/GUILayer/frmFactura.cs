@@ -455,6 +455,7 @@ namespace Distribuidora.RF.GUILayer
                 oVenta.Subtotal = decimal.Parse(txtSubtotal.Text);
                 oVenta.PorcDescuento = txtDescuento.Text == string.Empty ? 0 : int.Parse(txtDescuento.Text);
                 oVenta.ImporteNeto = decimal.Parse(txtImporteNeto.Text);
+                oVenta.ImporteIva = txtIVAInscr.Visible ? decimal.Parse(txtIVAInscr.Text) : 0;
                 oVenta.ImporteTotal = decimal.Parse(txtImporteTotal.Text);
 
                 List<ItemVenta> oDetalleVentas;

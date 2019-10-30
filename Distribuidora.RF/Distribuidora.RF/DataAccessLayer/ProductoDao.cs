@@ -19,7 +19,7 @@ namespace Distribuidora.RF.DataAccessLayer
                             + "FROM Productos P "
                                 + "FULL JOIN Categorias C ON P.categoria = C.id_categoria "
                                 + "FULL JOIN Proveedores Prov ON P.proveedor = Prov.id_proveedor "
-                            + "WHERE P.borrado = 0";
+                            + "WHERE P.borrado = 0 ORDER BY P.categoria, P.nombre";
 
             var resultadoConsulta = DBHelper.GetDBHelper().ConsultaSQL(strSql);
 

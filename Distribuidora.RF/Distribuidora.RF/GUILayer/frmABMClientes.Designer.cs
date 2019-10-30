@@ -50,17 +50,6 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.lblFechaRegistro = new System.Windows.Forms.Label();
-            this.txtFechaRegistro = new System.Windows.Forms.MaskedTextBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnGrabar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.txtNumero = new System.Windows.Forms.MaskedTextBox();
-            this.txtCUIT = new System.Windows.Forms.MaskedTextBox();
-            this.lblCUIT = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +63,17 @@
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblFechaRegistro = new System.Windows.Forms.Label();
+            this.txtFechaRegistro = new System.Windows.Forms.MaskedTextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnGrabar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.txtNumero = new System.Windows.Forms.MaskedTextBox();
+            this.txtCUIT = new System.Windows.Forms.MaskedTextBox();
+            this.lblCUIT = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,14 +180,14 @@
             this.txtNomLocal.Location = new System.Drawing.Point(123, 53);
             this.txtNomLocal.Name = "txtNomLocal";
             this.txtNomLocal.Size = new System.Drawing.Size(148, 20);
-            this.txtNomLocal.TabIndex = 1;
+            this.txtNomLocal.TabIndex = 3;
             // 
             // txtNomCliente
             // 
             this.txtNomCliente.Location = new System.Drawing.Point(123, 84);
             this.txtNomCliente.Name = "txtNomCliente";
             this.txtNomCliente.Size = new System.Drawing.Size(148, 20);
-            this.txtNomCliente.TabIndex = 2;
+            this.txtNomCliente.TabIndex = 7;
             // 
             // cboTipo
             // 
@@ -196,7 +196,7 @@
             this.cboTipo.Location = new System.Drawing.Point(123, 118);
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(84, 21);
-            this.cboTipo.TabIndex = 3;
+            this.cboTipo.TabIndex = 10;
             // 
             // cboEstado
             // 
@@ -205,14 +205,14 @@
             this.cboEstado.Location = new System.Drawing.Point(345, 22);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(62, 21);
-            this.cboEstado.TabIndex = 4;
+            this.cboEstado.TabIndex = 1;
             // 
             // txtCalle
             // 
             this.txtCalle.Location = new System.Drawing.Point(345, 56);
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(153, 20);
-            this.txtCalle.TabIndex = 5;
+            this.txtCalle.TabIndex = 4;
             // 
             // cboCiudad
             // 
@@ -221,7 +221,7 @@
             this.cboCiudad.Location = new System.Drawing.Point(345, 88);
             this.cboCiudad.Name = "cboCiudad";
             this.cboCiudad.Size = new System.Drawing.Size(90, 21);
-            this.cboCiudad.TabIndex = 7;
+            this.cboCiudad.TabIndex = 8;
             this.cboCiudad.SelectedValueChanged += new System.EventHandler(this.cboCiudad_SelectedValueChanged);
             // 
             // lblBarrio
@@ -240,21 +240,21 @@
             this.cboBarrio.Location = new System.Drawing.Point(345, 121);
             this.cboBarrio.Name = "cboBarrio";
             this.cboBarrio.Size = new System.Drawing.Size(140, 21);
-            this.cboBarrio.TabIndex = 8;
+            this.cboBarrio.TabIndex = 11;
             // 
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(709, 55);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(114, 20);
-            this.txtTelefono.TabIndex = 9;
+            this.txtTelefono.TabIndex = 6;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(709, 85);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(168, 20);
-            this.txtEmail.TabIndex = 10;
+            this.txtEmail.TabIndex = 9;
             // 
             // dgvClientes
             // 
@@ -281,115 +281,8 @@
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.Size = new System.Drawing.Size(884, 190);
-            this.dgvClientes.TabIndex = 12;
+            this.dgvClientes.TabIndex = 13;
             this.dgvClientes.SelectionChanged += new System.EventHandler(this.dgvClientes_SelectionChanged);
-            // 
-            // lblFechaRegistro
-            // 
-            this.lblFechaRegistro.AutoSize = true;
-            this.lblFechaRegistro.Location = new System.Drawing.Point(625, 121);
-            this.lblFechaRegistro.Name = "lblFechaRegistro";
-            this.lblFechaRegistro.Size = new System.Drawing.Size(79, 13);
-            this.lblFechaRegistro.TabIndex = 28;
-            this.lblFechaRegistro.Text = "Fecha Registro";
-            // 
-            // txtFechaRegistro
-            // 
-            this.txtFechaRegistro.Location = new System.Drawing.Point(710, 117);
-            this.txtFechaRegistro.Mask = "00/00/0000";
-            this.txtFechaRegistro.Name = "txtFechaRegistro";
-            this.txtFechaRegistro.Size = new System.Drawing.Size(71, 20);
-            this.txtFechaRegistro.TabIndex = 11;
-            this.txtFechaRegistro.ValidatingType = typeof(System.DateTime);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Enabled = false;
-            this.btnCancelar.Image = global::Distribuidora.RF.Properties.Resources.cancelar3;
-            this.btnCancelar.Location = new System.Drawing.Point(370, 360);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 36);
-            this.btnCancelar.TabIndex = 16;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Image = global::Distribuidora.RF.Properties.Resources.salir;
-            this.btnSalir.Location = new System.Drawing.Point(682, 358);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 39);
-            this.btnSalir.TabIndex = 18;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Image = global::Distribuidora.RF.Properties.Resources.eliminar;
-            this.btnEliminar.Location = new System.Drawing.Point(567, 359);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 39);
-            this.btnEliminar.TabIndex = 17;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnGrabar
-            // 
-            this.btnGrabar.Enabled = false;
-            this.btnGrabar.Image = global::Distribuidora.RF.Properties.Resources.grabar3;
-            this.btnGrabar.Location = new System.Drawing.Point(264, 359);
-            this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(75, 39);
-            this.btnGrabar.TabIndex = 15;
-            this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Image = global::Distribuidora.RF.Properties.Resources.editar;
-            this.btnEditar.Location = new System.Drawing.Point(159, 360);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 39);
-            this.btnEditar.TabIndex = 14;
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Image = global::Distribuidora.RF.Properties.Resources.agregar;
-            this.btnNuevo.Location = new System.Drawing.Point(52, 359);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 39);
-            this.btnNuevo.TabIndex = 13;
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // txtNumero
-            // 
-            this.txtNumero.Location = new System.Drawing.Point(548, 56);
-            this.txtNumero.Mask = "99999";
-            this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(39, 20);
-            this.txtNumero.TabIndex = 6;
-            this.txtNumero.ValidatingType = typeof(int);
-            // 
-            // txtCUIT
-            // 
-            this.txtCUIT.Location = new System.Drawing.Point(709, 20);
-            this.txtCUIT.Mask = "00-00000000-0";
-            this.txtCUIT.Name = "txtCUIT";
-            this.txtCUIT.Size = new System.Drawing.Size(96, 20);
-            this.txtCUIT.TabIndex = 29;
-            this.txtCUIT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblCUIT
-            // 
-            this.lblCUIT.AutoSize = true;
-            this.lblCUIT.Location = new System.Drawing.Point(626, 23);
-            this.lblCUIT.Name = "lblCUIT";
-            this.lblCUIT.Size = new System.Drawing.Size(32, 13);
-            this.lblCUIT.TabIndex = 30;
-            this.lblCUIT.Text = "CUIT";
             // 
             // Id
             // 
@@ -494,6 +387,113 @@
             this.FechaRegistro.Name = "FechaRegistro";
             this.FechaRegistro.ReadOnly = true;
             this.FechaRegistro.Width = 70;
+            // 
+            // lblFechaRegistro
+            // 
+            this.lblFechaRegistro.AutoSize = true;
+            this.lblFechaRegistro.Location = new System.Drawing.Point(625, 121);
+            this.lblFechaRegistro.Name = "lblFechaRegistro";
+            this.lblFechaRegistro.Size = new System.Drawing.Size(79, 13);
+            this.lblFechaRegistro.TabIndex = 28;
+            this.lblFechaRegistro.Text = "Fecha Registro";
+            // 
+            // txtFechaRegistro
+            // 
+            this.txtFechaRegistro.Location = new System.Drawing.Point(710, 117);
+            this.txtFechaRegistro.Mask = "00/00/0000";
+            this.txtFechaRegistro.Name = "txtFechaRegistro";
+            this.txtFechaRegistro.Size = new System.Drawing.Size(71, 20);
+            this.txtFechaRegistro.TabIndex = 12;
+            this.txtFechaRegistro.ValidatingType = typeof(System.DateTime);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Enabled = false;
+            this.btnCancelar.Image = global::Distribuidora.RF.Properties.Resources.cancelar3;
+            this.btnCancelar.Location = new System.Drawing.Point(370, 360);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 36);
+            this.btnCancelar.TabIndex = 17;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Image = global::Distribuidora.RF.Properties.Resources.salir;
+            this.btnSalir.Location = new System.Drawing.Point(682, 358);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 39);
+            this.btnSalir.TabIndex = 19;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Image = global::Distribuidora.RF.Properties.Resources.eliminar;
+            this.btnEliminar.Location = new System.Drawing.Point(567, 359);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 39);
+            this.btnEliminar.TabIndex = 18;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnGrabar
+            // 
+            this.btnGrabar.Enabled = false;
+            this.btnGrabar.Image = global::Distribuidora.RF.Properties.Resources.grabar3;
+            this.btnGrabar.Location = new System.Drawing.Point(264, 359);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(75, 39);
+            this.btnGrabar.TabIndex = 16;
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Image = global::Distribuidora.RF.Properties.Resources.editar;
+            this.btnEditar.Location = new System.Drawing.Point(159, 360);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 39);
+            this.btnEditar.TabIndex = 15;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Image = global::Distribuidora.RF.Properties.Resources.agregar;
+            this.btnNuevo.Location = new System.Drawing.Point(52, 359);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 39);
+            this.btnNuevo.TabIndex = 14;
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // txtNumero
+            // 
+            this.txtNumero.Location = new System.Drawing.Point(548, 56);
+            this.txtNumero.Mask = "99999";
+            this.txtNumero.Name = "txtNumero";
+            this.txtNumero.Size = new System.Drawing.Size(39, 20);
+            this.txtNumero.TabIndex = 5;
+            this.txtNumero.ValidatingType = typeof(int);
+            // 
+            // txtCUIT
+            // 
+            this.txtCUIT.Location = new System.Drawing.Point(709, 20);
+            this.txtCUIT.Mask = "00-00000000-0";
+            this.txtCUIT.Name = "txtCUIT";
+            this.txtCUIT.Size = new System.Drawing.Size(96, 20);
+            this.txtCUIT.TabIndex = 2;
+            this.txtCUIT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblCUIT
+            // 
+            this.lblCUIT.AutoSize = true;
+            this.lblCUIT.Location = new System.Drawing.Point(626, 23);
+            this.lblCUIT.Name = "lblCUIT";
+            this.lblCUIT.Size = new System.Drawing.Size(32, 13);
+            this.lblCUIT.TabIndex = 30;
+            this.lblCUIT.Text = "CUIT";
             // 
             // frmABMClientes
             // 

@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.csltProductosVendidosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dstProductosVendidosParametrizados = new Distribuidora.RF.BD.dstProductosVendidosParametrizados();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
@@ -41,12 +43,20 @@
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.csltProductosVendidosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dstProductosVendidosParametrizados = new Distribuidora.RF.BD.dstProductosVendidosParametrizados();
             this.csltProductosVendidosTableAdapter = new Distribuidora.RF.BD.dstProductosVendidosParametrizadosTableAdapters.csltProductosVendidosTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.csltProductosVendidosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dstProductosVendidosParametrizados)).BeginInit();
             this.SuspendLayout();
+            // 
+            // csltProductosVendidosBindingSource
+            // 
+            this.csltProductosVendidosBindingSource.DataMember = "csltProductosVendidos";
+            this.csltProductosVendidosBindingSource.DataSource = this.dstProductosVendidosParametrizados;
+            // 
+            // dstProductosVendidosParametrizados
+            // 
+            this.dstProductosVendidosParametrizados.DataSetName = "dstProductosVendidosParametrizados";
+            this.dstProductosVendidosParametrizados.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dtpFechaDesde
             // 
@@ -134,7 +144,7 @@
             this.btnGenerar.Location = new System.Drawing.Point(542, 33);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(75, 23);
-            this.btnGenerar.TabIndex = 9;
+            this.btnGenerar.TabIndex = 4;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
@@ -144,20 +154,10 @@
             this.btnLimpiar.Location = new System.Drawing.Point(659, 33);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 10;
+            this.btnLimpiar.TabIndex = 5;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // csltProductosVendidosBindingSource
-            // 
-            this.csltProductosVendidosBindingSource.DataMember = "csltProductosVendidos";
-            this.csltProductosVendidosBindingSource.DataSource = this.dstProductosVendidosParametrizados;
-            // 
-            // dstProductosVendidosParametrizados
-            // 
-            this.dstProductosVendidosParametrizados.DataSetName = "dstProductosVendidosParametrizados";
-            this.dstProductosVendidosParametrizados.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // csltProductosVendidosTableAdapter
             // 

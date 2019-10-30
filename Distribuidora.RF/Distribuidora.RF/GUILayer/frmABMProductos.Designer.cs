@@ -43,14 +43,6 @@
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtStock = new System.Windows.Forms.TextBox();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.lblFechaRegistro = new System.Windows.Forms.Label();
-            this.txtFechaRegistro = new System.Windows.Forms.MaskedTextBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnGrabar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +51,14 @@
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblFechaRegistro = new System.Windows.Forms.Label();
+            this.txtFechaRegistro = new System.Windows.Forms.MaskedTextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnGrabar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,16 +136,17 @@
             // txtUnidad
             // 
             this.txtUnidad.Location = new System.Drawing.Point(536, 25);
+            this.txtUnidad.MaxLength = 10;
             this.txtUnidad.Name = "txtUnidad";
             this.txtUnidad.Size = new System.Drawing.Size(75, 20);
-            this.txtUnidad.TabIndex = 1;
+            this.txtUnidad.TabIndex = 2;
             // 
             // txtNomProducto
             // 
             this.txtNomProducto.Location = new System.Drawing.Point(288, 25);
             this.txtNomProducto.Name = "txtNomProducto";
             this.txtNomProducto.Size = new System.Drawing.Size(166, 20);
-            this.txtNomProducto.TabIndex = 2;
+            this.txtNomProducto.TabIndex = 1;
             // 
             // cboCategoria
             // 
@@ -154,7 +155,7 @@
             this.cboCategoria.Location = new System.Drawing.Point(67, 70);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(188, 21);
-            this.cboCategoria.TabIndex = 3;
+            this.cboCategoria.TabIndex = 4;
             // 
             // cboProveedor
             // 
@@ -163,21 +164,21 @@
             this.cboProveedor.Location = new System.Drawing.Point(333, 70);
             this.cboProveedor.Name = "cboProveedor";
             this.cboProveedor.Size = new System.Drawing.Size(140, 21);
-            this.cboProveedor.TabIndex = 7;
+            this.cboProveedor.TabIndex = 5;
             // 
             // txtPrecio
             // 
             this.txtPrecio.Location = new System.Drawing.Point(553, 70);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(88, 20);
-            this.txtPrecio.TabIndex = 9;
+            this.txtPrecio.TabIndex = 6;
             // 
             // txtStock
             // 
             this.txtStock.Location = new System.Drawing.Point(714, 73);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(72, 20);
-            this.txtStock.TabIndex = 10;
+            this.txtStock.TabIndex = 7;
             // 
             // dgvProductos
             // 
@@ -199,88 +200,8 @@
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductos.Size = new System.Drawing.Size(817, 222);
-            this.dgvProductos.TabIndex = 12;
+            this.dgvProductos.TabIndex = 8;
             this.dgvProductos.SelectionChanged += new System.EventHandler(this.dgvProductos_SelectionChanged);
-            // 
-            // lblFechaRegistro
-            // 
-            this.lblFechaRegistro.AutoSize = true;
-            this.lblFechaRegistro.Location = new System.Drawing.Point(653, 29);
-            this.lblFechaRegistro.Name = "lblFechaRegistro";
-            this.lblFechaRegistro.Size = new System.Drawing.Size(79, 13);
-            this.lblFechaRegistro.TabIndex = 28;
-            this.lblFechaRegistro.Text = "Fecha Registro";
-            // 
-            // txtFechaRegistro
-            // 
-            this.txtFechaRegistro.Location = new System.Drawing.Point(738, 25);
-            this.txtFechaRegistro.Mask = "00/00/0000";
-            this.txtFechaRegistro.Name = "txtFechaRegistro";
-            this.txtFechaRegistro.Size = new System.Drawing.Size(71, 20);
-            this.txtFechaRegistro.TabIndex = 11;
-            this.txtFechaRegistro.ValidatingType = typeof(System.DateTime);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Enabled = false;
-            this.btnCancelar.Image = global::Distribuidora.RF.Properties.Resources.cancelar3;
-            this.btnCancelar.Location = new System.Drawing.Point(369, 356);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 36);
-            this.btnCancelar.TabIndex = 16;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Image = global::Distribuidora.RF.Properties.Resources.salir;
-            this.btnSalir.Location = new System.Drawing.Point(681, 354);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 39);
-            this.btnSalir.TabIndex = 18;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Image = global::Distribuidora.RF.Properties.Resources.eliminar;
-            this.btnEliminar.Location = new System.Drawing.Point(566, 355);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 39);
-            this.btnEliminar.TabIndex = 17;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnGrabar
-            // 
-            this.btnGrabar.Enabled = false;
-            this.btnGrabar.Image = global::Distribuidora.RF.Properties.Resources.grabar3;
-            this.btnGrabar.Location = new System.Drawing.Point(263, 355);
-            this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(75, 39);
-            this.btnGrabar.TabIndex = 15;
-            this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Image = global::Distribuidora.RF.Properties.Resources.editar;
-            this.btnEditar.Location = new System.Drawing.Point(158, 356);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 39);
-            this.btnEditar.TabIndex = 14;
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Image = global::Distribuidora.RF.Properties.Resources.agregar;
-            this.btnNuevo.Location = new System.Drawing.Point(51, 355);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 39);
-            this.btnNuevo.TabIndex = 13;
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // Id
             // 
@@ -345,6 +266,86 @@
             this.FechaRegistro.Name = "FechaRegistro";
             this.FechaRegistro.ReadOnly = true;
             this.FechaRegistro.Width = 70;
+            // 
+            // lblFechaRegistro
+            // 
+            this.lblFechaRegistro.AutoSize = true;
+            this.lblFechaRegistro.Location = new System.Drawing.Point(653, 29);
+            this.lblFechaRegistro.Name = "lblFechaRegistro";
+            this.lblFechaRegistro.Size = new System.Drawing.Size(79, 13);
+            this.lblFechaRegistro.TabIndex = 28;
+            this.lblFechaRegistro.Text = "Fecha Registro";
+            // 
+            // txtFechaRegistro
+            // 
+            this.txtFechaRegistro.Location = new System.Drawing.Point(738, 25);
+            this.txtFechaRegistro.Mask = "00/00/0000";
+            this.txtFechaRegistro.Name = "txtFechaRegistro";
+            this.txtFechaRegistro.Size = new System.Drawing.Size(71, 20);
+            this.txtFechaRegistro.TabIndex = 3;
+            this.txtFechaRegistro.ValidatingType = typeof(System.DateTime);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Enabled = false;
+            this.btnCancelar.Image = global::Distribuidora.RF.Properties.Resources.cancelar3;
+            this.btnCancelar.Location = new System.Drawing.Point(369, 356);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 36);
+            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Image = global::Distribuidora.RF.Properties.Resources.salir;
+            this.btnSalir.Location = new System.Drawing.Point(681, 354);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 39);
+            this.btnSalir.TabIndex = 14;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Image = global::Distribuidora.RF.Properties.Resources.eliminar;
+            this.btnEliminar.Location = new System.Drawing.Point(566, 355);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 39);
+            this.btnEliminar.TabIndex = 13;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnGrabar
+            // 
+            this.btnGrabar.Enabled = false;
+            this.btnGrabar.Image = global::Distribuidora.RF.Properties.Resources.grabar3;
+            this.btnGrabar.Location = new System.Drawing.Point(263, 355);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(75, 39);
+            this.btnGrabar.TabIndex = 11;
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Image = global::Distribuidora.RF.Properties.Resources.editar;
+            this.btnEditar.Location = new System.Drawing.Point(158, 356);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 39);
+            this.btnEditar.TabIndex = 10;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Image = global::Distribuidora.RF.Properties.Resources.agregar;
+            this.btnNuevo.Location = new System.Drawing.Point(51, 355);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 39);
+            this.btnNuevo.TabIndex = 9;
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // frmABMProductos
             // 

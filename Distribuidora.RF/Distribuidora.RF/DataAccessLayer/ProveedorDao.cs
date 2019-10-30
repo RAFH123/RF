@@ -132,7 +132,7 @@ namespace Distribuidora.RF.DataAccessLayer
         {
             List<Proveedor> listadoProveedores = new List<Proveedor>();
 
-            var strSql = "SELECT C.id_Proveedor, C.cuit, C.nombre_local, C.nombre_Proveedor, C.domicilio_calle, "
+            var strSql = "SELECT C.id_Proveedor, C.cuit, C.nombre_local, C.nombre_proveedor, C.domicilio_calle, "
                                         + "C.domicilio_numero, C.telefono, B.id_barrio, B.nombre AS barrio, E.descripcion AS estado, "
                                         + "E.id_estadop, T.id_tipop, B.ciudad, Ciu.nombre AS nomciu, "
                                         + "T.descripcion AS Tipo, C.fecha_registro, C.email "
@@ -141,7 +141,7 @@ namespace Distribuidora.RF.DataAccessLayer
                                         + "FULL JOIN Ciudades Ciu ON B.ciudad = Ciu.id_ciudad "
                                         + "FULL JOIN EstadoProveedor E ON E.id_estadop = C.estado_proveedor "
                                         + "FULL JOIN TipoProveedor T ON T.id_tipop = C.tipo_Proveedor "
-                                    + "WHERE C.borrado = 0";
+                                    + "WHERE C.borrado = 0 ORDER BY C.nombre_proveedor";
 
             var resultadoConsulta = DBHelper.GetDBHelper().ConsultaSQL(strSql);
 

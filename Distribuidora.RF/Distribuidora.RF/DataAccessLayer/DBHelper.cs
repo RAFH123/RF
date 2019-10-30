@@ -47,7 +47,7 @@ namespace Distribuidora.RF.DataAccessLayer
         
         private DBHelper()
         {
-            string_conexion = @"Data Source=ESCRITORIO10\SQLExpress;Initial Catalog=Distribuidora_v2;Integrated Security=True";
+            string_conexion = @"Data Source=ESCRITORIO10\SQLExpress;Initial Catalog=Distribuidora_v3;Integrated Security=True";
             dbConnection = new SqlConnection();
             dbConnection.ConnectionString = string_conexion;
         }

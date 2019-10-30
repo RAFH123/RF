@@ -33,14 +33,14 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.dgvTablaSimple = new System.Windows.Forms.DataGridView();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablaSimple)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,14 +68,14 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.ReadOnly = true;
             this.txtCodigo.Size = new System.Drawing.Size(50, 20);
-            this.txtCodigo.TabIndex = 2;
+            this.txtCodigo.TabIndex = 0;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(101, 55);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(202, 20);
-            this.txtDescripcion.TabIndex = 3;
+            this.txtDescripcion.TabIndex = 1;
             // 
             // dgvTablaSimple
             // 
@@ -92,70 +92,8 @@
             this.dgvTablaSimple.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvTablaSimple.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTablaSimple.Size = new System.Drawing.Size(337, 143);
-            this.dgvTablaSimple.TabIndex = 4;
+            this.dgvTablaSimple.TabIndex = 2;
             this.dgvTablaSimple.SelectionChanged += new System.EventHandler(this.dgvTablaSimple_SelectionChanged);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Enabled = false;
-            this.btnCancelar.Image = global::Distribuidora.RF.Properties.Resources.cancelar3;
-            this.btnCancelar.Location = new System.Drawing.Point(138, 266);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(35, 33);
-            this.btnCancelar.TabIndex = 22;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Image = global::Distribuidora.RF.Properties.Resources.salir;
-            this.btnSalir.Location = new System.Drawing.Point(309, 266);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(41, 33);
-            this.btnSalir.TabIndex = 24;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Image = global::Distribuidora.RF.Properties.Resources.eliminar;
-            this.btnEliminar.Location = new System.Drawing.Point(247, 266);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(38, 33);
-            this.btnEliminar.TabIndex = 23;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnGrabar
-            // 
-            this.btnGrabar.Enabled = false;
-            this.btnGrabar.Image = global::Distribuidora.RF.Properties.Resources.grabar3;
-            this.btnGrabar.Location = new System.Drawing.Point(94, 265);
-            this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(38, 34);
-            this.btnGrabar.TabIndex = 21;
-            this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Image = global::Distribuidora.RF.Properties.Resources.editar;
-            this.btnEditar.Location = new System.Drawing.Point(55, 266);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(33, 33);
-            this.btnEditar.TabIndex = 20;
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Image = global::Distribuidora.RF.Properties.Resources.agregar;
-            this.btnNuevo.Location = new System.Drawing.Point(13, 265);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(36, 34);
-            this.btnNuevo.TabIndex = 19;
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // Codigo
             // 
@@ -172,6 +110,68 @@
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
             this.Descripcion.Width = 250;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Enabled = false;
+            this.btnCancelar.Image = global::Distribuidora.RF.Properties.Resources.cancelar3;
+            this.btnCancelar.Location = new System.Drawing.Point(138, 266);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(35, 33);
+            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Image = global::Distribuidora.RF.Properties.Resources.salir;
+            this.btnSalir.Location = new System.Drawing.Point(309, 266);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(41, 33);
+            this.btnSalir.TabIndex = 8;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Image = global::Distribuidora.RF.Properties.Resources.eliminar;
+            this.btnEliminar.Location = new System.Drawing.Point(247, 266);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(38, 33);
+            this.btnEliminar.TabIndex = 7;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnGrabar
+            // 
+            this.btnGrabar.Enabled = false;
+            this.btnGrabar.Image = global::Distribuidora.RF.Properties.Resources.grabar3;
+            this.btnGrabar.Location = new System.Drawing.Point(94, 265);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(38, 34);
+            this.btnGrabar.TabIndex = 5;
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Image = global::Distribuidora.RF.Properties.Resources.editar;
+            this.btnEditar.Location = new System.Drawing.Point(55, 266);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(33, 33);
+            this.btnEditar.TabIndex = 4;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Image = global::Distribuidora.RF.Properties.Resources.agregar;
+            this.btnNuevo.Location = new System.Drawing.Point(13, 265);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(36, 34);
+            this.btnNuevo.TabIndex = 3;
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // frmABMTablasSimples
             // 

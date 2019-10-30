@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.csltVentasxClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dstVentasxClientes = new Distribuidora.RF.BD.dstVentasxClientes();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.lblCondVenta = new System.Windows.Forms.Label();
@@ -41,28 +43,37 @@
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dstVentasxClientes = new Distribuidora.RF.BD.dstVentasxClientes();
-            this.csltVentasxClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.csltVentasxClientesTableAdapter = new Distribuidora.RF.BD.dstVentasxClientesTableAdapters.csltVentasxClientesTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dstVentasxClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.csltVentasxClientesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dstVentasxClientes)).BeginInit();
             this.SuspendLayout();
+            // 
+            // csltVentasxClientesBindingSource
+            // 
+            this.csltVentasxClientesBindingSource.DataMember = "csltVentasxClientes";
+            this.csltVentasxClientesBindingSource.DataSource = this.dstVentasxClientes;
+            // 
+            // dstVentasxClientes
+            // 
+            this.dstVentasxClientes.DataSetName = "dstVentasxClientes";
+            this.dstVentasxClientes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.Location = new System.Drawing.Point(682, 32);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 20;
+            this.btnLimpiar.TabIndex = 5;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnGenerar
             // 
             this.btnGenerar.Location = new System.Drawing.Point(565, 32);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(75, 23);
-            this.btnGenerar.TabIndex = 19;
+            this.btnGenerar.TabIndex = 4;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
@@ -114,7 +125,7 @@
             this.cboCondVenta.Location = new System.Drawing.Point(366, 34);
             this.cboCondVenta.Name = "cboCondVenta";
             this.cboCondVenta.Size = new System.Drawing.Size(153, 21);
-            this.cboCondVenta.TabIndex = 14;
+            this.cboCondVenta.TabIndex = 3;
             // 
             // cboCiudad
             // 
@@ -123,7 +134,7 @@
             this.cboCiudad.Location = new System.Drawing.Point(87, 34);
             this.cboCiudad.Name = "cboCiudad";
             this.cboCiudad.Size = new System.Drawing.Size(149, 21);
-            this.cboCiudad.TabIndex = 13;
+            this.cboCiudad.TabIndex = 2;
             // 
             // dtpFechaHasta
             // 
@@ -131,7 +142,7 @@
             this.dtpFechaHasta.Location = new System.Drawing.Point(350, 3);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
             this.dtpFechaHasta.Size = new System.Drawing.Size(95, 20);
-            this.dtpFechaHasta.TabIndex = 12;
+            this.dtpFechaHasta.TabIndex = 1;
             // 
             // dtpFechaDesde
             // 
@@ -139,7 +150,7 @@
             this.dtpFechaDesde.Location = new System.Drawing.Point(151, 3);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
             this.dtpFechaDesde.Size = new System.Drawing.Size(95, 20);
-            this.dtpFechaDesde.TabIndex = 11;
+            this.dtpFechaDesde.TabIndex = 0;
             // 
             // reportViewer1
             // 
@@ -150,17 +161,7 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 61);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(799, 687);
-            this.reportViewer1.TabIndex = 21;
-            // 
-            // dstVentasxClientes
-            // 
-            this.dstVentasxClientes.DataSetName = "dstVentasxClientes";
-            this.dstVentasxClientes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // csltVentasxClientesBindingSource
-            // 
-            this.csltVentasxClientesBindingSource.DataMember = "csltVentasxClientes";
-            this.csltVentasxClientesBindingSource.DataSource = this.dstVentasxClientes;
+            this.reportViewer1.TabIndex = 6;
             // 
             // csltVentasxClientesTableAdapter
             // 
@@ -185,8 +186,8 @@
             this.Name = "frmReporteVentasxClientesParamentrizado";
             this.Text = "Reporte Ventas por Clientes";
             this.Load += new System.EventHandler(this.frmReporteVentasxClientesParamentrizado_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dstVentasxClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.csltVentasxClientesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dstVentasxClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

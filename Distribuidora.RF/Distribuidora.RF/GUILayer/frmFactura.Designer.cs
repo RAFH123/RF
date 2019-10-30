@@ -144,7 +144,7 @@
             this.dtpFecha.Location = new System.Drawing.Point(619, 27);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(100, 20);
-            this.dtpFecha.TabIndex = 1;
+            this.dtpFecha.TabIndex = 2;
             this.dtpFecha.Value = new System.DateTime(2019, 9, 29, 17, 20, 8, 0);
             // 
             // cboTipoFact
@@ -168,7 +168,7 @@
             this.cboCliente.Location = new System.Drawing.Point(84, 62);
             this.cboCliente.Name = "cboCliente";
             this.cboCliente.Size = new System.Drawing.Size(121, 21);
-            this.cboCliente.TabIndex = 2;
+            this.cboCliente.TabIndex = 3;
             this.cboCliente.SelectionChangeCommitted += new System.EventHandler(this.cboCliente_SelectionChangeCommitted);
             // 
             // cboCondIVA
@@ -185,7 +185,7 @@
             this.cboCondIVA.Location = new System.Drawing.Point(84, 103);
             this.cboCondIVA.Name = "cboCondIVA";
             this.cboCondIVA.Size = new System.Drawing.Size(143, 21);
-            this.cboCondIVA.TabIndex = 5;
+            this.cboCondIVA.TabIndex = 6;
             this.cboCondIVA.SelectionChangeCommitted += new System.EventHandler(this.cboCondIVA_SelectionChangeCommitted);
             // 
             // txtDireccion
@@ -194,7 +194,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.ReadOnly = true;
             this.txtDireccion.Size = new System.Drawing.Size(255, 20);
-            this.txtDireccion.TabIndex = 3;
+            this.txtDireccion.TabIndex = 4;
             // 
             // txtNroFact
             // 
@@ -426,7 +426,7 @@
             this.cboCondVenta.Location = new System.Drawing.Point(352, 106);
             this.cboCondVenta.Name = "cboCondVenta";
             this.cboCondVenta.Size = new System.Drawing.Size(121, 21);
-            this.cboCondVenta.TabIndex = 6;
+            this.cboCondVenta.TabIndex = 7;
             // 
             // lblCUIT
             // 
@@ -443,7 +443,7 @@
             this.txtCUIT.Mask = "00-00000000-0";
             this.txtCUIT.Name = "txtCUIT";
             this.txtCUIT.Size = new System.Drawing.Size(96, 20);
-            this.txtCUIT.TabIndex = 4;
+            this.txtCUIT.TabIndex = 5;
             this.txtCUIT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnNuevo
@@ -572,7 +572,7 @@
             this.txtDescuento.Mask = "999";
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.Size = new System.Drawing.Size(57, 20);
-            this.txtDescuento.TabIndex = 31;
+            this.txtDescuento.TabIndex = 9;
             this.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtDescuento.TextChanged += new System.EventHandler(this.txtDescuento_TextChanged);
             // 

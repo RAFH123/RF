@@ -90,7 +90,7 @@
             this.txtFechaHasta.Mask = "00/00/0000";
             this.txtFechaHasta.Name = "txtFechaHasta";
             this.txtFechaHasta.Size = new System.Drawing.Size(100, 20);
-            this.txtFechaHasta.TabIndex = 13;
+            this.txtFechaHasta.TabIndex = 1;
             this.txtFechaHasta.ValidatingType = typeof(System.DateTime);
             // 
             // txtFechaDesde
@@ -99,7 +99,7 @@
             this.txtFechaDesde.Mask = "00/00/0000";
             this.txtFechaDesde.Name = "txtFechaDesde";
             this.txtFechaDesde.Size = new System.Drawing.Size(100, 20);
-            this.txtFechaDesde.TabIndex = 12;
+            this.txtFechaDesde.TabIndex = 0;
             this.txtFechaDesde.ValidatingType = typeof(System.DateTime);
             // 
             // cboBarrio
@@ -109,7 +109,7 @@
             this.cboBarrio.Location = new System.Drawing.Point(52, 93);
             this.cboBarrio.Name = "cboBarrio";
             this.cboBarrio.Size = new System.Drawing.Size(121, 21);
-            this.cboBarrio.TabIndex = 11;
+            this.cboBarrio.TabIndex = 5;
             // 
             // cboTipo
             // 
@@ -118,7 +118,7 @@
             this.cboTipo.Location = new System.Drawing.Point(400, 61);
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(106, 21);
-            this.cboTipo.TabIndex = 10;
+            this.cboTipo.TabIndex = 4;
             // 
             // cboEstado
             // 
@@ -127,7 +127,7 @@
             this.cboEstado.Location = new System.Drawing.Point(234, 61);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(111, 21);
-            this.cboEstado.TabIndex = 9;
+            this.cboEstado.TabIndex = 3;
             // 
             // cboCiudad
             // 
@@ -136,7 +136,7 @@
             this.cboCiudad.Location = new System.Drawing.Point(52, 62);
             this.cboCiudad.Name = "cboCiudad";
             this.cboCiudad.Size = new System.Drawing.Size(121, 21);
-            this.cboCiudad.TabIndex = 8;
+            this.cboCiudad.TabIndex = 2;
             this.cboCiudad.SelectedValueChanged += new System.EventHandler(this.cboCiudad_SelectedValueChanged);
             // 
             // lblBarrio
@@ -198,7 +198,7 @@
             this.btnAplicar.Location = new System.Drawing.Point(384, 398);
             this.btnAplicar.Name = "btnAplicar";
             this.btnAplicar.Size = new System.Drawing.Size(75, 23);
-            this.btnAplicar.TabIndex = 1;
+            this.btnAplicar.TabIndex = 4;
             this.btnAplicar.Text = "Aplicar";
             this.btnAplicar.UseVisualStyleBackColor = true;
             this.btnAplicar.Click += new System.EventHandler(this.btnAplicar_Click);
@@ -208,7 +208,7 @@
             this.btnSalir.Location = new System.Drawing.Point(465, 398);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 2;
+            this.btnSalir.TabIndex = 5;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -235,7 +235,7 @@
             this.dgvSalida.ReadOnly = true;
             this.dgvSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSalida.Size = new System.Drawing.Size(865, 223);
-            this.dgvSalida.TabIndex = 3;
+            this.dgvSalida.TabIndex = 1;
             this.dgvSalida.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSalida_CellClick);
             // 
             // idCliente
@@ -333,14 +333,14 @@
             this.cboBuscarPorID.Location = new System.Drawing.Point(706, 36);
             this.cboBuscarPorID.Name = "cboBuscarPorID";
             this.cboBuscarPorID.Size = new System.Drawing.Size(121, 21);
-            this.cboBuscarPorID.TabIndex = 5;
+            this.cboBuscarPorID.TabIndex = 0;
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.Location = new System.Drawing.Point(18, 398);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 6;
+            this.btnLimpiar.TabIndex = 2;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -351,7 +351,7 @@
             this.btnDetalle.Location = new System.Drawing.Point(249, 398);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(75, 23);
-            this.btnDetalle.TabIndex = 7;
+            this.btnDetalle.TabIndex = 3;
             this.btnDetalle.Text = "Detalle";
             this.btnDetalle.UseVisualStyleBackColor = true;
             this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);

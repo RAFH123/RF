@@ -180,14 +180,14 @@
             this.txtNomLocal.Location = new System.Drawing.Point(123, 53);
             this.txtNomLocal.Name = "txtNomLocal";
             this.txtNomLocal.Size = new System.Drawing.Size(148, 20);
-            this.txtNomLocal.TabIndex = 1;
+            this.txtNomLocal.TabIndex = 3;
             // 
             // txtNomProveedor
             // 
             this.txtNomProveedor.Location = new System.Drawing.Point(123, 84);
             this.txtNomProveedor.Name = "txtNomProveedor";
             this.txtNomProveedor.Size = new System.Drawing.Size(148, 20);
-            this.txtNomProveedor.TabIndex = 2;
+            this.txtNomProveedor.TabIndex = 7;
             // 
             // cboTipo
             // 
@@ -196,7 +196,7 @@
             this.cboTipo.Location = new System.Drawing.Point(123, 118);
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(84, 21);
-            this.cboTipo.TabIndex = 3;
+            this.cboTipo.TabIndex = 10;
             // 
             // cboEstado
             // 
@@ -205,14 +205,14 @@
             this.cboEstado.Location = new System.Drawing.Point(345, 22);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(62, 21);
-            this.cboEstado.TabIndex = 4;
+            this.cboEstado.TabIndex = 1;
             // 
             // txtCalle
             // 
             this.txtCalle.Location = new System.Drawing.Point(345, 56);
             this.txtCalle.Name = "txtCalle";
             this.txtCalle.Size = new System.Drawing.Size(153, 20);
-            this.txtCalle.TabIndex = 5;
+            this.txtCalle.TabIndex = 4;
             // 
             // cboCiudad
             // 
@@ -221,7 +221,7 @@
             this.cboCiudad.Location = new System.Drawing.Point(345, 88);
             this.cboCiudad.Name = "cboCiudad";
             this.cboCiudad.Size = new System.Drawing.Size(90, 21);
-            this.cboCiudad.TabIndex = 7;
+            this.cboCiudad.TabIndex = 8;
             this.cboCiudad.SelectedValueChanged += new System.EventHandler(this.cboCiudad_SelectedValueChanged);
             // 
             // lblBarrio
@@ -240,21 +240,21 @@
             this.cboBarrio.Location = new System.Drawing.Point(345, 121);
             this.cboBarrio.Name = "cboBarrio";
             this.cboBarrio.Size = new System.Drawing.Size(140, 21);
-            this.cboBarrio.TabIndex = 8;
+            this.cboBarrio.TabIndex = 11;
             // 
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(709, 55);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(114, 20);
-            this.txtTelefono.TabIndex = 9;
+            this.txtTelefono.TabIndex = 6;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(709, 85);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(168, 20);
-            this.txtEmail.TabIndex = 10;
+            this.txtEmail.TabIndex = 9;
             // 
             // dgvProveedores
             // 
@@ -281,7 +281,7 @@
             this.dgvProveedores.ReadOnly = true;
             this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProveedores.Size = new System.Drawing.Size(884, 190);
-            this.dgvProveedores.TabIndex = 12;
+            this.dgvProveedores.TabIndex = 13;
             this.dgvProveedores.SelectionChanged += new System.EventHandler(this.dgvProveedores_SelectionChanged);
             // 
             // Id
@@ -403,7 +403,7 @@
             this.txtFechaRegistro.Mask = "00/00/0000";
             this.txtFechaRegistro.Name = "txtFechaRegistro";
             this.txtFechaRegistro.Size = new System.Drawing.Size(71, 20);
-            this.txtFechaRegistro.TabIndex = 11;
+            this.txtFechaRegistro.TabIndex = 12;
             this.txtFechaRegistro.ValidatingType = typeof(System.DateTime);
             // 
             // btnCancelar
@@ -413,7 +413,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(370, 360);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 36);
-            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.TabIndex = 17;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -423,7 +423,7 @@
             this.btnSalir.Location = new System.Drawing.Point(682, 358);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 39);
-            this.btnSalir.TabIndex = 18;
+            this.btnSalir.TabIndex = 19;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -433,7 +433,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(567, 359);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 39);
-            this.btnEliminar.TabIndex = 17;
+            this.btnEliminar.TabIndex = 18;
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -444,7 +444,7 @@
             this.btnGrabar.Location = new System.Drawing.Point(264, 359);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 39);
-            this.btnGrabar.TabIndex = 15;
+            this.btnGrabar.TabIndex = 16;
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
@@ -454,7 +454,7 @@
             this.btnEditar.Location = new System.Drawing.Point(159, 360);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 39);
-            this.btnEditar.TabIndex = 14;
+            this.btnEditar.TabIndex = 15;
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -464,7 +464,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(52, 359);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 39);
-            this.btnNuevo.TabIndex = 13;
+            this.btnNuevo.TabIndex = 14;
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
@@ -474,7 +474,7 @@
             this.txtNumero.Mask = "99999";
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(39, 20);
-            this.txtNumero.TabIndex = 6;
+            this.txtNumero.TabIndex = 5;
             this.txtNumero.ValidatingType = typeof(int);
             // 
             // txtCUIT
@@ -483,7 +483,7 @@
             this.txtCUIT.Mask = "00-00000000-0";
             this.txtCUIT.Name = "txtCUIT";
             this.txtCUIT.Size = new System.Drawing.Size(96, 20);
-            this.txtCUIT.TabIndex = 29;
+            this.txtCUIT.TabIndex = 2;
             this.txtCUIT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCUIT

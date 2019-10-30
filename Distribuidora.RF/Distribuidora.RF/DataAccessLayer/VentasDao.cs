@@ -21,12 +21,13 @@ namespace Distribuidora.RF.DataAccessLayer
                 nrofactreal = GetNextNumberFact(oVenta.TipoFactura.Id_TipoFactura);
 
                 string strSql = "INSERT INTO Ventas (tipoFactura, nro_factura, fecha, cliente, condiva, condventa," 
-                                + "subtotal, porc_descuento, importe_neto, importe_total) "
+                                + "subtotal, porc_descuento, importe_neto, importe_iva, importe_total) "
                                 + "VALUES ('" + oVenta.TipoFactura.Id_TipoFactura + "', " + nrofactreal + ", '" 
                                 + oVenta.Fecha.ToString("dd/MM/yyyy") + "', " + oVenta.Cliente.ID_Cliente + ", '"
                                 + oVenta.CondIVA + "', '" + oVenta.CondVenta + "', " + oVenta.Subtotal.ToString().Replace(',','.') + ", "
                                 + oVenta.PorcDescuento.ToString().Replace(',', '.') + ", "
                                 + oVenta.ImporteNeto.ToString().Replace(',', '.') + ", "
+                                + oVenta.ImporteIva.ToString().Replace(',', '.') + ", "
                                 + oVenta.ImporteTotal.ToString().Replace(',', '.') + ")";
 
                 //System.Windows.Forms.MessageBox.Show(strSql);

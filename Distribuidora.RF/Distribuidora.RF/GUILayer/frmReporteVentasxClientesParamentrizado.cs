@@ -75,5 +75,13 @@ namespace Distribuidora.RF.GUILayer
             reportViewer1.LocalReport.Refresh();
             reportViewer1.RefreshReport();
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dtpFechaDesde.Value = DateTime.Parse("01/01/2019 00:00:00");
+            dtpFechaHasta.Value = DateTime.Now;
+            cboCiudad.SelectedIndex = -1;
+            cboCondVenta.SelectedIndex = -1;
+        }
     }
 }

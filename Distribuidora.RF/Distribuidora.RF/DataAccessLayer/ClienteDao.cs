@@ -141,7 +141,7 @@ namespace Distribuidora.RF.DataAccessLayer
                                         + "FULL JOIN Ciudades Ciu ON B.ciudad = Ciu.id_ciudad "
                                         + "FULL JOIN EstadoCliente E ON E.id_estadoc = C.estado_cliente "
                                         + "FULL JOIN TipoCliente T ON T.id_tipoC = C.tipo_cliente "
-                                    + "WHERE C.borrado = 0";
+                                    + "WHERE C.borrado = 0 ORDER BY C.nombre_cliente";
 
             var resultadoConsulta = DBHelper.GetDBHelper().ConsultaSQL(strSql);
 
