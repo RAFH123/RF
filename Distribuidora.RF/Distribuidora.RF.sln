@@ -5,6 +5,13 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distribuidora.RF", "Distribuidora.RF\Distribuidora.RF.csproj", "{DC4CBA0B-DBDE-4288-90DD-F93CB22B71BA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentación", "Documentación", "{D5C24785-E127-4C15-BABD-9238648FDA97}"
+	ProjectSection(SolutionItems) = preProject
+		Documento.de.Arquitectura.docx = Documento.de.Arquitectura.docx
+		Formulario.PAVI.3K1.2019.Final.docx = Formulario.PAVI.3K1.2019.Final.docx
+		Manual.del.Sistema.docx = Manual.del.Sistema.docx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

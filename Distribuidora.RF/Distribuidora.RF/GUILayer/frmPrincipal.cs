@@ -79,11 +79,11 @@ namespace Distribuidora.RF.GUILayer
             ofrmTablaSimple.ShowDialog();
         }
 
-        private void estadosProductoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmABMTablasSimples ofrmTablaSimple = new frmABMTablasSimples("EstadoProducto");
-            ofrmTablaSimple.ShowDialog();
-        }
+        //private void estadosProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    frmABMTablasSimples ofrmTablaSimple = new frmABMTablasSimples("EstadoProducto");
+        //    ofrmTablaSimple.ShowDialog();
+        //}
 
         private void perfilesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -117,8 +117,6 @@ namespace Distribuidora.RF.GUILayer
 
         private void productosVendidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-//            frmReporteProductosVendidos ofrmRptProdVendidos = new frmReporteProductosVendidos();
-//            ofrmRptProdVendidos.ShowDialog();
             frmProductosVendidosParametrizados ofrmRptProdVendidosParametrizados = new frmProductosVendidosParametrizados();
             ofrmRptProdVendidosParametrizados.ShowDialog();
         }
@@ -145,6 +143,18 @@ namespace Distribuidora.RF.GUILayer
         {
             frmListadoProveedores ofrmListadoProveedores = new frmListadoProveedores();
             ofrmListadoProveedores.ShowDialog();
+        }
+
+        private void estadosProveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMTablasSimples ofrmTablaSimple = new frmABMTablasSimples("EstadoProveedor");
+            ofrmTablaSimple.ShowDialog();
+        }
+
+        private void tiposProveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmABMTablasSimples ofrmTablaSimple = new frmABMTablasSimples("TipoProveedor");
+            ofrmTablaSimple.ShowDialog();
         }
     }
 }
